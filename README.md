@@ -4,6 +4,7 @@ The goal of this project is to share angular components from the comunity. There
 
 # Contribution rules
 
+* Fork the project and then create a PR from the forked project.
 * Every component added needs at least one code owner.
 * Every component added needs to have a coverage for unit tests of 100%
 * (TBD) Every component needs to have a documentation (story book)
@@ -31,3 +32,6 @@ This is a checklist to follow each time an admin has to upgrade the project
 * [ ] Send an email to all owners with the list of components that have been deprecated. If they want them back, it's their duty to create a PR that put them back
 
 This process can be automated with a script. 
+
+# Admin tasks
+
