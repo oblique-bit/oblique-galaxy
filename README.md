@@ -21,11 +21,13 @@ Every PR accepted will bump the minor version.
 
 (deprecate in this context is to remove the component from the project root, but keep the code in it. The code will be deleted after few months or confirmation from owner that the component will not be updated)
 
-[] Upgrade to next Angular version
-[] Upgrade to next Angular Material version
-[] Upgrade to next Oblique version
-[] Run `npm run lint && npm run test` for each component which has it's tests not working, deprecate it
-[] Remove the dependencies related with all these components
-[] Send an email to all owners with the list of components that have been deprecated. If they want them back, it's their duty to create a PR that put them back
+This is a checklist to follow each time an admin has to upgrade the project
+
+* [ ] Upgrade to next Angular version
+* [ ] Upgrade to next Angular Material version
+* [ ] Upgrade to next Oblique version
+* [ ] Run `npm run lint && npm run test` for each component which has it's tests not working, deprecate it
+* [ ] Remove the dependencies related with all these components
+* [ ] Send an email to all owners with the list of components that have been deprecated. If they want them back, it's their duty to create a PR that put them back
 
 This process can be automated with a script. 
