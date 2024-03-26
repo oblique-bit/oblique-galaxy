@@ -11,7 +11,7 @@ The goal of this project is to share angular components from the comunity. There
 * Update the external dependencies list. (please prefer no dependencies. If needed please use pure JavaScrip dependencies which are easier to migrate. In last resort add a dependency that use angular (TBD maybe we should forbid these angular dependencies)) 
 * For each PR an admin(TBD list of admin) should be part of the reviwers
 * If you upgrade an external dependency and break another component, it's your responsability to contact the owner or upgrade the other component
-* Admins will handle the angular upgrade. See [Angular Upgrade](#angular-upgrade)
+* Admins will handle the angular upgrade. See [Angular Upgrade](#angular-upgrade-for-admin-only)
 
 # Version management (TBD)
 
