@@ -18,7 +18,7 @@ The goal of this project is to share angular [symbols](https://angular.io/guide/
 * Every component added needs to have a coverage for unit tests of 100%. (As for now, we don't accept exceptions)
 * (TBD) Every component needs to have a documentation (story book)
 * In case you can't be an owner anymore, please try to find another one. If no owner are found, then the component will be removed from the library
-* If you need a dependency, create a DEPENDENCIES file located in your symbole folder and add one line per added dependency like it's written in the `package.json` file (e.g. `@oblique/oblique` ignore the version and quotes).
+* If you need a dependency, create a `DEPENDENCIES` file located in your symbole folder and add one line per added dependency like it's written in the `package.json` file (e.g. `@oblique/oblique` ignore the version and quotes).
   * ⚠️ please prefer no dependencies. If needed please use pure JavaScrip dependencies which are easier to migrate. In last resort add a dependency that use angular (TBD maybe we should forbid these angular dependencies) ⚠️
 * For each PR an admin(TBD list of admin) should be part of the reviwers
 * If you upgrade an external dependency and break another component, it's your responsability to contact the owner or upgrade the other component
