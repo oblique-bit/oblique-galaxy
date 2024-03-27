@@ -1,12 +1,21 @@
 # oblique-galaxy
 
-The goal of this project is to share angular components from the comunity. There are strict rules to maintain the repository so please read carefuly the contribution rules.
+The goal of this project is to share angular [symbols](https://angular.io/guide/styleguide#symbols-and-file-names) from the comunity. There are strict rules to maintain the repository so please read carefuly the contribution rules.
 
 # Contribution rules
 
 * Fork the project and then create a PR from the forked project.
-* Every component added needs at least one code owner.
-* Every component added needs to have a coverage for unit tests of 100%
+* To add a component you have to do the following commands according to the symbol
+  * For components `ng g c --project oblique-galaxy components/my-component`
+  * ⚠️ For all following symbols please notice that you have to create a folder for each and write twice their name ⚠️
+  * For service `ng g s --project oblique-galaxy services/my-service/my-service` 
+  * For pipe `ng g p --project oblique-galaxy pipes/my-pipe/my-pipe` 
+  * For guard `ng g g --project oblique-galaxy guards/my-guard/my-guard` 
+  * For resovler `ng g r --project oblique-galaxy resolvers/my-resolver/my-resolver` 
+  * For interceptor `ng g interceptor --project oblique-galaxy interceptors/my-interceptor/my-interceptor`
+  * If you want to create another type of symbol, please add it in a folder named after the symbol type and mention it in your PR.
+* Every component added needs at least one code owner. Add the `CODEOWNERS` file at the root of your symbol folder.
+* Every component added needs to have a coverage for unit tests of 100%. (As for now, we don't accept exceptions)
 * (TBD) Every component needs to have a documentation (story book)
 * In case you can't be an owner anymore, please try to find another one. If no owner are found, then the component will be removed from the library
 * Update the external dependencies list. (please prefer no dependencies. If needed please use pure JavaScrip dependencies which are easier to migrate. In last resort add a dependency that use angular (TBD maybe we should forbid these angular dependencies)) 
