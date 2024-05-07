@@ -1,0 +1,31 @@
+name: Publish package to GitHub Packages
+on:
+  push:
+    branches:
+      - main
+      - feat/npm-deployment
+      # - 'releases/**'
+      # - 'releases/**'
+  # release:
+  #   types: [published]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      # Setup .npmrc file to publish to GitHub Packages
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+          # registry-url: 'https://npm.pkg.github.com'
+          # # Defaults to the user or organization that owns the workflow file
+          # scope: '@octocat'
+      - run: npm ci
+      - run: npm run build oblique-galaxy
+      - run: cd dist/oblique-galaxy
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_SECRET }}
