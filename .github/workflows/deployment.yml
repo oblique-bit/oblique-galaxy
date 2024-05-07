@@ -24,7 +24,7 @@ jobs:
           # scope: '@octocat'
       - run: npm ci
       - run: npm run build oblique-galaxy
-      - run: >
+      - run: |
           cd dist/oblique-galaxy
           npm publish
         env:
