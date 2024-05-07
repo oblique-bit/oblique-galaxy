@@ -4,6 +4,7 @@
   "scripts": {
     "start": "ng serve",
     "build": "ng build",
+    "postbuild": "cp README.md ./dist/oblique-galaxy/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
