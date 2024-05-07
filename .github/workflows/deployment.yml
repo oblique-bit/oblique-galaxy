@@ -24,7 +24,11 @@ jobs:
           # # Defaults to the user or organization that owns the workflow file
           # scope: '@octocat'
       - run: npm ci
-      - run: npm run build oblique-galaxy
+      - run: |
+          cd projects/oblique-galaxy
+          npm version minor
+          cd ../..
+          npm run build oblique-galaxy
       - run: |
           cd dist/oblique-galaxy
           npm publish
