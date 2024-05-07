@@ -5,7 +5,6 @@ on:
       - main
       - feat/npm-deployment
       # - 'releases/**'
-      # - 'releases/**'
   # release:
   #   types: [published]
 jobs:
@@ -25,7 +24,8 @@ jobs:
           # scope: '@octocat'
       - run: npm ci
       - run: npm run build oblique-galaxy
-      - run: cd dist/oblique-galaxy
-      - run: npm publish
+      - run: >
+          cd dist/oblique-galaxy
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_SECRET }}
