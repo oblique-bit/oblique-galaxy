@@ -4,6 +4,10 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.com/"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oblique-bit/oblique-galaxy.git"
+  },
   "scripts": {
     "test": "cd ../.. && ng test oblique-galaxy",
     "test-ci": "cd ../.. && ng run oblique-galaxy:test:ci",
