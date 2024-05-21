@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ObliqueGalaxyComponent } from './oblique-galaxy.component';
+import { ReverseComponent } from './reverse.component';
 
-describe('ObliqueGalaxyComponent', () => {
-  let component: ObliqueGalaxyComponent;
-  let fixture: ComponentFixture<ObliqueGalaxyComponent>;
+describe('ReverseComponent', () => {
+  let component: ReverseComponent;
+  let fixture: ComponentFixture<ReverseComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ObliqueGalaxyComponent]
+      imports: [ReverseComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ObliqueGalaxyComponent);
+    fixture = TestBed.createComponent(ReverseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
