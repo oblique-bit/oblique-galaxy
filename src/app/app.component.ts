@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
-import {ObMasterLayoutModule} from '@oblique/oblique';
+import {ObINavigationLink, ObMasterLayoutModule} from '@oblique/oblique';
 import {MatIconModule} from '@angular/material/icon';
 
 @Component({
@@ -12,4 +12,9 @@ import {MatIconModule} from '@angular/material/icon';
 })
 export class AppComponent {
 	title = 'ObliqueGalaxy';
+
+	topNavigation: ObINavigationLink[] = [
+		{url: 'home', label: 'home'},
+		{url: 'sample', label: 'Samples'}
+	];
 }
