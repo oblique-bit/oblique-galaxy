@@ -108,7 +108,7 @@
       "projectType": "library",
       "root": "projects/oblique-galaxy",
       "sourceRoot": "projects/oblique-galaxy/src",
-      "prefix": "lib",
+      "prefix": "obg",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

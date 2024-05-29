@@ -127,41 +127,12 @@
 				</g>
 			</g>
 		</svg>
+		<svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+			<circle cx="25" cy="25" fill="white" r="20" />
+		</svg>
 	</div>
 	<span class="ob-screen-reader-only">Oblique</span>
 </h1>
 
+<obg-packages-outdated />
 
-<lib-reverse />
-@for (card of cards; track card) {
-	<!--  <mat-card>-->
-		<!--    <mat-card-header>-->
-		<!--      <mat-card-title>{{ card.title }}</mat-card-title>-->
-		<!--    </mat-card-header>-->
-		<!--    <mat-card-content />-->
-		<!--  </mat-card>-->
-
-	<div class="card-container">
-		<mat-card>
-			<img
-				mat-card-image
-				alt="A person in a space suit holding luminous balloons"
-				ngSrc="assets/images/alex-shuper_person-in-a-space-suit.jpg"
-				[width]="398"
-				[height]="420"
-			/>
-			<ob-alert type="info"> New feature</ob-alert>
-			<mat-card-header>
-				<mat-card-title>{{ card.title }}</mat-card-title>
-			</mat-card-header>
-			<mat-card-content>
-
-				{{ card.component }}
-			</mat-card-content>
-			<mat-card-actions>
-				<button type="button" mat-button obButton="secondary">Like</button>
-				<button type="button" mat-button obButton="primary">Share</button>
-			</mat-card-actions>
-		</mat-card>
-	</div>
-}
