@@ -1,5 +1,5 @@
-<ob-master-layout [navigation]="[{ url: 'home', label: 'home' }]">
-	<ng-container obHeaderTitle>Oblique-Galaxy</ng-container>
+<ob-master-layout [navigation]="topNavigation">
+	<ng-container obHeaderTitle>{{ "i18n.application.titel" | translate }}</ng-container>
 	<ng-container obFooterInfo>
 		<p>Oblique's footer</p>
 		<p>&copy; 2020 <span>{{ "i18n.oblique.footer.title" | translate }}</span></p>

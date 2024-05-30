@@ -2,5 +2,4 @@
  * Public API Surface of oblique-galaxy
  */
 
-export * from './lib/oblique-galaxy.service';
-export * from './lib/oblique-galaxy.component';
+export * from './lib/components/packages-outdated/obg-packages-outdated.component';

@@ -89,8 +89,21 @@
         "test": {
           "builder": "@angular-builders/jest:run",
           "options": {
-            "configPath": "tests/jest.config.js",
-            "tsConfig": "tsconfig.spec.json"
+            "tsConfig": "tsconfig.spec.json",
+            "no-cache": [
+              "true"
+            ],
+            "run-in-band": [
+              "true"
+            ]
+          },
+          "configurations": {
+            "development": {
+              "configPath": "./tests/jest.config.js"
+            },
+            "production": {
+              "configPath": "./tests/jest.config.prod.js"
+            }
           }
         },
         "lint": {
@@ -108,7 +121,7 @@
       "projectType": "library",
       "root": "projects/oblique-galaxy",
       "sourceRoot": "projects/oblique-galaxy/src",
-      "prefix": "lib",
+      "prefix": "obg",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -126,14 +139,25 @@
           "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "tsConfig": "projects/oblique-galaxy/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
+            "tsConfig": "tsconfig.spec.json",
+            "no-cache": [
+              "true"
+            ],
+            "run-in-band": [
+              "true"
             ]
-          }
+          },
+          "configurations": {
+            "default": {
+              "configPath": "jest.config.js"
+            },
+            "ci": {
+              "configPath": "jest.config.ci.js"
+            }
+          },
+          "defaultConfiguration": "default"
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
