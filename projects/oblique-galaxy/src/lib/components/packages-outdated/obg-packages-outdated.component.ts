@@ -1,4 +1,4 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, OnInit, inject} from '@angular/core';
 import {Packages} from './packages.model';
 import {PackagesOutdatedService} from './packages-outdated.service';
 import {NgClass} from '@angular/common';
