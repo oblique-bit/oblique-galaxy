@@ -1,4 +1,11 @@
 {
+  "@angular-builders/jest": {
+    "current": "17.0.3",
+    "wanted": "17.0.3",
+    "latest": "18.0.0-beta.2",
+    "dependent": "Galaxy",
+    "location": "/home/punix81/IdeaProjects/Galaxy/node_modules/@angular-builders/jest"
+  },
   "@angular-devkit/build-angular": {
     "current": "17.3.7",
     "wanted": "17.3.8",
@@ -9,35 +16,35 @@
   "@angular-eslint/builder": {
     "current": "17.4.1",
     "wanted": "17.4.1",
-    "latest": "18.0.0",
+    "latest": "18.0.1",
     "dependent": "Galaxy",
     "location": "/home/punix81/IdeaProjects/Galaxy/node_modules/@angular-eslint/builder"
   },
   "@angular-eslint/eslint-plugin": {
     "current": "17.4.1",
     "wanted": "17.4.1",
-    "latest": "18.0.0",
+    "latest": "18.0.1",
     "dependent": "Galaxy",
     "location": "/home/punix81/IdeaProjects/Galaxy/node_modules/@angular-eslint/eslint-plugin"
   },
   "@angular-eslint/eslint-plugin-template": {
     "current": "17.4.1",
     "wanted": "17.4.1",
-    "latest": "18.0.0",
+    "latest": "18.0.1",
     "dependent": "Galaxy",
     "location": "/home/punix81/IdeaProjects/Galaxy/node_modules/@angular-eslint/eslint-plugin-template"
   },
   "@angular-eslint/schematics": {
     "current": "17.4.1",
     "wanted": "17.4.1",
-    "latest": "18.0.0",
+    "latest": "18.0.1",
     "dependent": "Galaxy",
     "location": "/home/punix81/IdeaProjects/Galaxy/node_modules/@angular-eslint/schematics"
   },
   "@angular-eslint/template-parser": {
     "current": "17.4.1",
     "wanted": "17.4.1",
-    "latest": "18.0.0",
+    "latest": "18.0.1",
     "dependent": "Galaxy",
     "location": "/home/punix81/IdeaProjects/Galaxy/node_modules/@angular-eslint/template-parser"
   },

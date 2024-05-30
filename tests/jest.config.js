@@ -1,9 +1,9 @@
-'use strict';
-
+"use strict";
+globalThis.ngJest = {
+	skipNgcc: true,
+};
 module.exports = {
-	preset: 'jest-preset-angular',
-	setupFilesAfterEnv: ['<rootDir>/tests/setupJest.ts'],
-	coverageDirectory: '<rootDir>/coverage/sonarQube',
-	testResultsProcessor: 'jest-sonar-reporter',
-	collectCoverage: true
+	preset: "jest-preset-angular",
+	setupFilesAfterEnv: ["<rootDir>/tests/setupJest.ts"],
+	collectCoverage: true,
 };
