@@ -1,20 +1,20 @@
 <table class="ob-table ob-table-sm">
-	<thead>
-	<tr>
-		<th>Package</th>
-		<th>Current</th>
-		<th>Wanted</th>
-		<th>Latest</th>
-	</tr>
-	</thead>
-	<tbody>
-		@for (localPackage of packageStatus; track localPackage) {
-			<tr>
-				<th scope="row">{{ localPackage.name }}</th>
-				<td>{{ localPackage.current }}</td>
-				<td>{{ localPackage.wanted }}</td>
-				<td>{{ localPackage.latest }}</td>
-			</tr>
-		}
-	</tbody>
+  <thead>
+    <tr>
+      <th>Package</th>
+      <th>Current</th>
+      <th>Wanted</th>
+      <th>Latest</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (localPackage of packageStatus; track localPackage) {
+      <tr [ngClass]="{'red-row': localPackage.name === '@oblique/oblique'}">
+        <th scope="row">{{ localPackage.name }}</th>
+        <td>{{ localPackage.current }}</td>
+        <td>{{ localPackage.wanted }}</td>
+        <td>{{ localPackage.latest }}</td>
+      </tr>
+    }
+  </tbody>
 </table>

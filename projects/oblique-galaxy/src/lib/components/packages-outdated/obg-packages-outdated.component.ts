@@ -1,11 +1,12 @@
-import {Component, OnInit, inject} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {Packages} from './packages.model';
 import {PackagesOutdatedService} from './packages-outdated.service';
+import {NgClass} from '@angular/common';
 
 @Component({
 	selector: 'obg-packages-outdated',
 	standalone: true,
-	imports: [],
+	imports: [NgClass],
 	templateUrl: './obg-packages-outdated.component.html',
 	styleUrl: './obg-packages-outdated.component.scss'
 })

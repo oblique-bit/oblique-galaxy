@@ -1,35 +1,3 @@
-.flex-container {
-	display: flex;
-	flex-direction: column;
-}
-
-.flex-header, .flex-row {
-	display: flex;
-	justify-content: space-between;
-}
-
-.flex-header div, .flex-row div {
-	flex: 1;
-	padding: 10px;
-	border: 1px solid #ddd;
-}
-
-.version-major {
+.red-row {
 	color: red;
-}
-
-.version-minor {
-	color: yellow;
-}
-
-.version-patch {
-	color: green;
-}
-
-.version-prerelease {
-	color: blue;
-}
-
-.version-equal {
-	color: black;
 }
