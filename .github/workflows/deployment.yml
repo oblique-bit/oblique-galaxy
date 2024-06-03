@@ -11,8 +11,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
       packages: write
+      contents: write
     steps:
       - uses: actions/checkout@v4
       # Setup .npmrc file to publish to GitHub Packages
@@ -26,9 +26,13 @@ jobs:
       - run: npm ci
       - run: |
           cd projects/oblique-galaxy
+          git config --global user.name "GitHub Action Galaxy"
+          git config --global user.email "galaxy@doesntexist.none"
           tag=$(npm version minor)
-          git show-ref
+          git commit -am "Update to $tag"
+          git tag "$tag"
           git push
+          # git push remote/origin "$tag"
           git push origin "$tag"
           cd ../..
           npm run build oblique-galaxy
