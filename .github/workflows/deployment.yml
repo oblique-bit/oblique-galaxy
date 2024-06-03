@@ -26,7 +26,10 @@ jobs:
       - run: npm ci
       - run: |
           cd projects/oblique-galaxy
-          npm version minor
+          tag=$(npm version minor)
+          git show-ref
+          git push
+          git push origin "$tag"
           cd ../..
           npm run build oblique-galaxy
       - run: |
