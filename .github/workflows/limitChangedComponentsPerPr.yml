@@ -2,7 +2,6 @@ name: Component Enforcement
 
 env:
   MAX_CHANGED_COMPONENTS_PER_PR: 1
-  NEWLINE: $'\n'
   NO_VIOLATIONS_FOUND_MESSAGE: "Github Actions did not detect changes to multiple components in this PR"
   VIOLATIONS_FOUND_MESSAGE: "GitHub Actions detected changes to multiple files.\nNamely:\n"
 
@@ -58,6 +57,7 @@ jobs:
         if: env.COMPONENT_COUNT > env.MAX_CHANGED_COMPONENTS_PER_PR
         uses: marocchino/sticky-pull-request-comment@v2
         with:
+          header: componentCount
           message: |
             ${{ env.VIOLATIONS_FOUND_MESSAGE}}
             ${{ env.CHANGED_COMPONENT_FILES }}
@@ -68,5 +68,6 @@ jobs:
         if: env.COMPONENT_COUNT <= env.MAX_CHANGED_COMPONENTS_PER_PR
         uses: marocchino/sticky-pull-request-comment@v2
         with:
+          header: componentCount
           message: |
             ${{ env.NO_VIOLATIONS_FOUND_MESSAGE}}

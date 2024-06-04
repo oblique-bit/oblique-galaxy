@@ -1,0 +1,78 @@
+# https://github.com/marketplace/actions/sticky-pull-request-comment
+# according to the documentation above we might need to adapt the messages with headers.
+
+name: Run Lint Test and Formatting Scrips
+
+on:
+  pull_request:
+    branches:
+        - main
+  push:
+    branches:
+        - main
+        - GitHub-Actions
+
+jobs:
+    runChecks:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            pull-requests: write
+        #strategy??? Maybe we need strategy.
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: run checks
+              uses: actions/setup-node@v4
+              # Might be good to test using different node versions
+              
+            - run: npm ci
+            - run: npm run build #is this even needed? who knows who knows? >:3
+
+            - name: run tests
+              run: |
+                npm run test
+                
+            - uses: marocchino/sticky-pull-request-comment@v2
+              with:
+                header: test
+                message: |
+                    Testing Message Test
+
+
+
+            - name: run lint
+              run: |
+                npm run lint
+
+            - uses: marocchino/sticky-pull-request-comment@v2
+              with:
+                header: lint
+                message: |
+                    Testing Message Lint
+
+
+
+            - name: run format
+              run: |
+                npm run format
+
+            - uses: marocchino/sticky-pull-request-comment@v2
+              with:
+                header: format
+                message: |
+                    Testing Message Format
+
+            # can't have a name since there is no "run". So it' just a blank uses
+            - uses: marocchino/sticky-pull-request-comment@v2
+              with:
+                header: check result comment
+                message: |
+                    aHUJM
+
+# The basic idea is the following: 
+# Write the output of each step into a separate file and then
+# then read the file, transform as necessary and write a nice commentuwu
+# don't forget to make cool tables using markdown
+            
