@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ObColumnLayoutModule, ObNavTreeComponent, ObNavTreeItemModel} from '@oblique/oblique';
-import {ObgPackagesOutdatedComponent} from 'oblique-galaxy';
+import {ObColumnLayoutModule, ObNavTreeComponent, ObNavTreeItemModel} from '@oblique/oblique'; // import {ObgPackagesOutdatedComponent} from 'oblique-galaxy';
 import {MatTab, MatTabGroup} from '@angular/material/tabs';
+import {ObgPackagesOutdatedComponent} from '../../../../../oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component';
 
 @Component({
 	selector: 'app-sample',

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Oblique-galaxy": {
+    "sandbox": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,20 +17,20 @@
           "standalone": true
         }
       },
-      "root": "",
-      "sourceRoot": "src",
+      "root": "projects/sandbox",
+      "sourceRoot": "projects/sandbox/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/oblique-galaxy",
-            "index": "src/index.html",
-            "browser": "src/main.ts",
+            "outputPath": "dist/sandbox",
+            "index": "projects/sandbox/src/index.html",
+            "browser": "projects/sandbox/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "tsconfig.app.json",
+            "tsConfig": "projects/sandbox/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
               {
@@ -38,13 +38,13 @@
                 "input": "node_modules/@oblique/oblique/assets",
                 "output": "assets"
               },
-              "src/assets",
-              "src/Staticfile"
+              "projects/sandbox/src/assets",
+              "projects/sandbox/src/Staticfile"
             ],
             "styles": [
               "node_modules/@oblique/oblique/styles/css/oblique-core.css",
               "node_modules/@oblique/oblique/styles/css/frutiger.css",
-              "src/styles/styles.scss"
+              "projects/sandbox/src/styles/styles.scss"
             ],
             "scripts": [
               "node_modules/@oblique/oblique/ob-features.js"
@@ -78,10 +78,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Oblique-galaxy:build:production"
+              "buildTarget": "sandbox:build:production"
             },
             "development": {
-              "buildTarget": "Oblique-galaxy:build:development"
+              "buildTarget": "sandbox:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -110,8 +110,8 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
+              "projects/sandbox/src/**/*.ts",
+              "projects/sandbox/src/**/*.html"
             ]
           }
         }
