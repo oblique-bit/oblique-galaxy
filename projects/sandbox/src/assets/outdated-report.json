@@ -141,29 +141,29 @@
   },
   "@oblique/oblique": {
     "current": "11.1.2",
-    "wanted": "11.1.3",
-    "latest": "11.1.3",
+    "wanted": "11.2.0",
+    "latest": "11.2.0",
     "dependent": "Galaxy",
     "location": "/home/punix81/IdeaProjects/Galaxy/node_modules/@oblique/oblique"
   },
   "@typescript-eslint/eslint-plugin": {
-    "current": "7.10.0",
-    "wanted": "7.11.0",
-    "latest": "7.11.0",
+    "current": "7.8.0",
+    "wanted": "7.8.0",
+    "latest": "7.12.0",
     "dependent": "Galaxy",
     "location": "/home/punix81/IdeaProjects/Galaxy/node_modules/@typescript-eslint/eslint-plugin"
   },
   "@typescript-eslint/parser": {
-    "current": "7.10.0",
-    "wanted": "7.11.0",
-    "latest": "7.11.0",
+    "current": "7.8.0",
+    "wanted": "7.8.0",
+    "latest": "7.12.0",
     "dependent": "Galaxy",
     "location": "/home/punix81/IdeaProjects/Galaxy/node_modules/@typescript-eslint/parser"
   },
   "eslint": {
     "current": "8.57.0",
     "wanted": "8.57.0",
-    "latest": "9.3.0",
+    "latest": "9.4.0",
     "dependent": "Galaxy",
     "location": "/home/punix81/IdeaProjects/Galaxy/node_modules/eslint"
   },
@@ -173,5 +173,12 @@
     "latest": "18.0.0",
     "dependent": "Galaxy",
     "location": "/home/punix81/IdeaProjects/Galaxy/node_modules/ng-packagr"
+  },
+  "prettier": {
+    "current": "3.2.5",
+    "wanted": "3.3.0",
+    "latest": "3.3.0",
+    "dependent": "Galaxy",
+    "location": "/home/punix81/IdeaProjects/Galaxy/node_modules/prettier"
   }
 }

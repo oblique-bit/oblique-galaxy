@@ -3,7 +3,7 @@
 module.exports = require("../../tests/jest.config");
 module.exports.roots = ["<rootDir>/projects/oblique-galaxy"];
 module.exports.displayName = {
-	name: "Oblique",
+	name: "oblique-galaxy",
 	color: "cyan",
 };
 module.exports.coverageDirectory = "<rootDir>/coverage/oblique-galaxy";
