@@ -1,6 +1,6 @@
 {
   "name": "oblique-galaxy",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "publishConfig": {
     "registry": "https://registry.npmjs.com/"
   },
