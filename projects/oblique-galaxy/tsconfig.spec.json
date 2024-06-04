@@ -1,14 +1,9 @@
 {
   "extends": "./tsconfig.lib.json",
   "compilerOptions": {
-    "types": [
-      "jest",
-      "node"
-    ],
+    "types": ["jest", "node"],
     "target": "ES2016"
   },
-  "include": [
-    "**/*.spec.ts"
-  ],
+  "include": ["**/*.spec.ts"],
   "exclude": []
 }

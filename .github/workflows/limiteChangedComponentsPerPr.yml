@@ -6,7 +6,7 @@ env:
   NO_VIOLATIONS_FOUND_MESSAGE: "Github Actions did not detect changes to multiple components in this PR"
   VIOLATIONS_FOUND_MESSAGE: "GitHub Actions detected changes to multiple files.\nNamely:\n"
 
-on: 
+on:
   pull_request:
     branches:
       - main
@@ -53,7 +53,6 @@ jobs:
             done
             echo "COMPONENT_COUNT=${#components[@]}" >> $GITHUB_ENV
 
-
       - name: Write comment if too many components were changed
         if: env.COMPONENT_COUNT > env.MAX_CHANGED_COMPONENTS_PER_PR
         uses: marocchino/sticky-pull-request-comment@v2
@@ -63,7 +62,7 @@ jobs:
             ${{ env.CHANGED_COMPONENT_FILES }}
 
             Please make sure to only change ${{ env.MAX_CHANGED_COMPONENTS_PER_PR }} component(s) per PR
-        
+
       - name: Write comment if no violations are found
         if: env.COMPONENT_COUNT <= env.MAX_CHANGED_COMPONENTS_PER_PR
         uses: marocchino/sticky-pull-request-comment@v2
