@@ -1,16 +1,16 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { ObliqueGalaxyService } from './oblique-galaxy.service';
+import {ObliqueGalaxyService} from './oblique-galaxy.service';
 
 describe('ObliqueGalaxyService', () => {
-  let service: ObliqueGalaxyService;
+	let service: ObliqueGalaxyService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(ObliqueGalaxyService);
-  });
+	beforeEach(() => {
+		TestBed.configureTestingModule({});
+		service = TestBed.inject(ObliqueGalaxyService);
+	});
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+	it('should be created', () => {
+		expect(service).toBeTruthy();
+	});
 });

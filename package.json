@@ -6,9 +6,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "check-updates": "npm outdated --json > projects/sandbox/src/assets/outdated-report.json || true",
-    "lint": "ng lint && npm run repository-lint",
+    "test": "ng test",
+    "lint": "npm run format && ng lint && npm run repository-lint",
     "repository-lint": "./scripts/base-folder-lint.sh && ./scripts/codeowner-lint.sh",
-    "format": "npm run lint -- --fix",
+    "format": "./node_modules/.bin/prettier . --check",
     "prepare": "husky"
   },
   "private": true,

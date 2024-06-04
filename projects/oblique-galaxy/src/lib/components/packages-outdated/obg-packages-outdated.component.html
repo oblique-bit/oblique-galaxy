@@ -1,19 +1,26 @@
 <table class="ob-table ob-table-sm">
 	<thead>
-	<tr>
-		<th>Package</th>
-		<th>Current</th>
-		<th>Wanted</th>
-		<th>Latest</th>
-	</tr>
+		<tr>
+			<th>Package</th>
+			<th>Current</th>
+			<th>Wanted</th>
+			<th>Latest</th>
+		</tr>
 	</thead>
 	<tbody>
 		@for (localPackage of packageStatus; track localPackage) {
 			<tr>
-				<th scope="row" [ngClass]="{
-  'red-row': (localPackage.current !== localPackage.wanted && localPackage.current !== localPackage.latest && localPackage.wanted !== localPackage.latest),
-  'orange-row': ((localPackage.current === localPackage.wanted && localPackage.current !== localPackage.latest) || (localPackage.wanted === localPackage.latest && localPackage.current !== localPackage.latest))
-}">{{ localPackage.name }}
+				<th
+					scope="row"
+					[ngClass]="{
+						'red-row':
+							localPackage.current !== localPackage.wanted && localPackage.current !== localPackage.latest && localPackage.wanted !== localPackage.latest,
+						'orange-row':
+							(localPackage.current === localPackage.wanted && localPackage.current !== localPackage.latest) ||
+							(localPackage.wanted === localPackage.latest && localPackage.current !== localPackage.latest)
+					}"
+				>
+					{{ localPackage.name }}
 				</th>
 				<td>{{ localPackage.current }}</td>
 				<td class="green-row">{{ localPackage.wanted }}</td>
