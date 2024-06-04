@@ -1,0 +1,72 @@
+name: Component Enforcement
+
+env:
+  MAX_CHANGED_COMPONENTS_PER_PR: 1
+  NEWLINE: $'\n'
+  NO_VIOLATIONS_FOUND_MESSAGE: "Github Actions did not detect changes to multiple components in this PR"
+  VIOLATIONS_FOUND_MESSAGE: "GitHub Actions detected changes to multiple files.\nNamely:\n"
+
+on: 
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  changed_files:
+    runs-on: ubuntu-latest
+    name: detect-changed-files
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get all changed files
+        id: detect-changed-files
+        uses: tj-actions/changed-files@v44
+
+      - name: List all changed component files
+        env:
+          ALL_CHANGED_FILES: ${{ steps.detect-changed-files.outputs.all_changed_files }}
+        run: |
+          changed_components=""
+          for file in ${ALL_CHANGED_FILES}; do
+            if echo "$file" | grep -q "component"; then
+              changed_components+="$file"$'\n'
+            fi
+          done
+          echo "CHANGED_COMPONENT_FILES<<EOF" >> $GITHUB_ENV
+          echo -n "$changed_components" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Check if multiple components have been changed
+        id: count-components
+        run: |
+          components=()
+            for file in ${{ steps.detect-changed-files.outputs.all_changed_files }}; do
+              if [[ "$file" =~ \.component\.(ts|html|scss|spec\.ts)$ ]]; then
+                component=$(basename "$file" | cut -d. -f1)
+                if ! [[ " ${components[@]} " =~ " $component " ]]; then
+                    components+=("$component")
+                fi
+              fi
+            done
+            echo "COMPONENT_COUNT=${#components[@]}" >> $GITHUB_ENV
+
+
+      - name: Write comment if too many components were changed
+        if: env.COMPONENT_COUNT > env.MAX_CHANGED_COMPONENTS_PER_PR
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: |
+            ${{ env.VIOLATIONS_FOUND_MESSAGE}}
+            ${{ env.CHANGED_COMPONENT_FILES }}
+
+            Please make sure to only change ${{ env.MAX_CHANGED_COMPONENTS_PER_PR }} component(s) per PR
+        
+      - name: Write comment if no violations are found
+        if: env.COMPONENT_COUNT <= env.MAX_CHANGED_COMPONENTS_PER_PR
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: |
+            ${{ env.NO_VIOLATIONS_FOUND_MESSAGE}}
