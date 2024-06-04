@@ -45,5 +45,3 @@ This is a checklist to follow each time an admin has to upgrade the project
 - [ ] Send an email to all owners with the list of components that have been deprecated. If they want them back, it's their duty to create a PR that put them back
 
 This process can be automated with a script.
-
-# Admin tasks
