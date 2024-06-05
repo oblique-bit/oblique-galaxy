@@ -176,9 +176,16 @@
   },
   "prettier": {
     "current": "3.2.5",
-    "wanted": "3.3.0",
-    "latest": "3.3.0",
+    "wanted": "3.3.1",
+    "latest": "3.3.1",
     "dependent": "Galaxy",
     "location": "/home/punix81/IdeaProjects/Galaxy/node_modules/prettier"
+  },
+  "tslib": {
+    "current": "2.6.2",
+    "wanted": "2.6.3",
+    "latest": "2.6.3",
+    "dependent": "Galaxy",
+    "location": "/home/punix81/IdeaProjects/Galaxy/node_modules/tslib"
   }
 }

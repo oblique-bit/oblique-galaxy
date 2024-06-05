@@ -27,7 +27,9 @@
             "outputPath": "dist/sandbox",
             "index": "projects/sandbox/src/index.html",
             "browser": "projects/sandbox/src/main.ts",
-            "polyfills": ["zone.js"],
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "projects/sandbox/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -44,7 +46,9 @@
               "node_modules/@oblique/oblique/styles/css/frutiger.css",
               "projects/sandbox/src/styles/styles.scss"
             ],
-            "scripts": ["node_modules/@oblique/oblique/ob-features.js"]
+            "scripts": [
+              "node_modules/@oblique/oblique/ob-features.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -86,8 +90,12 @@
           "builder": "@angular-builders/jest:run",
           "options": {
             "tsConfig": "tsconfig.spec.json",
-            "no-cache": ["true"],
-            "run-in-band": ["true"]
+            "no-cache": [
+              "true"
+            ],
+            "run-in-band": [
+              "true"
+            ]
           },
           "configurations": {
             "development": {
@@ -101,7 +109,10 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["projects/sandbox/src/**/*.ts", "projects/sandbox/src/**/*.html"]
+            "lintFilePatterns": [
+              "projects/sandbox/src/**/*.ts",
+              "projects/sandbox/src/**/*.html"
+            ]
           }
         }
       }
@@ -131,8 +142,12 @@
           "builder": "@angular-builders/jest:run",
           "options": {
             "tsConfig": "tsconfig.spec.json",
-            "no-cache": ["true"],
-            "run-in-band": ["true"]
+            "no-cache": [
+              "true"
+            ],
+            "run-in-band": [
+              "true"
+            ]
           },
           "configurations": {
             "default": {
@@ -147,7 +162,40 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["projects/oblique-galaxy/**/*.ts", "projects/oblique-galaxy/**/*.html"]
+            "lintFilePatterns": [
+              "projects/oblique-galaxy/**/*.ts",
+              "projects/oblique-galaxy/**/*.html"
+            ]
+          }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/oblique-galaxy/.storybook",
+            "browserTarget": "oblique-galaxy:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/oblique-galaxy"
+            ],
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/oblique-galaxy/.storybook",
+            "browserTarget": "oblique-galaxy:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/oblique-galaxy"
+            ],
+            "outputDir": "dist/storybook/oblique-galaxy"
           }
         }
       }
@@ -155,7 +203,9 @@
   },
   "cli": {
     "analytics": "54b25388-6056-45ab-a4de-6a2240b722b4",
-    "schematicCollections": ["@angular-eslint/schematics"]
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   },
   "schematics": {
     "@schematics/angular:component": {
