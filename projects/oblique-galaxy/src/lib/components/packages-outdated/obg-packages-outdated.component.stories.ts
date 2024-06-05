@@ -1,7 +1,10 @@
 import {ObgPackagesOutdatedComponent} from './obg-packages-outdated.component'; // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 import {Meta, StoryObj, moduleMetadata} from '@storybook/angular';
 import {HttpClientModule} from '@angular/common/http';
-import {PackagesOutdatedService} from './packages-outdated.service'; // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
+import {PackagesOutdatedService} from './packages-outdated.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {ObliqueModule} from '@oblique/oblique'; // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<ObgPackagesOutdatedComponent> = {
@@ -10,7 +13,7 @@ const meta: Meta<ObgPackagesOutdatedComponent> = {
 	tags: ['autodocs'],
 	decorators: [
 		moduleMetadata({
-			imports: [HttpClientModule, ObgPackagesOutdatedComponent],
+			imports: [HttpClientModule, ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],
 			providers: [PackagesOutdatedService]
 		})
 	]

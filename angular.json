@@ -180,6 +180,10 @@
               "-d",
               "projects/oblique-galaxy"
             ],
+            "styles": [
+              "node_modules/@oblique/oblique/styles/css/oblique-core.css",
+              "node_modules/@oblique/oblique/styles/css/frutiger.css"
+            ],
             "port": 6006
           }
         },
@@ -194,6 +198,10 @@
               "json",
               "-d",
               "projects/oblique-galaxy"
+            ],
+            "styles": [
+              "node_modules/@oblique/oblique/styles/css/oblique-core.css",
+              "node_modules/@oblique/oblique/styles/css/frutiger.css"
             ],
             "outputDir": "dist/storybook/oblique-galaxy"
           }

@@ -38,7 +38,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ObliqueGalaxyComponent>",
-                "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObliqueGalaxyComponent,\n\ttags: ['autodocs']\n} as Meta"
+                "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
             },
             {
                 "name": "meta",
@@ -48,7 +48,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ObgPackagesOutdatedComponent>",
-                "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgPackagesOutdatedComponent],\n\t\t\tproviders: [PackagesOutdatedService]\n\t\t})\n\t]\n} as Meta"
+                "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [PackagesOutdatedService]\n\t\t})\n\t]\n} as Meta"
             },
             {
                 "name": "preview",
@@ -107,7 +107,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ObliqueGalaxyComponent>",
-                    "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObliqueGalaxyComponent,\n\ttags: ['autodocs']\n} as Meta"
+                    "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
                 }
             ],
             "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts": [
@@ -129,7 +129,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ObgPackagesOutdatedComponent>",
-                    "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgPackagesOutdatedComponent],\n\t\t\tproviders: [PackagesOutdatedService]\n\t\t})\n\t]\n} as Meta"
+                    "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [PackagesOutdatedService]\n\t\t})\n\t]\n} as Meta"
                 }
             ],
             "projects/oblique-galaxy/.storybook/preview.ts": [
