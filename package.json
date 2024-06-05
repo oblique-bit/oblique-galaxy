@@ -10,7 +10,8 @@
     "lint": "npm run format && ng lint && npm run repository-lint",
     "repository-lint": "./scripts/base-folder-lint.sh && ./scripts/codeowner-lint.sh",
     "format": "./node_modules/.bin/prettier . --check",
-    "prepare": "husky"
+    "prepare": "husky",
+    "commitlint": "commitlint --edit"
   },
   "private": true,
   "dependencies": {
@@ -45,6 +46,8 @@
     "@angular/cli": "^17.3.7",
     "@angular/compiler-cli": "^17.3.9",
     "@chromatic-com/storybook": "^1.5.0",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@compodoc/compodoc": "^1.1.25",
     "@storybook/addon-docs": "^8.1.6",
     "@storybook/addon-essentials": "^8.1.6",
