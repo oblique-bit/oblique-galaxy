@@ -48,7 +48,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ObgPackagesOutdatedComponent>",
-                "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [PackagesOutdatedService]\n\t\t})\n\t]\n} as Meta"
+                "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [\n\t\t\t\t{\n\t\t\t\t\tprovide: PackagesOutdatedService,\n\t\t\t\t\tuseValue: {\n\t\t\t\t\t\tgetOutdatedPackages: () => of(mockPackages),\n\t\t\t\t\t\tgetLocalPackages: () => of(mockPackages) // Mock getLocalPackages method\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t})\n\t]\n} as Meta"
+            },
+            {
+                "name": "mockPackages",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Packages[]",
+                "defaultValue": "[\n\t{\n\t\tname: 'mock-@angular-devkit/build-angular',\n\t\tcurrent: '17.0.3',\n\t\twanted: '17.0.3',\n\t\tlatest: '18.0.0-beta.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-eslint',\n\t\tcurrent: '8.57.0',\n\t\twanted: '8.57.0',\n\t\tlatest: '9.4.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-ng-packagr',\n\t\tcurrent: '17.3.0',\n\t\twanted: '17.3.0',\n\t\tlatest: '18.0.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-prettier',\n\t\tcurrent: '4.3.2',\n\t\twanted: '4.3.2',\n\t\tlatest: '4.3.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-tslib',\n\t\tcurrent: '2.6.2',\n\t\twanted: '2.6.3',\n\t\tlatest: '2.6.3',\n\t\tversionDiff: '0'\n\t}\n]"
             },
             {
                 "name": "preview",
@@ -129,7 +139,17 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ObgPackagesOutdatedComponent>",
-                    "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [PackagesOutdatedService]\n\t\t})\n\t]\n} as Meta"
+                    "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [\n\t\t\t\t{\n\t\t\t\t\tprovide: PackagesOutdatedService,\n\t\t\t\t\tuseValue: {\n\t\t\t\t\t\tgetOutdatedPackages: () => of(mockPackages),\n\t\t\t\t\t\tgetLocalPackages: () => of(mockPackages) // Mock getLocalPackages method\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t})\n\t]\n} as Meta"
+                },
+                {
+                    "name": "mockPackages",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Packages[]",
+                    "defaultValue": "[\n\t{\n\t\tname: 'mock-@angular-devkit/build-angular',\n\t\tcurrent: '17.0.3',\n\t\twanted: '17.0.3',\n\t\tlatest: '18.0.0-beta.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-eslint',\n\t\tcurrent: '8.57.0',\n\t\twanted: '8.57.0',\n\t\tlatest: '9.4.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-ng-packagr',\n\t\tcurrent: '17.3.0',\n\t\twanted: '17.3.0',\n\t\tlatest: '18.0.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-prettier',\n\t\tcurrent: '4.3.2',\n\t\twanted: '4.3.2',\n\t\tlatest: '4.3.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-tslib',\n\t\tcurrent: '2.6.2',\n\t\twanted: '2.6.3',\n\t\tlatest: '2.6.3',\n\t\tversionDiff: '0'\n\t}\n]"
                 }
             ],
             "projects/oblique-galaxy/.storybook/preview.ts": [
@@ -227,6 +247,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "mockPackages",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
