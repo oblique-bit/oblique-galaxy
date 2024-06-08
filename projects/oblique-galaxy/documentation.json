@@ -37,8 +37,8 @@
                 "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ObliqueGalaxyComponent>",
-                "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
+                "type": "Meta<ObgObliqueGalaxyComponent>",
+                "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObgObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
             },
             {
                 "name": "meta",
@@ -77,7 +77,7 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ObliqueGalaxyComponent>",
+                "rawtype": "StoryObj<ObgObliqueGalaxyComponent>",
                 "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -116,8 +116,8 @@
                     "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<ObliqueGalaxyComponent>",
-                    "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
+                    "type": "Meta<ObgObliqueGalaxyComponent>",
+                    "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObgObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
                 }
             ],
             "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts": [
@@ -173,7 +173,7 @@
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ObliqueGalaxyComponent>",
+                    "rawtype": "StoryObj<ObgObliqueGalaxyComponent>",
                     "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",

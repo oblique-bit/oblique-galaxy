@@ -103,11 +103,11 @@
   },
   "schematics": {
     "@schematics/angular:component": {
-      "prefix": "app",
+      "prefix": "obg",
       "style": "scss"
     },
     "@schematics/angular:directive": {
-      "prefix": "app"
+      "prefix": "obg"
     }
   }
 }
