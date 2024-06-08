@@ -18,7 +18,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{}"
+                "defaultValue": "{\n\targs: {\n\t\tprimary: 'This is the primary button',\n\t\tsecondary: 'This is the secondary button',\n\t\ttertiary: 'This is the tertiary button'\n\t}\n}"
             },
             {
                 "name": "Default",
@@ -28,7 +28,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{}"
+                "defaultValue": "{\n\targTypes: {\n\t\tpackageStatus: {\n\t\t\tdescription: 'Array of package status',\n\t\t\ttable: {\n\t\t\t\ttype: {\n\t\t\t\t\tsummary: 'Packages[]',\n\t\t\t\t\tdetail: `Array of Packages objects. Each object has the following properties:\n          - name: string\n          - current: string\n          - wanted: string\n          - latest: string\n          - versionDiff: string`\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\targs: {\n\t\tpackageStatus: mockPackages\n\t}\n}"
             },
             {
                 "name": "meta",
@@ -107,7 +107,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{}"
+                    "defaultValue": "{\n\targs: {\n\t\tprimary: 'This is the primary button',\n\t\tsecondary: 'This is the secondary button',\n\t\ttertiary: 'This is the tertiary button'\n\t}\n}"
                 },
                 {
                     "name": "meta",
@@ -129,7 +129,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{}"
+                    "defaultValue": "{\n\targTypes: {\n\t\tpackageStatus: {\n\t\t\tdescription: 'Array of package status',\n\t\t\ttable: {\n\t\t\t\ttype: {\n\t\t\t\t\tsummary: 'Packages[]',\n\t\t\t\t\tdetail: `Array of Packages objects. Each object has the following properties:\n          - name: string\n          - current: string\n          - wanted: string\n          - latest: string\n          - versionDiff: string`\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\targs: {\n\t\tpackageStatus: mockPackages\n\t}\n}"
                 },
                 {
                     "name": "meta",

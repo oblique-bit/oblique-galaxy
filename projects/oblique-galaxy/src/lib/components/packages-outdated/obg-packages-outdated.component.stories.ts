@@ -72,4 +72,24 @@ export default meta;
 type Story = StoryObj<ObgPackagesOutdatedComponent>;
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export const Default: Story = {};
+export const Default: Story = {
+	argTypes: {
+		packageStatus: {
+			description: 'Array of package status',
+			table: {
+				type: {
+					summary: 'Packages[]',
+					detail: `Array of Packages objects. Each object has the following properties:
+          - name: string
+          - current: string
+          - wanted: string
+          - latest: string
+          - versionDiff: string`
+				}
+			}
+		}
+	},
+	args: {
+		packageStatus: mockPackages
+	}
+};

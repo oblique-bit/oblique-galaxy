@@ -21,4 +21,10 @@ export default meta;
 type Story = StoryObj<ObgObliqueGalaxyComponent>;
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export const Default: Story = {};
+export const Default: Story = {
+	args: {
+		primary: 'This is the primary button',
+		secondary: 'This is the secondary button',
+		tertiary: 'This is the tertiary button'
+	}
+};
