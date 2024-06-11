@@ -42,3 +42,6 @@ testem.log
 Thumbs.db
 
 .nx
+
+*storybook.log
+/projects/node_modules
