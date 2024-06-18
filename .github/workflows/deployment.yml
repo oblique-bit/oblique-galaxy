@@ -32,12 +32,12 @@ jobs:
           tag=$(npm version minor)
           git commit -am "build: update to $tag"
           git tag "$tag"
-          git push
-          git push origin "$tag"
+          # git push
+          # git push origin "$tag"
           cd ../..
           npm run build oblique-galaxy
       - run: |
           cd dist/oblique-galaxy
-          npm publish
+          npm publish --dry-run
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_SECRET }}
