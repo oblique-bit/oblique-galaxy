@@ -31,7 +31,7 @@ describe('PackagesOutdatedService', () => {
 			error => expect(error.message).toContain(msg)
 		);
 
-		const req = httpMock.expectOne('assets/outdated-report.json');
+		const req = httpMock.expectOne('outdated-report.json');
 
 		req.flush(msg, {status: 404, statusText: 'Not Found'});
 	});
@@ -55,7 +55,7 @@ describe('PackagesOutdatedService', () => {
 			error => done(error)
 		);
 
-		const req = httpMock.expectOne('assets/outdated-report.json');
+		const req = httpMock.expectOne('outdated-report.json');
 		expect(req.request.method).toEqual('GET');
 
 		req.flush(mockData);

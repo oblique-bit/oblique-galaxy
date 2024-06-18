@@ -10,7 +10,7 @@ export class PackagesOutdatedService {
 	http = inject(HttpClient);
 
 	getLocalPackages(): Observable<Packages[]> {
-		return this.http.get<Record<string, {current: string; wanted: string; latest: string}>>('assets/outdated-report.json').pipe(
+		return this.http.get<Record<string, {current: string; wanted: string; latest: string}>>('outdated-report.json').pipe(
 			map(data =>
 				Object.keys(data).map(key => ({
 					name: key,
