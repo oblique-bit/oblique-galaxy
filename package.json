@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "npm run format && ng lint && npm run repository-lint",
     "repository-lint": "./scripts/base-folder-lint.sh && ./scripts/codeowner-lint.sh",
-    "format": "./node_modules/.bin/prettier . --check",
+    "format": "prettier . --check",
     "prepare": "husky",
     "commitlint": "commitlint --edit"
   },
