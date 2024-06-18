@@ -24,28 +24,28 @@ describe('ObliqueGalaxyComponent', () => {
 	});
 
 	it('should render the "oblique-galaxy works!" text', () => {
-		const compiled = fixture.nativeElement;
-		expect(compiled.querySelector('p').textContent).toContain('oblique-galaxy works!');
+		const compiled = fixture.nativeElement as HTMLElement | null;
+		expect(compiled?.querySelector('p')?.textContent).toContain('oblique-galaxy works!');
 	});
 
 	it('should render the primary button', () => {
-		const compiled = fixture.nativeElement;
-		const primaryButton = compiled.querySelector('button[obButton="primary"]');
+		const compiled = fixture.nativeElement as HTMLElement | null;
+		const primaryButton = compiled?.querySelector('button[obButton="primary"]');
 		expect(primaryButton).toBeTruthy();
-		expect(primaryButton.textContent).toContain('Primary');
+		expect(primaryButton?.textContent).toContain('Primary');
 	});
 
 	it('should render the secondary button', () => {
-		const compiled = fixture.nativeElement;
-		const secondaryButton = compiled.querySelector('button[obButton="secondary"]');
+		const compiled = fixture.nativeElement as HTMLElement | null;
+		const secondaryButton = compiled?.querySelector('button[obButton="secondary"]');
 		expect(secondaryButton).toBeTruthy();
-		expect(secondaryButton.textContent).toContain('Secondary');
+		expect(secondaryButton?.textContent).toContain('Secondary');
 	});
 
 	it('should render the tertiary button', () => {
-		const compiled = fixture.nativeElement;
-		const tertiaryButton = compiled.querySelector('button[obButton="tertiary"]');
+		const compiled = fixture.nativeElement as HTMLElement | null;
+		const tertiaryButton = compiled?.querySelector('button[obButton="tertiary"]');
 		expect(tertiaryButton).toBeTruthy();
-		expect(tertiaryButton.textContent).toContain('Tertiary');
+		expect(tertiaryButton?.textContent).toContain('Tertiary');
 	});
 });

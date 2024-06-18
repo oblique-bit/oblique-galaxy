@@ -17,7 +17,7 @@ module.exports.collectCoverageFrom = [
 	"!**/http-api-interceptor.ts",
 	"!**/off-canvas-container.directive.ts",
 	"!**/schema-required.directive.ts",
-	"!**/*.stories.ts"
+	"!**/*.stories.ts",
 ];
 module.exports.coverageThreshold = {
 	global: {

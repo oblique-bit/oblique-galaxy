@@ -28,12 +28,8 @@
           "builder": "@angular-builders/jest:run",
           "options": {
             "tsConfig": "tsconfig.spec.json",
-            "no-cache": [
-              "true"
-            ],
-            "run-in-band": [
-              "true"
-            ]
+            "no-cache": ["true"],
+            "run-in-band": ["true"]
           },
           "configurations": {
             "default": {
@@ -48,10 +44,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "projects/oblique-galaxy/**/*.ts",
-              "projects/oblique-galaxy/**/*.html"
-            ]
+            "lintFilePatterns": ["projects/oblique-galaxy/**/*.ts", "projects/oblique-galaxy/**/*.html"]
           }
         },
         "storybook": {
@@ -60,16 +53,8 @@
             "configDir": "projects/oblique-galaxy/.storybook",
             "browserTarget": "oblique-galaxy:build",
             "compodoc": true,
-            "compodocArgs": [
-              "-e",
-              "json",
-              "-d",
-              "projects/oblique-galaxy"
-            ],
-            "styles": [
-              "node_modules/@oblique/oblique/styles/css/oblique-core.css",
-              "node_modules/@oblique/oblique/styles/css/frutiger.css"
-            ],
+            "compodocArgs": ["-e", "json", "-d", "projects/oblique-galaxy"],
+            "styles": ["node_modules/@oblique/oblique/styles/css/oblique-core.css", "node_modules/@oblique/oblique/styles/css/frutiger.css"],
             "port": 6006
           }
         },
@@ -79,16 +64,8 @@
             "configDir": "projects/oblique-galaxy/.storybook",
             "browserTarget": "oblique-galaxy:build",
             "compodoc": true,
-            "compodocArgs": [
-              "-e",
-              "json",
-              "-d",
-              "projects/oblique-galaxy"
-            ],
-            "styles": [
-              "node_modules/@oblique/oblique/styles/css/oblique-core.css",
-              "node_modules/@oblique/oblique/styles/css/frutiger.css"
-            ],
+            "compodocArgs": ["-e", "json", "-d", "projects/oblique-galaxy"],
+            "styles": ["node_modules/@oblique/oblique/styles/css/oblique-core.css", "node_modules/@oblique/oblique/styles/css/frutiger.css"],
             "outputDir": "dist/storybook/oblique-galaxy"
           }
         }
@@ -97,9 +74,7 @@
   },
   "cli": {
     "analytics": "54b25388-6056-45ab-a4de-6a2240b722b4",
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
+    "schematicCollections": ["@angular-eslint/schematics"]
   },
   "schematics": {
     "@schematics/angular:component": {
