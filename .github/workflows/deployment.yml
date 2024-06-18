@@ -28,7 +28,7 @@ jobs:
       - run: |
           cd projects/oblique-galaxy
           git config --global user.name "GitHub Action Galaxy"
-          git config --global user.email "franketip@gmail.com"
+          git config --global user.email "galaxy@doesntexist.none"
           tag=$(npm version minor)
           git commit -am "build: update to $tag"
           git tag "$tag"
