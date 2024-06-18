@@ -13,6 +13,9 @@
     "prepare": "husky",
     "commitlint": "commitlint --edit"
   },
+  "engines": {
+    "node": "~20.11.0"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^17.3.9",
