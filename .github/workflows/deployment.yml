@@ -30,7 +30,7 @@ jobs:
           git config --global user.name "GitHub Action Galaxy"
           git config --global user.email "galaxy@doesntexist.none"
           tag=$(npm version minor)
-          git commit -am "Update to $tag"
+          git commit -am "build: update to $tag"
           git tag "$tag"
           git push
           git push origin "$tag"
