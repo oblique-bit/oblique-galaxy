@@ -1,266 +1,266 @@
 {
-    "pipes": [],
-    "interfaces": [],
-    "injectables": [],
-    "guards": [],
-    "interceptors": [],
-    "classes": [],
-    "directives": [],
-    "components": [],
-    "modules": [],
-    "miscellaneous": {
-        "variables": [
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n\targs: {\n\t\tprimary: 'This is the primary button',\n\t\tsecondary: 'This is the secondary button',\n\t\ttertiary: 'This is the tertiary button'\n\t}\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n\targTypes: {\n\t\tpackageStatus: {\n\t\t\tdescription: 'Array of package status',\n\t\t\ttable: {\n\t\t\t\ttype: {\n\t\t\t\t\tsummary: 'Packages[]',\n\t\t\t\t\tdetail: `Array of Packages objects. Each object has the following properties:\n          - name: string\n          - current: string\n          - wanted: string\n          - latest: string\n          - versionDiff: string`\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\targs: {\n\t\tpackageStatus: mockPackages\n\t}\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ObgObliqueGalaxyComponent>",
-                "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObgObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ObgPackagesOutdatedComponent>",
-                "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [\n\t\t\t\t{\n\t\t\t\t\tprovide: PackagesOutdatedService,\n\t\t\t\t\tuseValue: {\n\t\t\t\t\t\tgetOutdatedPackages: () => of(mockPackages),\n\t\t\t\t\t\tgetLocalPackages: () => of(mockPackages) // Mock getLocalPackages method\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t})\n\t]\n} as Meta"
-            },
-            {
-                "name": "mockPackages",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Packages[]",
-                "defaultValue": "[\n\t{\n\t\tname: 'mock-@angular-devkit/build-angular',\n\t\tcurrent: '17.0.3',\n\t\twanted: '17.0.3',\n\t\tlatest: '18.0.0-beta.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-eslint',\n\t\tcurrent: '8.57.0',\n\t\twanted: '8.57.0',\n\t\tlatest: '9.4.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-ng-packagr',\n\t\tcurrent: '17.3.0',\n\t\twanted: '17.3.0',\n\t\tlatest: '18.0.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-prettier',\n\t\tcurrent: '4.3.2',\n\t\twanted: '4.3.2',\n\t\tlatest: '4.3.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-tslib',\n\t\tcurrent: '2.6.2',\n\t\twanted: '2.6.3',\n\t\tlatest: '2.6.3',\n\t\tversionDiff: '0'\n\t}\n]"
-            },
-            {
-                "name": "preview",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/oblique-galaxy/.storybook/preview.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Preview",
-                "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i\n      }\n    }\n  }\n}"
-            }
-        ],
-        "functions": [],
-        "typealiases": [
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ObgObliqueGalaxyComponent>",
-                "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ObgPackagesOutdatedComponent>",
-                "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            }
-        ],
-        "enumerations": [],
-        "groupedVariables": {
-            "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n\targs: {\n\t\tprimary: 'This is the primary button',\n\t\tsecondary: 'This is the secondary button',\n\t\ttertiary: 'This is the tertiary button'\n\t}\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ObgObliqueGalaxyComponent>",
-                    "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObgObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
-                }
-            ],
-            "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n\targTypes: {\n\t\tpackageStatus: {\n\t\t\tdescription: 'Array of package status',\n\t\t\ttable: {\n\t\t\t\ttype: {\n\t\t\t\t\tsummary: 'Packages[]',\n\t\t\t\t\tdetail: `Array of Packages objects. Each object has the following properties:\n          - name: string\n          - current: string\n          - wanted: string\n          - latest: string\n          - versionDiff: string`\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\targs: {\n\t\tpackageStatus: mockPackages\n\t}\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ObgPackagesOutdatedComponent>",
-                    "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [\n\t\t\t\t{\n\t\t\t\t\tprovide: PackagesOutdatedService,\n\t\t\t\t\tuseValue: {\n\t\t\t\t\t\tgetOutdatedPackages: () => of(mockPackages),\n\t\t\t\t\t\tgetLocalPackages: () => of(mockPackages) // Mock getLocalPackages method\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t})\n\t]\n} as Meta"
-                },
-                {
-                    "name": "mockPackages",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Packages[]",
-                    "defaultValue": "[\n\t{\n\t\tname: 'mock-@angular-devkit/build-angular',\n\t\tcurrent: '17.0.3',\n\t\twanted: '17.0.3',\n\t\tlatest: '18.0.0-beta.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-eslint',\n\t\tcurrent: '8.57.0',\n\t\twanted: '8.57.0',\n\t\tlatest: '9.4.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-ng-packagr',\n\t\tcurrent: '17.3.0',\n\t\twanted: '17.3.0',\n\t\tlatest: '18.0.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-prettier',\n\t\tcurrent: '4.3.2',\n\t\twanted: '4.3.2',\n\t\tlatest: '4.3.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-tslib',\n\t\tcurrent: '2.6.2',\n\t\twanted: '2.6.3',\n\t\tlatest: '2.6.3',\n\t\tversionDiff: '0'\n\t}\n]"
-                }
-            ],
-            "projects/oblique-galaxy/.storybook/preview.ts": [
-                {
-                    "name": "preview",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/oblique-galaxy/.storybook/preview.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Preview",
-                    "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i\n      }\n    }\n  }\n}"
-                }
-            ]
+  "pipes": [],
+  "interfaces": [],
+  "injectables": [],
+  "guards": [],
+  "interceptors": [],
+  "classes": [],
+  "directives": [],
+  "components": [],
+  "modules": [],
+  "miscellaneous": {
+    "variables": [
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n\targs: {\n\t\tprimary: 'This is the primary button',\n\t\tsecondary: 'This is the secondary button',\n\t\ttertiary: 'This is the tertiary button'\n\t}\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n\targTypes: {\n\t\tpackageStatus: {\n\t\t\tdescription: 'Array of package status',\n\t\t\ttable: {\n\t\t\t\ttype: {\n\t\t\t\t\tsummary: 'Packages[]',\n\t\t\t\t\tdetail: `Array of Packages objects. Each object has the following properties:\n          - name: string\n          - current: string\n          - wanted: string\n          - latest: string\n          - versionDiff: string`\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\targs: {\n\t\tpackageStatus: mockPackages\n\t}\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<ObgObliqueGalaxyComponent>",
+        "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObgObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<ObgPackagesOutdatedComponent>",
+        "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [\n\t\t\t\t{\n\t\t\t\t\tprovide: PackagesOutdatedService,\n\t\t\t\t\tuseValue: {\n\t\t\t\t\t\tgetOutdatedPackages: () => of(mockPackages),\n\t\t\t\t\t\tgetLocalPackages: () => of(mockPackages) // Mock getLocalPackages method\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t})\n\t]\n} as Meta"
+      },
+      {
+        "name": "mockPackages",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Packages[]",
+        "defaultValue": "[\n\t{\n\t\tname: 'mock-@angular-devkit/build-angular',\n\t\tcurrent: '17.0.3',\n\t\twanted: '17.0.3',\n\t\tlatest: '18.0.0-beta.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-eslint',\n\t\tcurrent: '8.57.0',\n\t\twanted: '8.57.0',\n\t\tlatest: '9.4.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-ng-packagr',\n\t\tcurrent: '17.3.0',\n\t\twanted: '17.3.0',\n\t\tlatest: '18.0.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-prettier',\n\t\tcurrent: '4.3.2',\n\t\twanted: '4.3.2',\n\t\tlatest: '4.3.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-tslib',\n\t\tcurrent: '2.6.2',\n\t\twanted: '2.6.3',\n\t\tlatest: '2.6.3',\n\t\tversionDiff: '0'\n\t}\n]"
+      },
+      {
+        "name": "preview",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/.storybook/preview.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Preview",
+        "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i\n      }\n    }\n  }\n}"
+      }
+    ],
+    "functions": [],
+    "typealiases": [
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<ObgObliqueGalaxyComponent>",
+        "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<ObgPackagesOutdatedComponent>",
+        "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      }
+    ],
+    "enumerations": [],
+    "groupedVariables": {
+      "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n\targs: {\n\t\tprimary: 'This is the primary button',\n\t\tsecondary: 'This is the secondary button',\n\t\ttertiary: 'This is the tertiary button'\n\t}\n}"
         },
-        "groupedFunctions": {},
-        "groupedEnumerations": {},
-        "groupedTypeAliases": {
-            "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ObgObliqueGalaxyComponent>",
-                    "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ObgPackagesOutdatedComponent>",
-                    "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ]
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<ObgObliqueGalaxyComponent>",
+          "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObgObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
         }
+      ],
+      "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n\targTypes: {\n\t\tpackageStatus: {\n\t\t\tdescription: 'Array of package status',\n\t\t\ttable: {\n\t\t\t\ttype: {\n\t\t\t\t\tsummary: 'Packages[]',\n\t\t\t\t\tdetail: `Array of Packages objects. Each object has the following properties:\n          - name: string\n          - current: string\n          - wanted: string\n          - latest: string\n          - versionDiff: string`\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\targs: {\n\t\tpackageStatus: mockPackages\n\t}\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<ObgPackagesOutdatedComponent>",
+          "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [\n\t\t\t\t{\n\t\t\t\t\tprovide: PackagesOutdatedService,\n\t\t\t\t\tuseValue: {\n\t\t\t\t\t\tgetOutdatedPackages: () => of(mockPackages),\n\t\t\t\t\t\tgetLocalPackages: () => of(mockPackages) // Mock getLocalPackages method\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t})\n\t]\n} as Meta"
+        },
+        {
+          "name": "mockPackages",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Packages[]",
+          "defaultValue": "[\n\t{\n\t\tname: 'mock-@angular-devkit/build-angular',\n\t\tcurrent: '17.0.3',\n\t\twanted: '17.0.3',\n\t\tlatest: '18.0.0-beta.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-eslint',\n\t\tcurrent: '8.57.0',\n\t\twanted: '8.57.0',\n\t\tlatest: '9.4.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-ng-packagr',\n\t\tcurrent: '17.3.0',\n\t\twanted: '17.3.0',\n\t\tlatest: '18.0.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-prettier',\n\t\tcurrent: '4.3.2',\n\t\twanted: '4.3.2',\n\t\tlatest: '4.3.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-tslib',\n\t\tcurrent: '2.6.2',\n\t\twanted: '2.6.3',\n\t\tlatest: '2.6.3',\n\t\tversionDiff: '0'\n\t}\n]"
+        }
+      ],
+      "projects/oblique-galaxy/.storybook/preview.ts": [
+        {
+          "name": "preview",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/.storybook/preview.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Preview",
+          "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i\n      }\n    }\n  }\n}"
+        }
+      ]
     },
-    "routes": [],
-    "coverage": {
-        "count": 0,
-        "status": "low",
-        "files": [
-            {
-                "filePath": "projects/oblique-galaxy/.storybook/preview.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "preview",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "mockPackages",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            }
-        ]
+    "groupedFunctions": {},
+    "groupedEnumerations": {},
+    "groupedTypeAliases": {
+      "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<ObgObliqueGalaxyComponent>",
+          "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
+      "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<ObgPackagesOutdatedComponent>",
+          "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ]
     }
+  },
+  "routes": [],
+  "coverage": {
+    "count": 0,
+    "status": "low",
+    "files": [
+      {
+        "filePath": "projects/oblique-galaxy/.storybook/preview.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "preview",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "mockPackages",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      }
+    ]
+  }
 }
