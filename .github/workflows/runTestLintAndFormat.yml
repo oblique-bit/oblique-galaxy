@@ -1,0 +1,79 @@
+name: Run Lint Test and Formatting Scripts
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  runChecks:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: run checks
+        uses: actions/setup-node@v4
+
+      - run: npm ci
+
+      - name: run tests
+        if: "${{ '!cancelled()' }}"
+        run: |
+          npm run test 2>&1 | tee test-output.txt
+
+      - name: run lint
+        if: "${{ '!cancelled()' }}"
+        run: |
+          npm run lint 2>&1 | tee lint-output.txt
+
+      - name: run format
+        if: "${{ '!cancelled()' }}"
+        run: |
+          npm run format 2>&1 | tee format-output.txt
+
+      - name: Aggregate results
+        run: |
+          set -e
+
+          touch test-output.txt lint-output.txt format-output.txt
+
+          TEST_SUMMARY=$(cat test-output.txt)
+          LINT_RESULTS=$(cat lint-output.txt)
+          FORMAT_RESULTS=$(cat format-output.txt)
+
+          TEST_SUMMARY=$(echo "$TEST_SUMMARY" | grep -E 'Test Suites:.*|Tests:.*' || echo "No testing information found")
+          LINT_SUMMARY=$(echo "$LINT_RESULTS" | grep -E '^(All files.*|\[warn\].*)' || echo "No linting information found")
+          FORMAT_SUMMARY=$(echo "$FORMAT_RESULTS" |grep -E '^(All.*|\[.*\]|\[warn\].*|\[error\].*)' || echo "No formatting information found")
+
+          echo "## CI Results" > comment-body.txt
+
+          echo "### Lint Results" >> comment-body.txt
+          echo "\`\`\`" >> comment-body.txt
+          echo "$LINT_SUMMARY" >> comment-body.txt
+          echo "\`\`\`" >> comment-body.txt
+
+          echo "### Test Results" >> comment-body.txt
+          echo "\`\`\`" >> comment-body.txt
+          echo "$TEST_SUMMARY" >> comment-body.txt
+          echo "\`\`\`" >> comment-body.txt
+
+          echo "### Format Results" >> comment-body.txt
+          echo "\`\`\`" >> comment-body.txt
+          echo "$FORMAT_SUMMARY" >> comment-body.txt
+          echo "\`\`\`" >> comment-body.txt
+
+          COMMENT_BODY=$(cat comment-body.txt)
+          echo "COMMENT_BODY<<EOF" >> $GITHUB_ENV
+          echo "$COMMENT_BODY" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Post results comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: "CI Results"
+          message: |
+            ${{ env.COMMENT_BODY }}
