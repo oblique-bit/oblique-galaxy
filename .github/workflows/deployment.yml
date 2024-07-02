@@ -56,6 +56,7 @@ jobs:
           npm config list
           npm --version
           cd dist/oblique-galaxy
+          npm login
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_SECRET }}
