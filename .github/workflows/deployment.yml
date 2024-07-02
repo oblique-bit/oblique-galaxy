@@ -10,6 +10,9 @@ on:
   #   types: [published]
 jobs:
   build:
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_SECRET }}
+      NPM_AUTH_TOKEN: ${{ secrets.NPM_SECRET }}
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -24,7 +27,15 @@ jobs:
           # registry-url: 'https://npm.pkg.github.com'
           # # Defaults to the user or organization that owns the workflow file
           # scope: '@octocat'
-      - run: npm ci
+
+      # Improvement: let lint-test-check action do build/lint/test, only when it passes, use the artefacts and then deploy on npm
+      - name: Install project
+        run: npm ci
+      - name: Run lint
+        run: npm run lint
+      - name: Run tests
+        run: npm run test
+
       - run: |
           cd projects/oblique-galaxy
           git config --global user.name "GitHub Action Galaxy"
@@ -37,8 +48,6 @@ jobs:
           cd ../..
           npm run build oblique-galaxy
       - run: |
+          cat .npmrc
           cd dist/oblique-galaxy
           npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_SECRET }}
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_SECRET }}
