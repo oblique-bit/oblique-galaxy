@@ -12,6 +12,7 @@ jobs:
   build:
     env:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_SECRET }}
+      NPM_AUTH_TOKEN: ${{ secrets.NPM_SECRET }}
     runs-on: ubuntu-latest
     permissions:
       packages: write
