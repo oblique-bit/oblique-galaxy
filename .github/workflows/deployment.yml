@@ -52,6 +52,7 @@ jobs:
           cat .npmrc
           npm whoami
           npm config list
+          npm --version
           cd dist/oblique-galaxy
           npm publish --access public
         env:
