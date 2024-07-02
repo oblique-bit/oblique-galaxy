@@ -36,7 +36,8 @@ jobs:
       - name: Run tests
         run: npm run test
 
-      - run: |
+      - name: Build the library
+        run: |
           cd projects/oblique-galaxy
           git config --global user.name "GitHub Action Galaxy"
           git config --global user.email "galaxy@doesntexist.none"
@@ -47,7 +48,8 @@ jobs:
           #git push origin "$tag"
           cd ../..
           npm run build oblique-galaxy
-      - run: |
+      - name: Publish the library
+        run: |
           cp .npmrc dist/oblique-galaxy
           cat .npmrc
           npm whoami
