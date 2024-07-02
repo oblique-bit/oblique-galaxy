@@ -11,7 +11,9 @@
     "repository-lint": "./scripts/base-folder-lint.sh && ./scripts/codeowner-lint.sh",
     "format": "prettier . --check",
     "prepare": "husky",
-    "commitlint": "commitlint --edit"
+    "commitlint": "commitlint --edit",
+    "storybook": "ng run oblique-galaxy:storybook",
+    "build-storybook": "ng run oblique-galaxy:build-storybook"
   },
   "engines": {
     "node": "~20.11.0"
