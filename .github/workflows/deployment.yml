@@ -48,6 +48,7 @@ jobs:
           cd ../..
           npm run build oblique-galaxy
       - run: |
+          cp .npmrc dist/oblique-galaxy
           cat .npmrc
           npm whoami
           cd dist/oblique-galaxy
