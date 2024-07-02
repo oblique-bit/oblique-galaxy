@@ -50,4 +50,4 @@ jobs:
       - run: |
           cat .npmrc
           cd dist/oblique-galaxy
-          npm publish --dry-run
+          npm publish
