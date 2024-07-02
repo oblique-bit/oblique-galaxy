@@ -9,34 +9,28 @@ on:
   # release:
   #   types: [published]
 jobs:
-  build:
-    env:
-      NODE_AUTH_TOKEN: ${{ secrets.NPM_SECRET }}
-      NPM_AUTH_TOKEN: ${{ secrets.NPM_SECRET }}
+  build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
       packages: write
       contents: write
     steps:
       - uses: actions/checkout@v4
-      # Setup .npmrc file to publish to GitHub Packages
       - uses: actions/setup-node@v4
         with:
-          node-version: "20.x"
+          node-version: "20.11.x"
           registry-url: "https://registry.npmjs.org"
-          # registry-url: 'https://npm.pkg.github.com'
-          # # Defaults to the user or organization that owns the workflow file
-          # scope: '@octocat'
 
-      # Improvement: let lint-test-check action do build/lint/test, only when it passes, use the artefacts and then deploy on npm
       - name: Install project
         run: npm ci
+      # Improvement: let lint-test-check action do build/lint/test, only when it passes, use the artefacts and then deploy on npm
       - name: Run lint
         run: npm run lint
       - name: Run tests
         run: npm run test
 
-      - run: |
+      - name: Build the library
+        run: |
           cd projects/oblique-galaxy
           git config --global user.name "GitHub Action Galaxy"
           git config --global user.email "galaxy@doesntexist.none"
@@ -47,7 +41,9 @@ jobs:
           git push origin "$tag"
           cd ../..
           npm run build oblique-galaxy
-      - run: |
-          cat .npmrc
+      - name: Publish the library
+        run: |
           cd dist/oblique-galaxy
           npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_SECRET }}
