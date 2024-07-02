@@ -12,6 +12,7 @@ import {MatIcon} from '@angular/material/icon';
 	template: `<p>oblique-galaxy works!</p>
 		<button mat-button obButton="primary" type="button">Primary</button>
 		<button mat-button obButton="secondary" type="button">Secondary</button>
-		<button mat-button obButton="tertiary" type="button">Tertiary</button>`
+		<button mat-button obButton="tertiary" type="button">Tertiary</button>
+		<h1>test</h1> `
 })
 export class ObgObliqueGalaxyComponent {}
