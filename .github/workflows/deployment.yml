@@ -51,7 +51,7 @@ jobs:
           cat .npmrc
           npm whoami
           cd dist/oblique-galaxy
-          npm publish
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_SECRET }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_SECRET }}
