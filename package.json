@@ -4,6 +4,7 @@
   "scripts": {
     "start": "npm run check-updates && ng serve",
     "build": "ng build",
+    "build-storybook": "ng run oblique-galaxy:build-storybook",
     "watch": "ng build --watch --configuration development",
     "check-updates": "npm outdated --json > projects/oblique-galaxy/src/lib/outdated-report.json || true",
     "test": "ng test oblique-galaxy",
