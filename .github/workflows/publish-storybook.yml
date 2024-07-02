@@ -2,7 +2,7 @@ name: publish-storybook.yml
 on:
   push:
     branches:
-      - gh-pages
+      - main
 
 jobs:
   deploy:
