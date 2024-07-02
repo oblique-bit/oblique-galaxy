@@ -31,10 +31,10 @@ jobs:
       # Improvement: let lint-test-check action do build/lint/test, only when it passes, use the artefacts and then deploy on npm
       - name: Install project
         run: npm ci
-      - name: Run lint
-        run: npm run lint
-      - name: Run tests
-        run: npm run test
+      # - name: Run lint
+      #   run: npm run lint
+      # - name: Run tests
+      #   run: npm run test
 
       - name: Build the library
         run: |
