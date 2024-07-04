@@ -52,6 +52,28 @@ const meta: Meta<ObgPackagesOutdatedComponent> = {
 	title: 'Example/PackagesOutdated',
 	component: ObgPackagesOutdatedComponent,
 	tags: ['autodocs'],
+	parameters: {
+		docs: {
+			description: {
+				component: `
+This component has been created by [@punix81](https://github.com/punix81).
+
+This component uses the "npm outdated" command to display the current status of your project's dependencies in table form. It informs you of available versions that may include bug fixes, performance enhancements or new features.
+
+## Configuration
+Add a script to run the "npm outdate" command in your  \`package.json\` file
+
+
+
+\`\`\`json
+"scripts": {
+  "check-updates": "npm outdated --json > [YOUR_PATH]/outdated-report.json || true"
+}
+\`\`\`
+`
+			}
+		}
+	},
 	decorators: [
 		moduleMetadata({
 			imports: [HttpClientModule, ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],
