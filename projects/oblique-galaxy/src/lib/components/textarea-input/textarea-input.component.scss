@@ -1,0 +1,20 @@
+@import "@oblique/oblique/styles/scss/core/variables";
+
+:host,
+.textarea-container {
+	width: 100%;
+
+	textarea {
+		white-space: pre-line;
+
+		&[invalid="true"] {
+			border-color: red;
+		}
+	}
+
+	&[invalid] {
+		::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+			color: $ob-accent;
+		}
+	}
+}
