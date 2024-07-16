@@ -82,6 +82,7 @@ overrides:
       "@typescript-eslint/sort-type-constituents": off
       "@typescript-eslint/sort-type-union-intersection-members": off
       "@typescript-eslint/use-unknown-in-catch-callback-variable": off
+      "@typescript-eslint/no-magic-numbers": off
 
       accessor-pairs: off
       capitalized-comments: off

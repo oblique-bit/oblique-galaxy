@@ -9,16 +9,6 @@ import {ObMockTranslateService} from '@oblique/oblique';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
 
-class MockEvent extends Event {
-	override target: HTMLInputElement;
-
-	constructor(type: string, targetValue: string) {
-		super(type);
-		this.target = document.createElement('input');
-		this.target.value = targetValue;
-	}
-}
-
 describe('TextareaInputComponent', () => {
 	let component: TextareaInputComponent;
 	let fixture: ComponentFixture<TextareaInputComponent>;
@@ -97,12 +87,4 @@ describe('TextareaInputComponent', () => {
 		fixture.detectChanges();
 		expect(component.id).toBe(id);
 	});
-
-	// it('should accept id @Input', () => {
-	// 	const mockEvent = new MockEvent('input', 'test value');
-	//
-	// 	component.onTextChange(mockEvent);
-	// 	fixture.detectChanges();
-	// 	expect(component).toBeTruthy();
-	// });
 });

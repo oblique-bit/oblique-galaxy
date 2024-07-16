@@ -1,352 +1,352 @@
 {
-    "pipes": [],
-    "interfaces": [],
-    "injectables": [],
-    "guards": [],
-    "interceptors": [],
-    "classes": [],
-    "directives": [],
-    "components": [],
-    "modules": [],
-    "miscellaneous": {
-        "variables": [
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n\targs: {\n\t\tprimary: 'This is the primary button',\n\t\tsecondary: 'This is the secondary button',\n\t\ttertiary: 'This is the tertiary button'\n\t}\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n\targTypes: {\n\t\tpackageStatus: {\n\t\t\tdescription: 'Array of package status',\n\t\t\ttable: {\n\t\t\t\ttype: {\n\t\t\t\t\tsummary: 'Packages[]',\n\t\t\t\t\tdetail: `Array of Packages objects. Each object has the following properties:\n          - name: string\n          - current: string\n          - wanted: string\n          - latest: string\n          - versionDiff: string`\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\targs: {\n\t\tpackageStatus: mockPackages\n\t}\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n\ttitle: 'Components/TextareaInput',\n\tcomponent: TextareaInputComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [BrowserAnimationsModule, FormsModule, TextareaInputComponent, ReactiveFormsModule, MatFormFieldModule, MatInputModule]\n\t\t})\n\t],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `sssss `\n\t\t\t}\n\t\t}\n\t},\n\n\targs: {\n\t\tlabel: 'Default Label',\n\t\tplaceholder: 'Enter text here...',\n\t\tdisabled: false,\n\t\tmaxLength: 1000,\n\t\tstyle: 'outline',\n\t\tid: 'textarea-input-default'\n\t}\n} as Meta"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ObgObliqueGalaxyComponent>",
-                "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObgObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ObgPackagesOutdatedComponent>",
-                "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThis component uses the \"npm outdated\" command to display the current status of your project's dependencies in table form. It informs you of available versions that may include bug fixes, performance enhancements or new features.\n\n## Configuration\nAdd a script to run the \"npm outdate\" command in your  \\`package.json\\` file\n\n\n\n\\`\\`\\`json\n\"scripts\": {\n  \"check-updates\": \"npm outdated --json > [YOUR_PATH]/outdated-report.json || true\"\n}\n\\`\\`\\`\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [\n\t\t\t\t{\n\t\t\t\t\tprovide: PackagesOutdatedService,\n\t\t\t\t\tuseValue: {\n\t\t\t\t\t\tgetOutdatedPackages: () => of(mockPackages),\n\t\t\t\t\t\tgetLocalPackages: () => of(mockPackages) // Mock getLocalPackages method\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t})\n\t]\n} as Meta"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<TextareaInputComponent>",
-                "defaultValue": "{\n\ttitle: 'Components/TextareaInput',\n\tcomponent: TextareaInputComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [BrowserAnimationsModule, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, TextareaInputComponent]\n\t\t})\n\t]\n} as Meta"
-            },
-            {
-                "name": "mockPackages",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Packages[]",
-                "defaultValue": "[\n\t{\n\t\tname: 'mock-@angular-devkit/build-angular',\n\t\tcurrent: '17.0.3',\n\t\twanted: '17.0.3',\n\t\tlatest: '18.0.0-beta.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-eslint',\n\t\tcurrent: '8.57.0',\n\t\twanted: '8.57.0',\n\t\tlatest: '9.4.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-ng-packagr',\n\t\tcurrent: '17.3.0',\n\t\twanted: '17.3.0',\n\t\tlatest: '18.0.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-prettier',\n\t\tcurrent: '4.3.2',\n\t\twanted: '4.3.2',\n\t\tlatest: '4.3.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-tslib',\n\t\tcurrent: '2.6.2',\n\t\twanted: '2.6.3',\n\t\tlatest: '2.6.3',\n\t\tversionDiff: '0'\n\t}\n]"
-            },
-            {
-                "name": "preview",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/oblique-galaxy/.storybook/preview.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Preview",
-                "defaultValue": "{\n\tparameters: {\n\t\tcontrols: {\n\t\t\tmatchers: {\n\t\t\t\tcolor: /(background|color)$/i,\n\t\t\t\tdate: /Date$/i\n\t\t\t}\n\t\t}\n\t}\n}"
-            }
-        ],
-        "functions": [],
-        "typealiases": [
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ObgObliqueGalaxyComponent>",
-                "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ObgPackagesOutdatedComponent>",
-                "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<TextareaInputComponent>",
-                "file": "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            }
-        ],
-        "enumerations": [],
-        "groupedVariables": {
-            "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n\targs: {\n\t\tprimary: 'This is the primary button',\n\t\tsecondary: 'This is the secondary button',\n\t\ttertiary: 'This is the tertiary button'\n\t}\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ObgObliqueGalaxyComponent>",
-                    "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObgObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
-                }
-            ],
-            "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n\targTypes: {\n\t\tpackageStatus: {\n\t\t\tdescription: 'Array of package status',\n\t\t\ttable: {\n\t\t\t\ttype: {\n\t\t\t\t\tsummary: 'Packages[]',\n\t\t\t\t\tdetail: `Array of Packages objects. Each object has the following properties:\n          - name: string\n          - current: string\n          - wanted: string\n          - latest: string\n          - versionDiff: string`\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\targs: {\n\t\tpackageStatus: mockPackages\n\t}\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ObgPackagesOutdatedComponent>",
-                    "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThis component uses the \"npm outdated\" command to display the current status of your project's dependencies in table form. It informs you of available versions that may include bug fixes, performance enhancements or new features.\n\n## Configuration\nAdd a script to run the \"npm outdate\" command in your  \\`package.json\\` file\n\n\n\n\\`\\`\\`json\n\"scripts\": {\n  \"check-updates\": \"npm outdated --json > [YOUR_PATH]/outdated-report.json || true\"\n}\n\\`\\`\\`\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [\n\t\t\t\t{\n\t\t\t\t\tprovide: PackagesOutdatedService,\n\t\t\t\t\tuseValue: {\n\t\t\t\t\t\tgetOutdatedPackages: () => of(mockPackages),\n\t\t\t\t\t\tgetLocalPackages: () => of(mockPackages) // Mock getLocalPackages method\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t})\n\t]\n} as Meta"
-                },
-                {
-                    "name": "mockPackages",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Packages[]",
-                    "defaultValue": "[\n\t{\n\t\tname: 'mock-@angular-devkit/build-angular',\n\t\tcurrent: '17.0.3',\n\t\twanted: '17.0.3',\n\t\tlatest: '18.0.0-beta.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-eslint',\n\t\tcurrent: '8.57.0',\n\t\twanted: '8.57.0',\n\t\tlatest: '9.4.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-ng-packagr',\n\t\tcurrent: '17.3.0',\n\t\twanted: '17.3.0',\n\t\tlatest: '18.0.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-prettier',\n\t\tcurrent: '4.3.2',\n\t\twanted: '4.3.2',\n\t\tlatest: '4.3.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-tslib',\n\t\tcurrent: '2.6.2',\n\t\twanted: '2.6.3',\n\t\tlatest: '2.6.3',\n\t\tversionDiff: '0'\n\t}\n]"
-                }
-            ],
-            "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n\ttitle: 'Components/TextareaInput',\n\tcomponent: TextareaInputComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [BrowserAnimationsModule, FormsModule, TextareaInputComponent, ReactiveFormsModule, MatFormFieldModule, MatInputModule]\n\t\t})\n\t],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `sssss `\n\t\t\t}\n\t\t}\n\t},\n\n\targs: {\n\t\tlabel: 'Default Label',\n\t\tplaceholder: 'Enter text here...',\n\t\tdisabled: false,\n\t\tmaxLength: 1000,\n\t\tstyle: 'outline',\n\t\tid: 'textarea-input-default'\n\t}\n} as Meta"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<TextareaInputComponent>",
-                    "defaultValue": "{\n\ttitle: 'Components/TextareaInput',\n\tcomponent: TextareaInputComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [BrowserAnimationsModule, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, TextareaInputComponent]\n\t\t})\n\t]\n} as Meta"
-                }
-            ],
-            "projects/oblique-galaxy/.storybook/preview.ts": [
-                {
-                    "name": "preview",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/oblique-galaxy/.storybook/preview.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Preview",
-                    "defaultValue": "{\n\tparameters: {\n\t\tcontrols: {\n\t\t\tmatchers: {\n\t\t\t\tcolor: /(background|color)$/i,\n\t\t\t\tdate: /Date$/i\n\t\t\t}\n\t\t}\n\t}\n}"
-                }
-            ]
+  "pipes": [],
+  "interfaces": [],
+  "injectables": [],
+  "guards": [],
+  "interceptors": [],
+  "classes": [],
+  "directives": [],
+  "components": [],
+  "modules": [],
+  "miscellaneous": {
+    "variables": [
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n\targs: {\n\t\tprimary: 'This is the primary button',\n\t\tsecondary: 'This is the secondary button',\n\t\ttertiary: 'This is the tertiary button'\n\t}\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n\targTypes: {}\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n\targTypes: {\n\t\tpackageStatus: {\n\t\t\tdescription: 'Array of package status',\n\t\t\ttable: {\n\t\t\t\ttype: {\n\t\t\t\t\tsummary: 'Packages[]',\n\t\t\t\t\tdetail: `Array of Packages objects. Each object has the following properties:\n          - name: string\n          - current: string\n          - wanted: string\n          - latest: string\n          - versionDiff: string`\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\targs: {\n\t\tpackageStatus: mockPackages\n\t}\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<ObgObliqueGalaxyComponent>",
+        "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObgObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<TextareaInputComponent>",
+        "defaultValue": "{\n\ttitle: 'Components/TextareaInput',\n\tcomponent: TextareaInputComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe TextAreaCounter component is a handy tool for developers, displaying the number of characters remaining in a text area (textarea) in real time. Ideal for forms and text entries requiring character limits, it offers an enhanced user experience by providing immediate visual feedback.\n\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [BrowserAnimationsModule, FormsModule, TextareaInputComponent, ReactiveFormsModule, MatFormFieldModule, MatInputModule]\n\t\t})\n\t],\n\targs: {\n\t\tlabel: 'Default Label',\n\t\tplaceholder: 'Enter text here...',\n\t\tdisabled: false,\n\t\tmaxLength: 1000,\n\t\tstyle: 'outline',\n\t\tid: 'textarea-input-default'\n\t}\n} as Meta"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<ObgPackagesOutdatedComponent>",
+        "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThis component uses the \"npm outdated\" command to display the current status of your project's dependencies in table form. It informs you of available versions that may include bug fixes, performance enhancements or new features.\n\n## Configuration\nAdd a script to run the \"npm outdate\" command in your  \\`package.json\\` file\n\n\n\n\\`\\`\\`json\n\"scripts\": {\n  \"check-updates\": \"npm outdated --json > [YOUR_PATH]/outdated-report.json || true\"\n}\n\\`\\`\\`\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [\n\t\t\t\t{\n\t\t\t\t\tprovide: PackagesOutdatedService,\n\t\t\t\t\tuseValue: {\n\t\t\t\t\t\tgetOutdatedPackages: () => of(mockPackages),\n\t\t\t\t\t\tgetLocalPackages: () => of(mockPackages) // Mock getLocalPackages method\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t})\n\t]\n} as Meta"
+      },
+      {
+        "name": "mockPackages",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Packages[]",
+        "defaultValue": "[\n\t{\n\t\tname: 'mock-@angular-devkit/build-angular',\n\t\tcurrent: '17.0.3',\n\t\twanted: '17.0.3',\n\t\tlatest: '18.0.0-beta.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-eslint',\n\t\tcurrent: '8.57.0',\n\t\twanted: '8.57.0',\n\t\tlatest: '9.4.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-ng-packagr',\n\t\tcurrent: '17.3.0',\n\t\twanted: '17.3.0',\n\t\tlatest: '18.0.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-prettier',\n\t\tcurrent: '4.3.2',\n\t\twanted: '4.3.2',\n\t\tlatest: '4.3.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-tslib',\n\t\tcurrent: '2.6.2',\n\t\twanted: '2.6.3',\n\t\tlatest: '2.6.3',\n\t\tversionDiff: '0'\n\t}\n]"
+      },
+      {
+        "name": "preview",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/.storybook/preview.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Preview",
+        "defaultValue": "{\n\tparameters: {\n\t\tcontrols: {\n\t\t\tmatchers: {\n\t\t\t\tcolor: /(background|color)$/i,\n\t\t\t\tdate: /Date$/i\n\t\t\t}\n\t\t}\n\t}\n}"
+      }
+    ],
+    "functions": [],
+    "typealiases": [
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<ObgObliqueGalaxyComponent>",
+        "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<TextareaInputComponent>",
+        "file": "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<ObgPackagesOutdatedComponent>",
+        "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      }
+    ],
+    "enumerations": [],
+    "groupedVariables": {
+      "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n\targs: {\n\t\tprimary: 'This is the primary button',\n\t\tsecondary: 'This is the secondary button',\n\t\ttertiary: 'This is the tertiary button'\n\t}\n}"
         },
-        "groupedFunctions": {},
-        "groupedEnumerations": {},
-        "groupedTypeAliases": {
-            "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ObgObliqueGalaxyComponent>",
-                    "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ObgPackagesOutdatedComponent>",
-                    "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<TextareaInputComponent>",
-                    "file": "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ]
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<ObgObliqueGalaxyComponent>",
+          "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObgObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
         }
+      ],
+      "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n\targTypes: {}\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<TextareaInputComponent>",
+          "defaultValue": "{\n\ttitle: 'Components/TextareaInput',\n\tcomponent: TextareaInputComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe TextAreaCounter component is a handy tool for developers, displaying the number of characters remaining in a text area (textarea) in real time. Ideal for forms and text entries requiring character limits, it offers an enhanced user experience by providing immediate visual feedback.\n\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [BrowserAnimationsModule, FormsModule, TextareaInputComponent, ReactiveFormsModule, MatFormFieldModule, MatInputModule]\n\t\t})\n\t],\n\targs: {\n\t\tlabel: 'Default Label',\n\t\tplaceholder: 'Enter text here...',\n\t\tdisabled: false,\n\t\tmaxLength: 1000,\n\t\tstyle: 'outline',\n\t\tid: 'textarea-input-default'\n\t}\n} as Meta"
+        }
+      ],
+      "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n\targTypes: {\n\t\tpackageStatus: {\n\t\t\tdescription: 'Array of package status',\n\t\t\ttable: {\n\t\t\t\ttype: {\n\t\t\t\t\tsummary: 'Packages[]',\n\t\t\t\t\tdetail: `Array of Packages objects. Each object has the following properties:\n          - name: string\n          - current: string\n          - wanted: string\n          - latest: string\n          - versionDiff: string`\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\targs: {\n\t\tpackageStatus: mockPackages\n\t}\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<ObgPackagesOutdatedComponent>",
+          "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThis component uses the \"npm outdated\" command to display the current status of your project's dependencies in table form. It informs you of available versions that may include bug fixes, performance enhancements or new features.\n\n## Configuration\nAdd a script to run the \"npm outdate\" command in your  \\`package.json\\` file\n\n\n\n\\`\\`\\`json\n\"scripts\": {\n  \"check-updates\": \"npm outdated --json > [YOUR_PATH]/outdated-report.json || true\"\n}\n\\`\\`\\`\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [\n\t\t\t\t{\n\t\t\t\t\tprovide: PackagesOutdatedService,\n\t\t\t\t\tuseValue: {\n\t\t\t\t\t\tgetOutdatedPackages: () => of(mockPackages),\n\t\t\t\t\t\tgetLocalPackages: () => of(mockPackages) // Mock getLocalPackages method\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t})\n\t]\n} as Meta"
+        },
+        {
+          "name": "mockPackages",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Packages[]",
+          "defaultValue": "[\n\t{\n\t\tname: 'mock-@angular-devkit/build-angular',\n\t\tcurrent: '17.0.3',\n\t\twanted: '17.0.3',\n\t\tlatest: '18.0.0-beta.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-eslint',\n\t\tcurrent: '8.57.0',\n\t\twanted: '8.57.0',\n\t\tlatest: '9.4.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-ng-packagr',\n\t\tcurrent: '17.3.0',\n\t\twanted: '17.3.0',\n\t\tlatest: '18.0.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-prettier',\n\t\tcurrent: '4.3.2',\n\t\twanted: '4.3.2',\n\t\tlatest: '4.3.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-tslib',\n\t\tcurrent: '2.6.2',\n\t\twanted: '2.6.3',\n\t\tlatest: '2.6.3',\n\t\tversionDiff: '0'\n\t}\n]"
+        }
+      ],
+      "projects/oblique-galaxy/.storybook/preview.ts": [
+        {
+          "name": "preview",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/.storybook/preview.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Preview",
+          "defaultValue": "{\n\tparameters: {\n\t\tcontrols: {\n\t\t\tmatchers: {\n\t\t\t\tcolor: /(background|color)$/i,\n\t\t\t\tdate: /Date$/i\n\t\t\t}\n\t\t}\n\t}\n}"
+        }
+      ]
     },
-    "routes": [],
-    "coverage": {
-        "count": 0,
-        "status": "low",
-        "files": [
-            {
-                "filePath": "projects/oblique-galaxy/.storybook/preview.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "preview",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "mockPackages",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            }
-        ]
+    "groupedFunctions": {},
+    "groupedEnumerations": {},
+    "groupedTypeAliases": {
+      "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<ObgObliqueGalaxyComponent>",
+          "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
+      "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<TextareaInputComponent>",
+          "file": "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
+      "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<ObgPackagesOutdatedComponent>",
+          "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ]
     }
+  },
+  "routes": [],
+  "coverage": {
+    "count": 0,
+    "status": "low",
+    "files": [
+      {
+        "filePath": "projects/oblique-galaxy/.storybook/preview.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "preview",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "mockPackages",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      }
+    ]
+  }
 }
