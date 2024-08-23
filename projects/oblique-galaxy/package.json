@@ -13,7 +13,10 @@
   "peerDependencies": {
     "@angular/common": "^17.3.10",
     "@angular/core": "^17.3.10",
-    "@oblique/oblique": "^11.1.3"
+    "@oblique/oblique": "^11.1.3",
+    "flatten-anything": "^3.0.5",
+    "ngx-papaparse": "^8.0.0",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
   },
   "dependencies": {
     "tslib": "^2.6.2"
