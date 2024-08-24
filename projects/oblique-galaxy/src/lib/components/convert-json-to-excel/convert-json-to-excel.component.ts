@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {ObButtonModule} from '@oblique/oblique';
 import {MatLabel, MatOption, MatSelect} from '@angular/material/select';
 import {MatButton, MatButtonModule, MatIconButton} from '@angular/material/button';
@@ -28,7 +28,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 	styleUrl: './convert-json-to-excel.component.scss'
 })
 export class ConvertJsonToExcelComponent {
-	isLoading = false;
+	@Input() btName = 'Export all JSON as Excel';
+	@Input() fileNameOutput = 'output.xlsx';
+	@Input() default = true;
+
 	languages = [
 		{lang: 'Afrikaans', code: 'af'},
 		{lang: 'Albanian', code: 'sq'},
@@ -147,6 +150,6 @@ export class ConvertJsonToExcelComponent {
 	constructor(private readonly jsonToExcel: ConvertJsonToExcelService) {}
 
 	public onClickExportAsExcelFIle(): void {
-		this.jsonToExcel.convertJsonToExcel('test', this.selectedLanguages.value ?? [], this.jsonsPath.value ?? '');
+		this.jsonToExcel.convertJsonToExcel(this.selectedLanguages.value ?? [], this.jsonsPath.value ?? '', this.fileNameOutput);
 	}
 }
