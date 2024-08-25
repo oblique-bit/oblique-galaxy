@@ -1,0 +1,15 @@
+<mat-form-field>
+	<mat-label>Default path to our Json Files</mat-label>
+	<input matInput placeholder="assets/i18n/" type="text" [formControl]="jsonsPath" />
+</mat-form-field>
+<mat-form-field>
+	<mat-label>languages</mat-label>
+	<mat-select multiple [formControl]="selectedLanguages">
+		@for (language of languages; track language) {
+			<mat-option [value]="language.code">
+				{{ language.lang }}
+			</mat-option>
+		}
+	</mat-select>
+</mat-form-field>
+<button mat-button obButton="primary" type="button" (click)="onClickExportAsExcelFIle()">{{ btName }}</button>

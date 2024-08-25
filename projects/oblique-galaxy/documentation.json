@@ -41,6 +41,16 @@
         "defaultValue": "{\n\targTypes: {}\n}"
       },
       {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/translate/convert-json-to-excel/convert-json-to-excel.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "template.bind({})"
+      },
+      {
         "name": "meta",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -89,6 +99,16 @@
         "deprecationMessage": "",
         "type": "Preview",
         "defaultValue": "{\n\tparameters: {\n\t\tcontrols: {\n\t\t\tmatchers: {\n\t\t\t\tcolor: /(background|color)$/i,\n\t\t\t\tdate: /Date$/i\n\t\t\t}\n\t\t}\n\t}\n}"
+      },
+      {
+        "name": "template",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/translate/convert-json-to-excel/convert-json-to-excel.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "StoryFn<ConvertJsonToExcelComponent>",
+        "defaultValue": "(args: Partial<ConvertJsonToExcelComponent>) => ({\n\tprops: {\n\t\t...args,\n\t\tonClickExportAsExcelFIle: () => {\n\t\t\tconst mockService = new ConvertJsonToExcelService();\n\t\t\tmockService.convertJsonToExcel(['en', 'de'], 'mockPath/', 'mockFileName.xlsx');\n\t\t}\n\t}\n})"
       }
     ],
     "functions": [],
@@ -203,6 +223,28 @@
           "deprecationMessage": "",
           "type": "Meta<TextareaInputComponent>",
           "defaultValue": "{\n\ttitle: 'Components/TextareaInput',\n\tcomponent: TextareaInputComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe TextAreaCounter component is a handy tool for developers, displaying the number of characters remaining in a text area (textarea) in real time. Ideal for forms and text entries requiring character limits, it offers an enhanced user experience by providing immediate visual feedback.\n\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [BrowserAnimationsModule, FormsModule, TextareaInputComponent, ReactiveFormsModule, MatFormFieldModule, MatInputModule]\n\t\t})\n\t],\n\targs: {\n\t\tlabel: 'Default Label',\n\t\tplaceholder: 'Enter text here...',\n\t\tdisabled: false,\n\t\tmaxLength: 1000,\n\t\tstyle: 'outline',\n\t\tid: 'textarea-input-default'\n\t}\n} as Meta"
+        }
+      ],
+      "projects/oblique-galaxy/src/lib/components/translate/convert-json-to-excel/convert-json-to-excel.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/translate/convert-json-to-excel/convert-json-to-excel.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "template.bind({})"
+        },
+        {
+          "name": "template",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/translate/convert-json-to-excel/convert-json-to-excel.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "StoryFn<ConvertJsonToExcelComponent>",
+          "defaultValue": "(args: Partial<ConvertJsonToExcelComponent>) => ({\n\tprops: {\n\t\t...args,\n\t\tonClickExportAsExcelFIle: () => {\n\t\t\tconst mockService = new ConvertJsonToExcelService();\n\t\t\tmockService.convertJsonToExcel(['en', 'de'], 'mockPath/', 'mockFileName.xlsx');\n\t\t}\n\t}\n})"
         }
       ],
       "projects/oblique-galaxy/.storybook/preview.ts": [
@@ -343,6 +385,26 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/oblique-galaxy/src/lib/components/translate/convert-json-to-excel/convert-json-to-excel.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/oblique-galaxy/src/lib/components/translate/convert-json-to-excel/convert-json-to-excel.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "template",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
