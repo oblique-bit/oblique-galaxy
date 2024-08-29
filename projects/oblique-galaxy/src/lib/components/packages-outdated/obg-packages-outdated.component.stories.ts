@@ -6,7 +6,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {ObliqueModule} from '@oblique/oblique';
 import {of} from 'rxjs';
-import {Packages} from './packages.model'; // eslint-disable-next-line @typescript-eslint/no-magic-numbers,@typescript-eslint/no-unsafe-assignment
+import {Packages} from './packages.model';
 
 // eslint-disable-next-line @typescript-eslint/no-magic-numbers,@typescript-eslint/no-unsafe-assignment
 const mockPackages: Packages[] = [
@@ -112,6 +112,7 @@ export const Default: Story = {
 		}
 	},
 	args: {
+		defaultPath: 'assets/outdated-report.json',
 		packageStatus: mockPackages
 	}
 };
