@@ -1,4 +1,4 @@
-import {Component, OnInit, inject} from '@angular/core';
+import {Component, Input, OnInit, inject} from '@angular/core';
 import {Packages} from './packages.model';
 import {PackagesOutdatedService} from './packages-outdated.service';
 import {NgClass} from '@angular/common';
@@ -11,11 +11,12 @@ import {NgClass} from '@angular/common';
 	styleUrl: './obg-packages-outdated.component.scss'
 })
 export class ObgPackagesOutdatedComponent implements OnInit {
+	@Input() defaultPath = 'assets/outdated-report.json';
 	packageStatus: Packages[] = [];
 	packagesOutdatedService = inject(PackagesOutdatedService);
 
 	ngOnInit(): void {
-		this.packagesOutdatedService.getLocalPackages().subscribe(data => {
+		this.packagesOutdatedService.getLocalPackages(this.defaultPath).subscribe(data => {
 			this.packageStatus = data.map(localPackage => ({
 				...localPackage
 			}));
