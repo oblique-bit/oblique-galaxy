@@ -15,6 +15,7 @@
     "lint": "npm run format && ng lint && npm run repository-lint",
     "repository-lint": "./scripts/base-folder-lint.sh && ./scripts/codeowner-lint.sh",
     "format": "prettier . --check",
+    "format-write": "prettier . --write",
     "prepare": "husky",
     "commitlint": "commitlint --edit"
   },

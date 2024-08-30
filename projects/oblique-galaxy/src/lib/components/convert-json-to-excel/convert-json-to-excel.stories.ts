@@ -9,7 +9,7 @@ import {ConvertJsonToExcelComponent} from './convert-json-to-excel.component';
 import {ConvertJsonToExcelService} from './convert-json-to-excel.service';
 
 export default {
-	title: 'Components/ConvertJsonToExcel',
+	title: 'Components/NgxTranslateTools/ConvertJsonToExcel',
 	component: ConvertJsonToExcelComponent,
 	tags: ['autodocs'],
 	parameters: {

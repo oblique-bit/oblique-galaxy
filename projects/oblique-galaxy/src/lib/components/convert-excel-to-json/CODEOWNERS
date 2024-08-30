@@ -2,4 +2,4 @@
 * @punix81
 
 # Define owners for specific directories
-/projects/oblique-galaxy/src/lib/components/convert-json-to-excel/ @punix81
+/projects/oblique-galaxy/src/lib/components/convert-excel-to-json/ @punix81
