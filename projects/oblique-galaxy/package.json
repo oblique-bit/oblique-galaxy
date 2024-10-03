@@ -1,6 +1,6 @@
 {
   "name": "oblique-galaxy",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/oblique-bit/oblique-galaxy.git"
@@ -11,9 +11,9 @@
     "test-debugging": "cd ../.. && node --expose-gc ../../node_modules/@angular/cli/bin/ng test oblique-galaxy --log-heap-usage"
   },
   "peerDependencies": {
-    "@angular/common": "^17.3.10",
-    "@angular/core": "^17.3.10",
-    "@oblique/oblique": "^11.3.3",
+    "@angular/common": "^17.3.10 || ^18.2.7",
+    "@angular/core": "^17.3.10  || ^18.2.7",
+    "@oblique/oblique": "^11.3.3  || ^12.0.0",
     "flatten-anything": "^3.0.5",
     "ngx-papaparse": "^8.0.0",
     "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
