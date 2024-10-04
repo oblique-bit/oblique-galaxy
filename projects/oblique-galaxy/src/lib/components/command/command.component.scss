@@ -1,0 +1,16 @@
+@use "@oblique/oblique/styles/scss/core/variables";
+
+code {
+	cursor: pointer;
+}
+
+.mat-icon {
+	width: 0;
+	transition: width variables.$ob-duration-fast;
+	margin-left: variables.$ob-spacing-xs;
+	vertical-align: center;
+
+	:host:hover & {
+		width: 14px;
+	}
+}

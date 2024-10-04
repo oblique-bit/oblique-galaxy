@@ -6,3 +6,4 @@ export * from './lib/components/packages-outdated/obg-packages-outdated.componen
 export * from './lib/components/textarea-input/textarea-input.component';
 export * from './lib/components/convert-json-to-excel/convert-json-to-excel.component';
 export * from './lib/components/convert-excel-to-json/convert-excel-to-json.component';
+export * from './lib/components/command/command.component';
