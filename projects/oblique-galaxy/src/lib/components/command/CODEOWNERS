@@ -1,0 +1,5 @@
+# Define owners for the entire repository
+* @gillerr
+
+# Define owners for specific directories
+/projects/oblique-galaxy/src/lib/components/command/ @gillerr

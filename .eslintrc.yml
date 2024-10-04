@@ -187,3 +187,4 @@ overrides:
       # deactivate unwanted rules
       "@angular-eslint/template/i18n": off
       "@angular-eslint/template/use-track-by-function": off
+      "@angular-eslint/template/no-call-expression": off

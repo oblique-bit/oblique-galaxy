@@ -14,6 +14,16 @@
         "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/command/command.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n\trender: () => ({\n\t\ttemplate: `<obg-command>a text to be copied to Clipboard</obg-command>`\n\t})\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "projects/oblique-galaxy/src/lib/components/convert-excel-to-json/convert-excel-to-json.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -28,7 +38,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n\targs: {\n\t\tgridData\n\t}\n}"
+        "defaultValue": "{\n\targs: {\n\t\tgridData,\n\t\tshowGridHeader,\n\t\tgridDataChange: (gridDataTmp: GridData<string>) => {\n\t\t\tconsole.warn('Grid data changed:', gridDataTmp);\n\t\t}\n\t}\n}"
       },
       {
         "name": "Default",
@@ -84,11 +94,21 @@
         "name": "meta",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/command/command.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<CommandComponent>",
+        "defaultValue": "{\n\ttitle: 'Components/Command',\n\tcomponent: CommandComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/gillerr).\n\nThe Command component is a CopyToClipboard designed to provide a simple functionality for copying text to the clipboard. It allows users to copy either projected content or text provided through an input into their clipboard with a single click. The component integrates Angular Material and CDK to enhance the user experience, particularly through the use of icons, tooltips, and animations.\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [BrowserAnimationsModule, MatIconModule, MatTooltipModule, ObIconModule.forRoot(), CommandComponent]\n\t\t})\n\t]\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "projects/oblique-galaxy/src/lib/components/grid-drag-and-drop/grid-drag-and-drop.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<ObgGridDragAndDropComponent<string>>",
-        "defaultValue": "{\n\ttitle: 'Components/GridDragAndDrop',\n\tcomponent: ObgGridDragAndDropComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThis component uses the \"npm outdated\" command to display the current status of your project's dependencies in table form. It informs you of available versions that may include bug fixes, performance enhancements or new features.\n\n## Configuration\nAdd a script to run the \"npm outdate\" command in your \\`package.json\\` file\n\n\\`\\`\\`json\n\"scripts\": {\n  \"check-updates\": \"npm outdated --json > [YOUR_PATH]/outdated-report.json || true\"\n}\n\\`\\`\\`\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgGridDragAndDropComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n}"
+        "defaultValue": "{\n\ttitle: 'Components/GridDragAndDrop',\n\tcomponent: ObgGridDragAndDropComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe ObgGridDragAndDropComponent is a standalone Angular component that allows creating an interactive grid with drag-and-drop functionality. It uses Angular CDK's drag-and-drop modules to enable users to rearrange items within the grid.\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgGridDragAndDropComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n}"
       },
       {
         "name": "meta",
@@ -141,6 +161,16 @@
         "defaultValue": "{\n\tparameters: {\n\t\tcontrols: {\n\t\t\tmatchers: {\n\t\t\t\tcolor: /(background|color)$/i,\n\t\t\t\tdate: /Date$/i\n\t\t\t}\n\t\t}\n\t}\n}"
       },
       {
+        "name": "showGridHeader",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/grid-drag-and-drop/grid-drag-and-drop.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "true"
+      },
+      {
         "name": "template",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -163,6 +193,17 @@
     ],
     "functions": [],
     "typealiases": [
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<CommandComponent>",
+        "file": "projects/oblique-galaxy/src/lib/components/command/command.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
       {
         "name": "Story",
         "ctype": "miscellaneous",
@@ -210,6 +251,28 @@
     ],
     "enumerations": [],
     "groupedVariables": {
+      "projects/oblique-galaxy/src/lib/components/command/command.component.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/command/command.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n\trender: () => ({\n\t\ttemplate: `<obg-command>a text to be copied to Clipboard</obg-command>`\n\t})\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/command/command.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<CommandComponent>",
+          "defaultValue": "{\n\ttitle: 'Components/Command',\n\tcomponent: CommandComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/gillerr).\n\nThe Command component is a CopyToClipboard designed to provide a simple functionality for copying text to the clipboard. It allows users to copy either projected content or text provided through an input into their clipboard with a single click. The component integrates Angular Material and CDK to enhance the user experience, particularly through the use of icons, tooltips, and animations.\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [BrowserAnimationsModule, MatIconModule, MatTooltipModule, ObIconModule.forRoot(), CommandComponent]\n\t\t})\n\t]\n}"
+        }
+      ],
       "projects/oblique-galaxy/src/lib/components/convert-excel-to-json/convert-excel-to-json.stories.ts": [
         {
           "name": "Default",
@@ -241,7 +304,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n\targs: {\n\t\tgridData\n\t}\n}"
+          "defaultValue": "{\n\targs: {\n\t\tgridData,\n\t\tshowGridHeader,\n\t\tgridDataChange: (gridDataTmp: GridData<string>) => {\n\t\t\tconsole.warn('Grid data changed:', gridDataTmp);\n\t\t}\n\t}\n}"
         },
         {
           "name": "gridData",
@@ -261,7 +324,17 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<ObgGridDragAndDropComponent<string>>",
-          "defaultValue": "{\n\ttitle: 'Components/GridDragAndDrop',\n\tcomponent: ObgGridDragAndDropComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThis component uses the \"npm outdated\" command to display the current status of your project's dependencies in table form. It informs you of available versions that may include bug fixes, performance enhancements or new features.\n\n## Configuration\nAdd a script to run the \"npm outdate\" command in your \\`package.json\\` file\n\n\\`\\`\\`json\n\"scripts\": {\n  \"check-updates\": \"npm outdated --json > [YOUR_PATH]/outdated-report.json || true\"\n}\n\\`\\`\\`\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgGridDragAndDropComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n}"
+          "defaultValue": "{\n\ttitle: 'Components/GridDragAndDrop',\n\tcomponent: ObgGridDragAndDropComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe ObgGridDragAndDropComponent is a standalone Angular component that allows creating an interactive grid with drag-and-drop functionality. It uses Angular CDK's drag-and-drop modules to enable users to rearrange items within the grid.\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgGridDragAndDropComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n}"
+        },
+        {
+          "name": "showGridHeader",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/grid-drag-and-drop/grid-drag-and-drop.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "true"
         }
       ],
       "projects/oblique-galaxy/src/lib/components/convert-json-to-excel/convert-json-to-excel.stories.ts": [
@@ -378,6 +451,19 @@
     "groupedFunctions": {},
     "groupedEnumerations": {},
     "groupedTypeAliases": {
+      "projects/oblique-galaxy/src/lib/components/command/command.component.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<CommandComponent>",
+          "file": "projects/oblique-galaxy/src/lib/components/command/command.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
       "projects/oblique-galaxy/src/lib/components/grid-drag-and-drop/grid-drag-and-drop.stories.ts": [
         {
           "name": "Story",
@@ -448,6 +534,26 @@
         "status": "low"
       },
       {
+        "filePath": "projects/oblique-galaxy/src/lib/components/command/command.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/oblique-galaxy/src/lib/components/command/command.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
         "filePath": "projects/oblique-galaxy/src/lib/components/convert-excel-to-json/convert-excel-to-json.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
@@ -513,6 +619,16 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/oblique-galaxy/src/lib/components/grid-drag-and-drop/grid-drag-and-drop.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "showGridHeader",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
