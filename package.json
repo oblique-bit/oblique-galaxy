@@ -12,7 +12,7 @@
     "watch": "ng build --watch --configuration development",
     "check-updates": "npm outdated --json > projects/oblique-galaxy/src/lib/outdated-report.json || true",
     "test": "ng test oblique-galaxy",
-    "lint": "npm run format && ng lint && npm run repository-lint",
+    "lint": "npm run format-write && ng lint && npm run repository-lint",
     "repository-lint": "./scripts/base-folder-lint.sh && ./scripts/codeowner-lint.sh",
     "format": "prettier . --check",
     "format-write": "prettier . --write",

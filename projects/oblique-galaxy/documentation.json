@@ -6,7 +6,129 @@
   "interceptors": [],
   "classes": [],
   "directives": [],
-  "components": [],
+  "components": [
+    {
+      "name": "SnackBarButtonComponent",
+      "id": "component-SnackBarButtonComponent-7caa6f062e84ca6d22cf3e6e9cc87862121fb5a2d141fd1e2ae5cd0aa47a82e4a58d7b96495fb264709d46cc95b1a130b38c3cc754384989a4d635135fe2fd07",
+      "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
+      "encapsulation": [],
+      "entryComponents": [],
+      "inputs": [],
+      "outputs": [],
+      "providers": [],
+      "selector": "app-snack-bar-button",
+      "styleUrls": [],
+      "styles": [],
+      "template": "<button type=\"button\" mat-button obButton=\"primary\" (click)=\"openSnackBar()\">Ouvrir SnackBar</button>",
+      "templateUrl": [],
+      "viewProviders": [],
+      "hostDirectives": [],
+      "inputsClass": [
+        {
+          "name": "duration",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 20,
+          "type": "number",
+          "decorators": []
+        },
+        {
+          "name": "horizontalPosition",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 21,
+          "type": "MatSnackBarHorizontalPosition",
+          "decorators": []
+        },
+        {
+          "name": "message",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 18,
+          "type": "string",
+          "decorators": []
+        },
+        {
+          "name": "typeAlert",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 19,
+          "type": "ObIAlertType",
+          "decorators": []
+        },
+        {
+          "name": "verticalPosition",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 22,
+          "type": "MatSnackBarVerticalPosition",
+          "decorators": []
+        }
+      ],
+      "outputsClass": [],
+      "propertiesClass": [],
+      "methodsClass": [
+        {
+          "name": "openSnackBar",
+          "args": [],
+          "optional": false,
+          "returnType": "void",
+          "typeParameters": [],
+          "line": 26,
+          "deprecated": false,
+          "deprecationMessage": ""
+        }
+      ],
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "standalone": true,
+      "imports": [
+        {
+          "name": "MatButton"
+        },
+        {
+          "name": "ObButtonDirective",
+          "type": "directive"
+        }
+      ],
+      "description": "",
+      "rawdescription": "\n",
+      "type": "component",
+      "sourceCode": "import {Meta, StoryObj, moduleMetadata} from '@storybook/angular';\nimport {MAT_SNACK_BAR_DATA, MatSnackBarHorizontalPosition, MatSnackBarModule, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';\nimport {BrowserAnimationsModule} from '@angular/platform-browser/animations';\nimport {MatButton, MatButtonModule} from '@angular/material/button';\nimport {ObgSnackBarService} from './obg-snack-bar.service';\nimport {ObButtonDirective, ObIAlertType} from '@oblique/oblique';\nimport {Component, Input} from '@angular/core';\nimport {TranslateModule} from '@ngx-translate/core';\nimport {HttpClientTestingModule} from '@angular/common/http/testing';\n\n@Component({\n\tselector: 'app-snack-bar-button',\n\tstandalone: true,\n\timports: [MatButton, ObButtonDirective],\n\ttemplate: ` <button type=\"button\" mat-button obButton=\"primary\" (click)=\"openSnackBar()\">Ouvrir SnackBar</button>`\n})\nexport class SnackBarButtonComponent {\n\t@Input() message!: string;\n\t@Input() typeAlert!: ObIAlertType;\n\t@Input() duration!: number;\n\t@Input() horizontalPosition!: MatSnackBarHorizontalPosition;\n\t@Input() verticalPosition!: MatSnackBarVerticalPosition;\n\n\tconstructor(private readonly snackBarService: ObgSnackBarService) {}\n\n\topenSnackBar(): void {\n\t\tthis.snackBarService.openObgSnackBar(this.message, this.typeAlert, this.duration, this.horizontalPosition, this.verticalPosition);\n\t}\n}\n\nconst meta: Meta<ObgSnackBarService> = {\n\ttitle: 'Services/ObgSnackBar',\n\tcomponent: ObgSnackBarService,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nCe composant a été créé par [@punix81](https://github.com/punix81).\n\nLe composant ObgSnackBar est un outil pratique pour les développeurs, affichant des messages d'alerte temporaires à l'utilisateur. Il améliore l'expérience utilisateur en fournissant des retours visuels immédiats.\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [MatSnackBarModule, BrowserAnimationsModule, MatButtonModule, SnackBarButtonComponent, TranslateModule.forRoot(), HttpClientTestingModule],\n\t\t\tproviders: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}]\n\t\t})\n\t],\n\targTypes: {\n\t\tmessage: {control: 'text'},\n\t\ttypeAlert: {control: 'select', options: ['success', 'info', 'warning', 'error']},\n\t\tduration: {control: 'number'},\n\t\thorizontalPosition: {control: 'select', options: ['start', 'center', 'end', 'left', 'right']},\n\t\tverticalPosition: {control: 'select', options: ['top', 'bottom']}\n\t}\n} as Meta;\n\nexport default meta;\ntype Story = StoryObj<ObgSnackBarService>;\n\n// eslint-disable-next-line @typescript-eslint/naming-convention\nexport const Default: Story = {\n\trender: args => ({\n\t\tprops: {\n\t\t\t...args\n\t\t},\n\t\ttemplate: `<app-snack-bar-button [message]=\"message\" [typeAlert]=\"typeAlert\" [duration]=\"duration\" [horizontalPosition]=\"horizontalPosition\" [verticalPosition]=\"verticalPosition\"></app-snack-bar-button>`\n\t})\n};\n",
+      "assetsDirs": [],
+      "styleUrlsData": "",
+      "stylesData": "",
+      "constructorObj": {
+        "name": "constructor",
+        "description": "",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "args": [
+          {
+            "name": "snackBarService",
+            "type": "ObgSnackBarService",
+            "deprecated": false,
+            "deprecationMessage": ""
+          }
+        ],
+        "line": 22,
+        "jsdoctags": [
+          {
+            "name": "snackBarService",
+            "type": "ObgSnackBarService",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "tagName": {
+              "text": "param"
+            }
+          }
+        ]
+      },
+      "extends": []
+    }
+  ],
   "modules": [],
   "miscellaneous": {
     "variables": [
@@ -18,7 +140,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n\trender: () => ({\n\t\ttemplate: `<obg-command>a text to be copied to Clipboard</obg-command>`\n\t})\n}"
+        "defaultValue": "{\n\trender: () => ({\n\t\ttemplate: `<obg-command>a text to copy to the clipboard</obg-command>`\n\t})\n}"
       },
       {
         "name": "Default",
@@ -34,21 +156,21 @@
         "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/oblique-galaxy/src/lib/components/grid-drag-and-drop/grid-drag-and-drop.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\n\targs: {\n\t\tgridData,\n\t\tshowGridHeader,\n\t\tgridDataChange: (gridDataTmp: GridData<string>) => {\n\t\t\tconsole.warn('Grid data changed:', gridDataTmp);\n\t\t}\n\t}\n}"
-      },
-      {
-        "name": "Default",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "projects/oblique-galaxy/src/lib/components/convert-json-to-excel/convert-json-to-excel.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
         "defaultValue": "template.bind({})"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/grid-drag-and-drop/grid-drag-and-drop.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n\targs: {\n\t\tgridData,\n\t\tshowGridHeader,\n\t\tgridDataChange: (gridDataTmp: GridData<string>) => {\n\t\t\tconsole.warn('Grid data changed:', gridDataTmp);\n\t\t}\n\t}\n}"
       },
       {
         "name": "Default",
@@ -69,6 +191,16 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n\targTypes: {\n\t\tpackageStatus: {\n\t\t\tdescription: 'Array of package status',\n\t\t\ttable: {\n\t\t\t\ttype: {\n\t\t\t\t\tsummary: 'Packages[]',\n\t\t\t\t\tdetail: `Array of Packages objects. Each object has the following properties:\n          - name: string\n          - current: string\n          - wanted: string\n          - latest: string\n          - versionDiff: string`\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\targs: {\n\t\tdefaultPath: 'assets/outdated-report.json',\n\t\tpackageStatus: mockPackages\n\t}\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n\trender: args => ({\n\t\tprops: {\n\t\t\t...args\n\t\t},\n\t\ttemplate: `<app-snack-bar-button [message]=\"message\" [typeAlert]=\"typeAlert\" [duration]=\"duration\" [horizontalPosition]=\"horizontalPosition\" [verticalPosition]=\"verticalPosition\"></app-snack-bar-button>`\n\t})\n}"
       },
       {
         "name": "Default",
@@ -98,7 +230,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<CommandComponent>",
-        "defaultValue": "{\n\ttitle: 'Components/Command',\n\tcomponent: CommandComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/gillerr).\n\nThe Command component is a CopyToClipboard designed to provide a simple functionality for copying text to the clipboard. It allows users to copy either projected content or text provided through an input into their clipboard with a single click. The component integrates Angular Material and CDK to enhance the user experience, particularly through the use of icons, tooltips, and animations.\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [BrowserAnimationsModule, MatIconModule, MatTooltipModule, ObIconModule.forRoot(), CommandComponent]\n\t\t})\n\t]\n}"
+        "defaultValue": "{\n\ttitle: 'Components/Command',\n\tcomponent: CommandComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@gillerr](https://github.com/gillerr).\n\nThe Command component is a CopyToClipboard designed to provide a simple functionality for copying text to the clipboard. It allows users to copy either projected content or text provided through an input into their clipboard with a single click. The component integrates Angular Material and CDK to enhance the user experience, particularly through the use of icons, tooltips, and animations.\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [BrowserAnimationsModule, MatIconModule, MatTooltipModule, ObIconModule.forRoot(), CommandComponent]\n\t\t})\n\t]\n}"
       },
       {
         "name": "meta",
@@ -129,6 +261,16 @@
         "deprecationMessage": "",
         "type": "Meta<ObgPackagesOutdatedComponent>",
         "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThis component uses the \"npm outdated\" command to display the current status of your project's dependencies in table form. It informs you of available versions that may include bug fixes, performance enhancements or new features.\n\n## Configuration\nAdd a script to run the \"npm outdate\" command in your  \\`package.json\\` file\n\n\n\n\\`\\`\\`json\n\"scripts\": {\n  \"check-updates\": \"npm outdated --json > [YOUR_PATH]/outdated-report.json || true\"\n}\n\\`\\`\\`\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [\n\t\t\t\t{\n\t\t\t\t\tprovide: PackagesOutdatedService,\n\t\t\t\t\tuseValue: {\n\t\t\t\t\t\tgetOutdatedPackages: () => of(mockPackages),\n\t\t\t\t\t\tgetLocalPackages: () => of(mockPackages) // Mock getLocalPackages method\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t})\n\t]\n} as Meta"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<ObgSnackBarService>",
+        "defaultValue": "{\n\ttitle: 'Services/ObgSnackBar',\n\tcomponent: ObgSnackBarService,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nCe composant a été créé par [@punix81](https://github.com/punix81).\n\nLe composant ObgSnackBar est un outil pratique pour les développeurs, affichant des messages d'alerte temporaires à l'utilisateur. Il améliore l'expérience utilisateur en fournissant des retours visuels immédiats.\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [MatSnackBarModule, BrowserAnimationsModule, MatButtonModule, SnackBarButtonComponent, TranslateModule.forRoot(), HttpClientTestingModule],\n\t\t\tproviders: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}]\n\t\t})\n\t],\n\targTypes: {\n\t\tmessage: {control: 'text'},\n\t\ttypeAlert: {control: 'select', options: ['success', 'info', 'warning', 'error']},\n\t\tduration: {control: 'number'},\n\t\thorizontalPosition: {control: 'select', options: ['start', 'center', 'end', 'left', 'right']},\n\t\tverticalPosition: {control: 'select', options: ['top', 'bottom']}\n\t}\n} as Meta"
       },
       {
         "name": "meta",
@@ -241,6 +383,17 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
+        "rawtype": "StoryObj<ObgSnackBarService>",
+        "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
         "rawtype": "StoryObj<TextareaInputComponent>",
         "file": "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts",
         "deprecated": false,
@@ -260,7 +413,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n\trender: () => ({\n\t\ttemplate: `<obg-command>a text to be copied to Clipboard</obg-command>`\n\t})\n}"
+          "defaultValue": "{\n\trender: () => ({\n\t\ttemplate: `<obg-command>a text to copy to the clipboard</obg-command>`\n\t})\n}"
         },
         {
           "name": "meta",
@@ -270,7 +423,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<CommandComponent>",
-          "defaultValue": "{\n\ttitle: 'Components/Command',\n\tcomponent: CommandComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/gillerr).\n\nThe Command component is a CopyToClipboard designed to provide a simple functionality for copying text to the clipboard. It allows users to copy either projected content or text provided through an input into their clipboard with a single click. The component integrates Angular Material and CDK to enhance the user experience, particularly through the use of icons, tooltips, and animations.\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [BrowserAnimationsModule, MatIconModule, MatTooltipModule, ObIconModule.forRoot(), CommandComponent]\n\t\t})\n\t]\n}"
+          "defaultValue": "{\n\ttitle: 'Components/Command',\n\tcomponent: CommandComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@gillerr](https://github.com/gillerr).\n\nThe Command component is a CopyToClipboard designed to provide a simple functionality for copying text to the clipboard. It allows users to copy either projected content or text provided through an input into their clipboard with a single click. The component integrates Angular Material and CDK to enhance the user experience, particularly through the use of icons, tooltips, and animations.\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [BrowserAnimationsModule, MatIconModule, MatTooltipModule, ObIconModule.forRoot(), CommandComponent]\n\t\t})\n\t]\n}"
         }
       ],
       "projects/oblique-galaxy/src/lib/components/convert-excel-to-json/convert-excel-to-json.stories.ts": [
@@ -293,6 +446,28 @@
           "deprecationMessage": "",
           "type": "StoryFn<ConvertExcelToJsonComponent>",
           "defaultValue": "(args: Partial<ConvertExcelToJsonService>) => ({\n\tprops: {\n\t\t...args\n\t}\n})"
+        }
+      ],
+      "projects/oblique-galaxy/src/lib/components/convert-json-to-excel/convert-json-to-excel.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/convert-json-to-excel/convert-json-to-excel.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "template.bind({})"
+        },
+        {
+          "name": "template",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/convert-json-to-excel/convert-json-to-excel.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "StoryFn<ConvertJsonToExcelComponent>",
+          "defaultValue": "(args: Partial<ConvertJsonToExcelComponent>) => ({\n\tprops: {\n\t\t...args,\n\t\tonClickExportAsExcelFIle: () => {\n\t\t\tconst mockService = new ConvertJsonToExcelService();\n\t\t\tmockService.convertJsonToExcel(['en', 'de'], 'mockPath/', 'mockFileName.xlsx');\n\t\t}\n\t}\n})"
         }
       ],
       "projects/oblique-galaxy/src/lib/components/grid-drag-and-drop/grid-drag-and-drop.stories.ts": [
@@ -335,28 +510,6 @@
           "deprecationMessage": "",
           "type": "",
           "defaultValue": "true"
-        }
-      ],
-      "projects/oblique-galaxy/src/lib/components/convert-json-to-excel/convert-json-to-excel.stories.ts": [
-        {
-          "name": "Default",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/oblique-galaxy/src/lib/components/convert-json-to-excel/convert-json-to-excel.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "",
-          "defaultValue": "template.bind({})"
-        },
-        {
-          "name": "template",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/oblique-galaxy/src/lib/components/convert-json-to-excel/convert-json-to-excel.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "StoryFn<ConvertJsonToExcelComponent>",
-          "defaultValue": "(args: Partial<ConvertJsonToExcelComponent>) => ({\n\tprops: {\n\t\t...args,\n\t\tonClickExportAsExcelFIle: () => {\n\t\t\tconst mockService = new ConvertJsonToExcelService();\n\t\t\tmockService.convertJsonToExcel(['en', 'de'], 'mockPath/', 'mockFileName.xlsx');\n\t\t}\n\t}\n})"
         }
       ],
       "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts": [
@@ -411,6 +564,28 @@
           "deprecationMessage": "",
           "type": "Packages[]",
           "defaultValue": "[\n\t{\n\t\tname: 'mock-@angular-devkit/build-angular',\n\t\tcurrent: '17.0.3',\n\t\twanted: '17.0.3',\n\t\tlatest: '18.0.0-beta.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-eslint',\n\t\tcurrent: '8.57.0',\n\t\twanted: '8.57.0',\n\t\tlatest: '9.4.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-ng-packagr',\n\t\tcurrent: '17.3.0',\n\t\twanted: '17.3.0',\n\t\tlatest: '18.0.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-prettier',\n\t\tcurrent: '4.3.2',\n\t\twanted: '4.3.2',\n\t\tlatest: '4.3.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-tslib',\n\t\tcurrent: '2.6.2',\n\t\twanted: '2.6.3',\n\t\tlatest: '2.6.3',\n\t\tversionDiff: '0'\n\t}\n]"
+        }
+      ],
+      "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n\trender: args => ({\n\t\tprops: {\n\t\t\t...args\n\t\t},\n\t\ttemplate: `<app-snack-bar-button [message]=\"message\" [typeAlert]=\"typeAlert\" [duration]=\"duration\" [horizontalPosition]=\"horizontalPosition\" [verticalPosition]=\"verticalPosition\"></app-snack-bar-button>`\n\t})\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<ObgSnackBarService>",
+          "defaultValue": "{\n\ttitle: 'Services/ObgSnackBar',\n\tcomponent: ObgSnackBarService,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nCe composant a été créé par [@punix81](https://github.com/punix81).\n\nLe composant ObgSnackBar est un outil pratique pour les développeurs, affichant des messages d'alerte temporaires à l'utilisateur. Il améliore l'expérience utilisateur en fournissant des retours visuels immédiats.\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [MatSnackBarModule, BrowserAnimationsModule, MatButtonModule, SnackBarButtonComponent, TranslateModule.forRoot(), HttpClientTestingModule],\n\t\t\tproviders: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}]\n\t\t})\n\t],\n\targTypes: {\n\t\tmessage: {control: 'text'},\n\t\ttypeAlert: {control: 'select', options: ['success', 'info', 'warning', 'error']},\n\t\tduration: {control: 'number'},\n\t\thorizontalPosition: {control: 'select', options: ['start', 'center', 'end', 'left', 'right']},\n\t\tverticalPosition: {control: 'select', options: ['top', 'bottom']}\n\t}\n} as Meta"
         }
       ],
       "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts": [
@@ -497,6 +672,19 @@
           "subtype": "typealias",
           "rawtype": "StoryObj<ObgPackagesOutdatedComponent>",
           "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
+      "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<ObgSnackBarService>",
+          "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -679,6 +867,35 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "mockPackages",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "SnackBarButtonComponent",
+        "coveragePercent": 0,
+        "coverageCount": "0/8",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
