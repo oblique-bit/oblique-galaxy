@@ -16,11 +16,11 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 	template: ` <button type="button" mat-button obButton="primary" (click)="openSnackBar()">Ouvrir SnackBar</button>`
 })
 export class SnackBarButtonComponent {
-	@Input() message!: string;
-	@Input() typeAlert!: ObIAlertType;
-	@Input() duration!: number;
-	@Input() horizontalPosition!: MatSnackBarHorizontalPosition;
-	@Input() verticalPosition!: MatSnackBarVerticalPosition;
+	@Input() message = 'Message par défaut';
+	@Input() typeAlert: ObIAlertType = 'warning';
+	@Input() duration = 3000;
+	@Input() horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+	@Input() verticalPosition: MatSnackBarVerticalPosition = 'top';
 
 	constructor(private readonly snackBarService: ObgSnackBarService) {}
 
@@ -68,6 +68,13 @@ Here’s an example that shows how to integrate the ObgSnackBarService into an A
 			providers: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}]
 		})
 	],
+	args: {
+		message: 'Your alert message here',
+		typeAlert: 'warning',
+		duration: 3000,
+		horizontalPosition: 'center',
+		verticalPosition: 'top'
+	},
 	argTypes: {
 		message: {control: 'text'},
 		typeAlert: {control: 'select', options: ['success', 'info', 'warning', 'error']},
