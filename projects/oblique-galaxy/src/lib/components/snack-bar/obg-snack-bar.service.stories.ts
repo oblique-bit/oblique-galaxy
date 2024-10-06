@@ -37,9 +37,27 @@ const meta: Meta<ObgSnackBarService> = {
 		docs: {
 			description: {
 				component: `
-Ce composant a été créé par [@punix81](https://github.com/punix81).
+This component has been created by [@punix81](https://github.com/punix81).
 
-Le composant ObgSnackBar est un outil pratique pour les développeurs, affichant des messages d'alerte temporaires à l'utilisateur. Il améliore l'expérience utilisateur en fournissant des retours visuels immédiats.
+The ObgSnackBarService is an Angular service based on the Angular Material SnackBar component. It allows you to display customizable snack-bar notifications using MatSnackBar, while incorporating alert elements based on the obAlert component, which can be found in the official Oblique documentation.
+
+Key Features:
+Fully Customizable: You can customize the content of the SnackBar with messages and alert types (ObIAlertType), using the obAlert configuration provided by Oblique.
+Configurable Position: The service allows you to configure the position of the SnackBar on the screen, both horizontally (start, center, end, left, right) and vertically (top, bottom).
+Customizable Duration: You can adjust the display duration of the SnackBar according to your needs.
+Example of Integration in a TypeScript Page
+Here’s an example that shows how to integrate the ObgSnackBarService into an Angular page or component:
+
+
+    // Open a customized SnackBar
+    this.snackBarService.openObgSnackBar(
+      message,
+      alertType,
+      duration,
+      horizontalPosition,
+      verticalPosition
+    );
+
 `
 			}
 		}
