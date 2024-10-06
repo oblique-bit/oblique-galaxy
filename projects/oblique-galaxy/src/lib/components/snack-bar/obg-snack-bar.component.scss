@@ -1,0 +1,14 @@
+@import "@oblique/oblique/styles/scss/core/palette";
+
+.mdc-snackbar__label {
+	padding: 0 !important;
+}
+
+.mdc-snackbar__surface {
+	padding-right: 0 !important;
+
+	.ob-alert.ob-angular {
+		margin-bottom: 0 !important;
+		color: $ob-secondary-800;
+	}
+}
