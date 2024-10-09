@@ -23,6 +23,7 @@ export class ObgGridDragAndDropComponent<T> implements OnInit {
 	rows = 0;
 	columnTitles: string[] = [];
 	grid: T[][][] = [];
+	// eslint-disable-next-line @typescript-eslint/no-deprecated
 	protected readonly of = of;
 
 	ngOnInit(): void {

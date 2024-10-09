@@ -7,8 +7,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {Meta, StoryFn, moduleMetadata} from '@storybook/angular';
 import {ConvertExcelToJsonComponent} from './convert-excel-to-json.component';
 import {ConvertExcelToJsonService} from './convert-excel-to-json.service';
-import {HttpClientModule} from '@angular/common/http';
 import {TranslateModule} from '@ngx-translate/core';
+import {HttpClientModule} from '@angular/common/http';
 
 export default {
 	title: 'Components/NgxTranslateTools/ConvertExcelToJson',

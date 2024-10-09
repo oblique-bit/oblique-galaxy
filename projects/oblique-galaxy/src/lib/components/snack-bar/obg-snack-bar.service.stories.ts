@@ -6,7 +6,7 @@ import {ObgSnackBarService} from './obg-snack-bar.service';
 import {ObButtonDirective, ObIAlertType} from '@oblique/oblique';
 import {Component, Input} from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {provideHttpClientTesting} from '@angular/common/http/testing';
 
 @Component({
 	selector: 'app-snack-bar-button',
@@ -64,8 +64,8 @@ Here’s an example that shows how to integrate the ObgSnackBarService into an A
 	},
 	decorators: [
 		moduleMetadata({
-			imports: [MatSnackBarModule, BrowserAnimationsModule, MatButtonModule, SnackBarButtonComponent, TranslateModule.forRoot(), HttpClientTestingModule],
-			providers: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}]
+			imports: [MatSnackBarModule, BrowserAnimationsModule, MatButtonModule, SnackBarButtonComponent, TranslateModule.forRoot()],
+			providers: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}, provideHttpClientTesting()]
 		})
 	],
 	args: {

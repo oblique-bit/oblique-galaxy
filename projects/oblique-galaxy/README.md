@@ -12,6 +12,15 @@ Check out our [Storybook](https://oblique-bit.github.io/oblique-galaxy) for live
  ng run oblique-galaxy:storybook
 ```
 
+## Compatibility
+
+Choose the version corresponding to your Angular version:
+
+| Angular | @oblique/oblique | oblique-galaxy |
+| ------- | ---------------- | -------------- |
+| >= 18   | 12.x+            | >= 2.x+        |
+| 17      | 11               | 1.x+           |
+
 # Contribution rules
 
 - Fork the project and then create a PR from the forked project.

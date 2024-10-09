@@ -1,6 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 import {PackagesOutdatedService} from './packages-outdated.service';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
+import {HttpTestingController, provideHttpClientTesting} from '@angular/common/http/testing';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('PackagesOutdatedService', () => {
 	let service: PackagesOutdatedService;
@@ -8,8 +9,8 @@ describe('PackagesOutdatedService', () => {
 
 	beforeEach(() => {
 		TestBed.configureTestingModule({
-			imports: [HttpClientTestingModule],
-			providers: [PackagesOutdatedService]
+			imports: [],
+			providers: [PackagesOutdatedService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 		});
 
 		service = TestBed.inject(PackagesOutdatedService);
@@ -31,6 +32,7 @@ describe('PackagesOutdatedService', () => {
 			{name: 'test2', current: '2.0.0', wanted: '2.0.0', latest: '2.0.0'}
 		];
 
+		// eslint-disable-next-line @typescript-eslint/no-deprecated
 		service.getLocalPackages('mockPath').subscribe(
 			packages => {
 				expect(packages).toEqual(expectedPackages);

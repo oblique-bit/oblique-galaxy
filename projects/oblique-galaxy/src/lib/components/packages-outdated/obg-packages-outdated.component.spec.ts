@@ -1,9 +1,10 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ObgPackagesOutdatedComponent} from './obg-packages-outdated.component';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {provideHttpClientTesting} from '@angular/common/http/testing';
 import {PackagesOutdatedService} from './packages-outdated.service';
 import {of} from 'rxjs';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('ObgPackagesOutdatedComponent', () => {
 	let component: ObgPackagesOutdatedComponent;
@@ -12,8 +13,8 @@ describe('ObgPackagesOutdatedComponent', () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			imports: [HttpClientTestingModule, ObgPackagesOutdatedComponent],
-			providers: [PackagesOutdatedService]
+			imports: [ObgPackagesOutdatedComponent],
+			providers: [PackagesOutdatedService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(ObgPackagesOutdatedComponent);
