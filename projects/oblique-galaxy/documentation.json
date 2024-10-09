@@ -9,7 +9,7 @@
   "components": [
     {
       "name": "SnackBarButtonComponent",
-      "id": "component-SnackBarButtonComponent-ba28d87b102d54a0901cefb0d808149878cdca0662a5599a30dbda6a81002a20943ecf62cf8082b9e320fbf8ca95ae5c3494d547ff99f2ca3a9ef741fd1fc554",
+      "id": "component-SnackBarButtonComponent-d6122926d2db6f5d4b025e227e3250eb5ebae65e88aa3e3ad5fb2b727e458bafb04308cd88b33aedce5b84cd799b039935603df1a03eac9f64ff6e7ec995195f",
       "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
       "encapsulation": [],
       "entryComponents": [],
@@ -26,10 +26,11 @@
       "inputsClass": [
         {
           "name": "duration",
+          "defaultValue": "3000",
           "deprecated": false,
           "deprecationMessage": "",
           "line": 21,
-          "type": "",
+          "type": "number",
           "decorators": []
         },
         {
@@ -43,7 +44,7 @@
         },
         {
           "name": "message",
-          "defaultValue": "'Your alert message'",
+          "defaultValue": "'Message par défaut'",
           "deprecated": false,
           "deprecationMessage": "",
           "line": 19,
@@ -52,6 +53,7 @@
         },
         {
           "name": "typeAlert",
+          "defaultValue": "'warning'",
           "deprecated": false,
           "deprecationMessage": "",
           "line": 20,
@@ -99,7 +101,7 @@
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import {Meta, StoryObj, moduleMetadata} from '@storybook/angular';\nimport {MAT_SNACK_BAR_DATA, MatSnackBarHorizontalPosition, MatSnackBarModule, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';\nimport {BrowserAnimationsModule} from '@angular/platform-browser/animations';\nimport {MatButton, MatButtonModule} from '@angular/material/button';\nimport {ObgSnackBarService} from './obg-snack-bar.service';\nimport {ObButtonDirective, ObIAlertType} from '@oblique/oblique';\nimport {Component, Input} from '@angular/core';\nimport {TranslateModule} from '@ngx-translate/core';\nimport {HttpClientTestingModule} from '@angular/common/http/testing';\n\n@Component({\n\tselector: 'app-snack-bar-button',\n\tstandalone: true,\n\timports: [MatButton, ObButtonDirective],\n\t// eslint-disable-next-line @angular-eslint/component-max-inline-declarations\n\ttemplate: ` <button type=\"button\" mat-button obButton=\"primary\" (click)=\"openSnackBar()\">Ouvrir SnackBar</button>`\n})\nexport class SnackBarButtonComponent {\n\t@Input() message = 'Your alert message';\n\t@Input() typeAlert!: ObIAlertType;\n\t@Input() duration!: 500;\n\t@Input() horizontalPosition: MatSnackBarHorizontalPosition = 'center';\n\t@Input() verticalPosition: MatSnackBarVerticalPosition = 'top';\n\n\tconstructor(private readonly snackBarService: ObgSnackBarService) {}\n\n\topenSnackBar(): void {\n\t\tthis.snackBarService.openObgSnackBar(this.message, this.typeAlert, this.duration, this.horizontalPosition, this.verticalPosition);\n\t}\n}\n\nconst meta: Meta<ObgSnackBarService> = {\n\ttitle: 'Services/ObgSnackBar',\n\tcomponent: ObgSnackBarService,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe ObgSnackBarService is an Angular service based on the Angular Material SnackBar component. It allows you to display customizable snack-bar notifications using MatSnackBar, while incorporating alert elements based on the obAlert component, which can be found in the official Oblique documentation.\n\nKey Features:\nFully Customizable: You can customize the content of the SnackBar with messages and alert types (ObIAlertType), using the obAlert configuration provided by Oblique.\nConfigurable Position: The service allows you to configure the position of the SnackBar on the screen, both horizontally (start, center, end, left, right) and vertically (top, bottom).\nCustomizable Duration: You can adjust the display duration of the SnackBar according to your needs.\nExample of Integration in a TypeScript Page\nHere’s an example that shows how to integrate the ObgSnackBarService into an Angular page or component:\n\n\n    // Open a customized SnackBar\n    this.snackBarService.openObgSnackBar(\n      message,\n      alertType,\n      duration,\n      horizontalPosition,\n      verticalPosition\n    );\n\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [MatSnackBarModule, BrowserAnimationsModule, MatButtonModule, SnackBarButtonComponent, TranslateModule.forRoot(), HttpClientTestingModule],\n\t\t\tproviders: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}]\n\t\t})\n\t],\n\targTypes: {\n\t\tmessage: {control: 'text'},\n\t\ttypeAlert: {control: 'select', options: ['success', 'info', 'warning', 'error']},\n\t\tduration: {control: 'number'},\n\t\thorizontalPosition: {control: 'select', options: ['start', 'center', 'end', 'left', 'right']},\n\t\tverticalPosition: {control: 'select', options: ['top', 'bottom']}\n\t}\n} as Meta;\n\nexport default meta;\ntype Story = StoryObj<ObgSnackBarService>;\n\n// eslint-disable-next-line @typescript-eslint/naming-convention\nexport const Default: Story = {\n\trender: args => ({\n\t\tprops: {\n\t\t\t...args\n\t\t},\n\t\ttemplate: `<app-snack-bar-button [message]=\"message\" [typeAlert]=\"typeAlert\" [duration]=\"duration\" [horizontalPosition]=\"horizontalPosition\" [verticalPosition]=\"verticalPosition\"></app-snack-bar-button>`\n\t})\n};\n",
+      "sourceCode": "import {Meta, StoryObj, moduleMetadata} from '@storybook/angular';\nimport {MAT_SNACK_BAR_DATA, MatSnackBarHorizontalPosition, MatSnackBarModule, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';\nimport {BrowserAnimationsModule} from '@angular/platform-browser/animations';\nimport {MatButton, MatButtonModule} from '@angular/material/button';\nimport {ObgSnackBarService} from './obg-snack-bar.service';\nimport {ObButtonDirective, ObIAlertType} from '@oblique/oblique';\nimport {Component, Input} from '@angular/core';\nimport {TranslateModule} from '@ngx-translate/core';\nimport {provideHttpClientTesting} from '@angular/common/http/testing';\n\n@Component({\n\tselector: 'app-snack-bar-button',\n\tstandalone: true,\n\timports: [MatButton, ObButtonDirective],\n\t// eslint-disable-next-line @angular-eslint/component-max-inline-declarations\n\ttemplate: ` <button type=\"button\" mat-button obButton=\"primary\" (click)=\"openSnackBar()\">Ouvrir SnackBar</button>`\n})\nexport class SnackBarButtonComponent {\n\t@Input() message = 'Message par défaut';\n\t@Input() typeAlert: ObIAlertType = 'warning';\n\t@Input() duration = 3000;\n\t@Input() horizontalPosition: MatSnackBarHorizontalPosition = 'center';\n\t@Input() verticalPosition: MatSnackBarVerticalPosition = 'top';\n\n\tconstructor(private readonly snackBarService: ObgSnackBarService) {}\n\n\topenSnackBar(): void {\n\t\tthis.snackBarService.openObgSnackBar(this.message, this.typeAlert, this.duration, this.horizontalPosition, this.verticalPosition);\n\t}\n}\n\nconst meta: Meta<ObgSnackBarService> = {\n\ttitle: 'Services/ObgSnackBar',\n\tcomponent: ObgSnackBarService,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe ObgSnackBarService is an Angular service based on the Angular Material SnackBar component. It allows you to display customizable snack-bar notifications using MatSnackBar, while incorporating alert elements based on the obAlert component, which can be found in the official Oblique documentation.\n\nKey Features:\nFully Customizable: You can customize the content of the SnackBar with messages and alert types (ObIAlertType), using the obAlert configuration provided by Oblique.\nConfigurable Position: The service allows you to configure the position of the SnackBar on the screen, both horizontally (start, center, end, left, right) and vertically (top, bottom).\nCustomizable Duration: You can adjust the display duration of the SnackBar according to your needs.\nExample of Integration in a TypeScript Page\nHere’s an example that shows how to integrate the ObgSnackBarService into an Angular page or component:\n\n\n    // Open a customized SnackBar\n    this.snackBarService.openObgSnackBar(\n      message,\n      alertType,\n      duration,\n      horizontalPosition,\n      verticalPosition\n    );\n\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [MatSnackBarModule, BrowserAnimationsModule, MatButtonModule, SnackBarButtonComponent, TranslateModule.forRoot()],\n\t\t\tproviders: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}, provideHttpClientTesting()]\n\t\t})\n\t],\n\targs: {\n\t\tmessage: 'Your alert message here',\n\t\ttypeAlert: 'warning',\n\t\tduration: 3000,\n\t\thorizontalPosition: 'center',\n\t\tverticalPosition: 'top'\n\t},\n\targTypes: {\n\t\tmessage: {control: 'text'},\n\t\ttypeAlert: {control: 'select', options: ['success', 'info', 'warning', 'error']},\n\t\tduration: {control: 'number'},\n\t\thorizontalPosition: {control: 'select', options: ['start', 'center', 'end', 'left', 'right']},\n\t\tverticalPosition: {control: 'select', options: ['top', 'bottom']}\n\t}\n} as Meta;\n\nexport default meta;\ntype Story = StoryObj<ObgSnackBarService>;\n\n// eslint-disable-next-line @typescript-eslint/naming-convention\nexport const Default: Story = {\n\trender: args => ({\n\t\tprops: {\n\t\t\t...args\n\t\t},\n\t\ttemplate: `<app-snack-bar-button [message]=\"message\" [typeAlert]=\"typeAlert\" [duration]=\"duration\" [horizontalPosition]=\"horizontalPosition\" [verticalPosition]=\"verticalPosition\"></app-snack-bar-button>`\n\t})\n};\n",
       "assetsDirs": [],
       "styleUrlsData": "",
       "stylesData": "",
@@ -159,16 +161,6 @@
         "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/oblique-galaxy/src/lib/components/convert-json-to-excel/convert-json-to-excel.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "",
-        "defaultValue": "template.bind({})"
-      },
-      {
-        "name": "Default",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "projects/oblique-galaxy/src/lib/components/grid-drag-and-drop/grid-drag-and-drop.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -194,6 +186,16 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n\targTypes: {\n\t\tpackageStatus: {\n\t\t\tdescription: 'Array of package status',\n\t\t\ttable: {\n\t\t\t\ttype: {\n\t\t\t\t\tsummary: 'Packages[]',\n\t\t\t\t\tdetail: `Array of Packages objects. Each object has the following properties:\n          - name: string\n          - current: string\n          - wanted: string\n          - latest: string\n          - versionDiff: string`\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\targs: {\n\t\tdefaultPath: 'assets/outdated-report.json',\n\t\tpackageStatus: mockPackages\n\t}\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/oblique-galaxy/src/lib/components/convert-json-to-excel/convert-json-to-excel.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "template.bind({})"
       },
       {
         "name": "Default",
@@ -243,7 +245,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<ObgGridDragAndDropComponent<string>>",
-        "defaultValue": "{\n\ttitle: 'Components/GridDragAndDrop',\n\tcomponent: ObgGridDragAndDropComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe ObgGridDragAndDropComponent is a standalone Angular component that allows creating an interactive grid with drag-and-drop functionality. It uses Angular CDK's drag-and-drop modules to enable users to rearrange items within the grid.\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgGridDragAndDropComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n}"
+        "defaultValue": "{\n\ttitle: 'Components/GridDragAndDrop',\n\tcomponent: ObgGridDragAndDropComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe ObgGridDragAndDropComponent is a standalone Angular component that allows creating an interactive grid with drag-and-drop functionality. It uses Angular CDK's drag-and-drop modules to enable users to rearrange items within the grid.\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [ObgGridDragAndDropComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t}),\n\t\tapplicationConfig({\n\t\t\tproviders: [provideHttpClient(withInterceptorsFromDi())]\n\t\t})\n\t]\n}"
       },
       {
         "name": "meta",
@@ -253,7 +255,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<ObgObliqueGalaxyComponent>",
-        "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObgObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
+        "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObgObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
       },
       {
         "name": "meta",
@@ -263,7 +265,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<ObgPackagesOutdatedComponent>",
-        "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThis component uses the \"npm outdated\" command to display the current status of your project's dependencies in table form. It informs you of available versions that may include bug fixes, performance enhancements or new features.\n\n## Configuration\nAdd a script to run the \"npm outdate\" command in your  \\`package.json\\` file\n\n\n\n\\`\\`\\`json\n\"scripts\": {\n  \"check-updates\": \"npm outdated --json > [YOUR_PATH]/outdated-report.json || true\"\n}\n\\`\\`\\`\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [\n\t\t\t\t{\n\t\t\t\t\tprovide: PackagesOutdatedService,\n\t\t\t\t\tuseValue: {\n\t\t\t\t\t\tgetOutdatedPackages: () => of(mockPackages),\n\t\t\t\t\t\tgetLocalPackages: () => of(mockPackages) // Mock getLocalPackages method\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t})\n\t]\n} as Meta"
+        "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThis component uses the \"npm outdated\" command to display the current status of your project's dependencies in table form. It informs you of available versions that may include bug fixes, performance enhancements or new features.\n\n## Configuration\nAdd a script to run the \"npm outdate\" command in your  \\`package.json\\` file\n\n\n\n\\`\\`\\`json\n\"scripts\": {\n  \"check-updates\": \"npm outdated --json > [YOUR_PATH]/outdated-report.json || true\"\n}\n\\`\\`\\`\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [\n\t\t\t\t{\n\t\t\t\t\tprovide: PackagesOutdatedService,\n\t\t\t\t\tuseValue: {\n\t\t\t\t\t\tgetOutdatedPackages: () => of(mockPackages),\n\t\t\t\t\t\tgetLocalPackages: () => of(mockPackages) // Mock getLocalPackages method\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t})\n\t]\n} as Meta"
       },
       {
         "name": "meta",
@@ -273,7 +275,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<ObgSnackBarService>",
-        "defaultValue": "{\n\ttitle: 'Services/ObgSnackBar',\n\tcomponent: ObgSnackBarService,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe ObgSnackBarService is an Angular service based on the Angular Material SnackBar component. It allows you to display customizable snack-bar notifications using MatSnackBar, while incorporating alert elements based on the obAlert component, which can be found in the official Oblique documentation.\n\nKey Features:\nFully Customizable: You can customize the content of the SnackBar with messages and alert types (ObIAlertType), using the obAlert configuration provided by Oblique.\nConfigurable Position: The service allows you to configure the position of the SnackBar on the screen, both horizontally (start, center, end, left, right) and vertically (top, bottom).\nCustomizable Duration: You can adjust the display duration of the SnackBar according to your needs.\nExample of Integration in a TypeScript Page\nHere’s an example that shows how to integrate the ObgSnackBarService into an Angular page or component:\n\n\n    // Open a customized SnackBar\n    this.snackBarService.openObgSnackBar(\n      message,\n      alertType,\n      duration,\n      horizontalPosition,\n      verticalPosition\n    );\n\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [MatSnackBarModule, BrowserAnimationsModule, MatButtonModule, SnackBarButtonComponent, TranslateModule.forRoot(), HttpClientTestingModule],\n\t\t\tproviders: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}]\n\t\t})\n\t],\n\targTypes: {\n\t\tmessage: {control: 'text'},\n\t\ttypeAlert: {control: 'select', options: ['success', 'info', 'warning', 'error']},\n\t\tduration: {control: 'number'},\n\t\thorizontalPosition: {control: 'select', options: ['start', 'center', 'end', 'left', 'right']},\n\t\tverticalPosition: {control: 'select', options: ['top', 'bottom']}\n\t}\n} as Meta"
+        "defaultValue": "{\n\ttitle: 'Services/ObgSnackBar',\n\tcomponent: ObgSnackBarService,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe ObgSnackBarService is an Angular service based on the Angular Material SnackBar component. It allows you to display customizable snack-bar notifications using MatSnackBar, while incorporating alert elements based on the obAlert component, which can be found in the official Oblique documentation.\n\nKey Features:\nFully Customizable: You can customize the content of the SnackBar with messages and alert types (ObIAlertType), using the obAlert configuration provided by Oblique.\nConfigurable Position: The service allows you to configure the position of the SnackBar on the screen, both horizontally (start, center, end, left, right) and vertically (top, bottom).\nCustomizable Duration: You can adjust the display duration of the SnackBar according to your needs.\nExample of Integration in a TypeScript Page\nHere’s an example that shows how to integrate the ObgSnackBarService into an Angular page or component:\n\n\n    // Open a customized SnackBar\n    this.snackBarService.openObgSnackBar(\n      message,\n      alertType,\n      duration,\n      horizontalPosition,\n      verticalPosition\n    );\n\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [MatSnackBarModule, BrowserAnimationsModule, MatButtonModule, SnackBarButtonComponent, TranslateModule.forRoot()],\n\t\t\tproviders: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}, provideHttpClientTesting()]\n\t\t})\n\t],\n\targs: {\n\t\tmessage: 'Your alert message here',\n\t\ttypeAlert: 'warning',\n\t\tduration: 3000,\n\t\thorizontalPosition: 'center',\n\t\tverticalPosition: 'top'\n\t},\n\targTypes: {\n\t\tmessage: {control: 'text'},\n\t\ttypeAlert: {control: 'select', options: ['success', 'info', 'warning', 'error']},\n\t\tduration: {control: 'number'},\n\t\thorizontalPosition: {control: 'select', options: ['start', 'center', 'end', 'left', 'right']},\n\t\tverticalPosition: {control: 'select', options: ['top', 'bottom']}\n\t}\n} as Meta"
       },
       {
         "name": "meta",
@@ -451,28 +453,6 @@
           "defaultValue": "(args: Partial<ConvertExcelToJsonService>) => ({\n\tprops: {\n\t\t...args\n\t}\n})"
         }
       ],
-      "projects/oblique-galaxy/src/lib/components/convert-json-to-excel/convert-json-to-excel.stories.ts": [
-        {
-          "name": "Default",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/oblique-galaxy/src/lib/components/convert-json-to-excel/convert-json-to-excel.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "",
-          "defaultValue": "template.bind({})"
-        },
-        {
-          "name": "template",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/oblique-galaxy/src/lib/components/convert-json-to-excel/convert-json-to-excel.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "StoryFn<ConvertJsonToExcelComponent>",
-          "defaultValue": "(args: Partial<ConvertJsonToExcelComponent>) => ({\n\tprops: {\n\t\t...args,\n\t\tonClickExportAsExcelFIle: () => {\n\t\t\tconst mockService = new ConvertJsonToExcelService();\n\t\t\tmockService.convertJsonToExcel(['en', 'de'], 'mockPath/', 'mockFileName.xlsx');\n\t\t}\n\t}\n})"
-        }
-      ],
       "projects/oblique-galaxy/src/lib/components/grid-drag-and-drop/grid-drag-and-drop.stories.ts": [
         {
           "name": "Default",
@@ -502,7 +482,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<ObgGridDragAndDropComponent<string>>",
-          "defaultValue": "{\n\ttitle: 'Components/GridDragAndDrop',\n\tcomponent: ObgGridDragAndDropComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe ObgGridDragAndDropComponent is a standalone Angular component that allows creating an interactive grid with drag-and-drop functionality. It uses Angular CDK's drag-and-drop modules to enable users to rearrange items within the grid.\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgGridDragAndDropComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n}"
+          "defaultValue": "{\n\ttitle: 'Components/GridDragAndDrop',\n\tcomponent: ObgGridDragAndDropComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe ObgGridDragAndDropComponent is a standalone Angular component that allows creating an interactive grid with drag-and-drop functionality. It uses Angular CDK's drag-and-drop modules to enable users to rearrange items within the grid.\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [ObgGridDragAndDropComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t}),\n\t\tapplicationConfig({\n\t\t\tproviders: [provideHttpClient(withInterceptorsFromDi())]\n\t\t})\n\t]\n}"
         },
         {
           "name": "showGridHeader",
@@ -534,7 +514,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<ObgObliqueGalaxyComponent>",
-          "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObgObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
+          "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObgObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
         }
       ],
       "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts": [
@@ -556,7 +536,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<ObgPackagesOutdatedComponent>",
-          "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThis component uses the \"npm outdated\" command to display the current status of your project's dependencies in table form. It informs you of available versions that may include bug fixes, performance enhancements or new features.\n\n## Configuration\nAdd a script to run the \"npm outdate\" command in your  \\`package.json\\` file\n\n\n\n\\`\\`\\`json\n\"scripts\": {\n  \"check-updates\": \"npm outdated --json > [YOUR_PATH]/outdated-report.json || true\"\n}\n\\`\\`\\`\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [HttpClientModule, ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [\n\t\t\t\t{\n\t\t\t\t\tprovide: PackagesOutdatedService,\n\t\t\t\t\tuseValue: {\n\t\t\t\t\t\tgetOutdatedPackages: () => of(mockPackages),\n\t\t\t\t\t\tgetLocalPackages: () => of(mockPackages) // Mock getLocalPackages method\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t})\n\t]\n} as Meta"
+          "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThis component uses the \"npm outdated\" command to display the current status of your project's dependencies in table form. It informs you of available versions that may include bug fixes, performance enhancements or new features.\n\n## Configuration\nAdd a script to run the \"npm outdate\" command in your  \\`package.json\\` file\n\n\n\n\\`\\`\\`json\n\"scripts\": {\n  \"check-updates\": \"npm outdated --json > [YOUR_PATH]/outdated-report.json || true\"\n}\n\\`\\`\\`\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [\n\t\t\t\t{\n\t\t\t\t\tprovide: PackagesOutdatedService,\n\t\t\t\t\tuseValue: {\n\t\t\t\t\t\tgetOutdatedPackages: () => of(mockPackages),\n\t\t\t\t\t\tgetLocalPackages: () => of(mockPackages) // Mock getLocalPackages method\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t})\n\t]\n} as Meta"
         },
         {
           "name": "mockPackages",
@@ -567,6 +547,28 @@
           "deprecationMessage": "",
           "type": "Packages[]",
           "defaultValue": "[\n\t{\n\t\tname: 'mock-@angular-devkit/build-angular',\n\t\tcurrent: '17.0.3',\n\t\twanted: '17.0.3',\n\t\tlatest: '18.0.0-beta.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-eslint',\n\t\tcurrent: '8.57.0',\n\t\twanted: '8.57.0',\n\t\tlatest: '9.4.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-ng-packagr',\n\t\tcurrent: '17.3.0',\n\t\twanted: '17.3.0',\n\t\tlatest: '18.0.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-prettier',\n\t\tcurrent: '4.3.2',\n\t\twanted: '4.3.2',\n\t\tlatest: '4.3.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-tslib',\n\t\tcurrent: '2.6.2',\n\t\twanted: '2.6.3',\n\t\tlatest: '2.6.3',\n\t\tversionDiff: '0'\n\t}\n]"
+        }
+      ],
+      "projects/oblique-galaxy/src/lib/components/convert-json-to-excel/convert-json-to-excel.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/convert-json-to-excel/convert-json-to-excel.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "template.bind({})"
+        },
+        {
+          "name": "template",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/convert-json-to-excel/convert-json-to-excel.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "StoryFn<ConvertJsonToExcelComponent>",
+          "defaultValue": "(args: Partial<ConvertJsonToExcelComponent>) => ({\n\tprops: {\n\t\t...args,\n\t\tonClickExportAsExcelFIle: () => {\n\t\t\tconst mockService = new ConvertJsonToExcelService();\n\t\t\tmockService.convertJsonToExcel(['en', 'de'], 'mockPath/', 'mockFileName.xlsx');\n\t\t}\n\t}\n})"
         }
       ],
       "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts": [
@@ -588,7 +590,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<ObgSnackBarService>",
-          "defaultValue": "{\n\ttitle: 'Services/ObgSnackBar',\n\tcomponent: ObgSnackBarService,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe ObgSnackBarService is an Angular service based on the Angular Material SnackBar component. It allows you to display customizable snack-bar notifications using MatSnackBar, while incorporating alert elements based on the obAlert component, which can be found in the official Oblique documentation.\n\nKey Features:\nFully Customizable: You can customize the content of the SnackBar with messages and alert types (ObIAlertType), using the obAlert configuration provided by Oblique.\nConfigurable Position: The service allows you to configure the position of the SnackBar on the screen, both horizontally (start, center, end, left, right) and vertically (top, bottom).\nCustomizable Duration: You can adjust the display duration of the SnackBar according to your needs.\nExample of Integration in a TypeScript Page\nHere’s an example that shows how to integrate the ObgSnackBarService into an Angular page or component:\n\n\n    // Open a customized SnackBar\n    this.snackBarService.openObgSnackBar(\n      message,\n      alertType,\n      duration,\n      horizontalPosition,\n      verticalPosition\n    );\n\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [MatSnackBarModule, BrowserAnimationsModule, MatButtonModule, SnackBarButtonComponent, TranslateModule.forRoot(), HttpClientTestingModule],\n\t\t\tproviders: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}]\n\t\t})\n\t],\n\targTypes: {\n\t\tmessage: {control: 'text'},\n\t\ttypeAlert: {control: 'select', options: ['success', 'info', 'warning', 'error']},\n\t\tduration: {control: 'number'},\n\t\thorizontalPosition: {control: 'select', options: ['start', 'center', 'end', 'left', 'right']},\n\t\tverticalPosition: {control: 'select', options: ['top', 'bottom']}\n\t}\n} as Meta"
+          "defaultValue": "{\n\ttitle: 'Services/ObgSnackBar',\n\tcomponent: ObgSnackBarService,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe ObgSnackBarService is an Angular service based on the Angular Material SnackBar component. It allows you to display customizable snack-bar notifications using MatSnackBar, while incorporating alert elements based on the obAlert component, which can be found in the official Oblique documentation.\n\nKey Features:\nFully Customizable: You can customize the content of the SnackBar with messages and alert types (ObIAlertType), using the obAlert configuration provided by Oblique.\nConfigurable Position: The service allows you to configure the position of the SnackBar on the screen, both horizontally (start, center, end, left, right) and vertically (top, bottom).\nCustomizable Duration: You can adjust the display duration of the SnackBar according to your needs.\nExample of Integration in a TypeScript Page\nHere’s an example that shows how to integrate the ObgSnackBarService into an Angular page or component:\n\n\n    // Open a customized SnackBar\n    this.snackBarService.openObgSnackBar(\n      message,\n      alertType,\n      duration,\n      horizontalPosition,\n      verticalPosition\n    );\n\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [MatSnackBarModule, BrowserAnimationsModule, MatButtonModule, SnackBarButtonComponent, TranslateModule.forRoot()],\n\t\t\tproviders: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}, provideHttpClientTesting()]\n\t\t})\n\t],\n\targs: {\n\t\tmessage: 'Your alert message here',\n\t\ttypeAlert: 'warning',\n\t\tduration: 3000,\n\t\thorizontalPosition: 'center',\n\t\tverticalPosition: 'top'\n\t},\n\targTypes: {\n\t\tmessage: {control: 'text'},\n\t\ttypeAlert: {control: 'select', options: ['success', 'info', 'warning', 'error']},\n\t\tduration: {control: 'number'},\n\t\thorizontalPosition: {control: 'select', options: ['start', 'center', 'end', 'left', 'right']},\n\t\tverticalPosition: {control: 'select', options: ['top', 'bottom']}\n\t}\n} as Meta"
         }
       ],
       "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts": [

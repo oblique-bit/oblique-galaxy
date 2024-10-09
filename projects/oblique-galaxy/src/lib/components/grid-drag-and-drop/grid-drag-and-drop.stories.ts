@@ -1,9 +1,9 @@
-import {Meta, StoryObj, moduleMetadata} from '@storybook/angular';
-import {HttpClientModule} from '@angular/common/http';
+import {Meta, StoryObj, applicationConfig, moduleMetadata} from '@storybook/angular';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {ObliqueModule} from '@oblique/oblique';
 import {GridData, ObgGridDragAndDropComponent} from './obg-grid-drag-and-drop.component';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 const gridData: GridData<string> = {
 	columnNames: ['test 1', 'Column 2', 'Column 3', 'Column 4'],
@@ -74,7 +74,10 @@ The ObgGridDragAndDropComponent is a standalone Angular component that allows cr
 	},
 	decorators: [
 		moduleMetadata({
-			imports: [HttpClientModule, ObgGridDragAndDropComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule]
+			imports: [ObgGridDragAndDropComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule]
+		}),
+		applicationConfig({
+			providers: [provideHttpClient(withInterceptorsFromDi())]
 		})
 	]
 };
