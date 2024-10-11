@@ -1,0 +1,5 @@
+# Define owners for the entire repository
+* @punix81
+
+# Define owners for specific directories
+/projects/oblique-galaxy/src/lib/components/packages-outdated/ @punix81
