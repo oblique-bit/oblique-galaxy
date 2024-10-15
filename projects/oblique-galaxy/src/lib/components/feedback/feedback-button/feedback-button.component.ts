@@ -1,4 +1,4 @@
-import {Component, OnInit, inject} from '@angular/core';
+import { Component, OnInit, inject, input, Input } from "@angular/core";
 import {FeedbackFormComponent} from '../feedback-form/feedback-form.component';
 import {CollectorService} from '../collector/collector.service';
 
@@ -10,6 +10,7 @@ import {CollectorService} from '../collector/collector.service';
 	styleUrl: './feedback-button.component.scss'
 })
 export class FeedbackButtonComponent implements OnInit {
+	@Input() collectorId: string | undefined;
 	private readonly collectorService = inject(CollectorService);
 
 	ngOnInit(): void {

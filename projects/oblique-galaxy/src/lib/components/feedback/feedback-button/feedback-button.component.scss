@@ -1,5 +1,4 @@
 @import "@oblique/oblique/styles/scss/core/variables";
-@import "@oblique/oblique/styles/scss/core/mixins/_layout";
 
 .feedback-button {
 	position: fixed;
@@ -16,11 +15,11 @@
 	cursor: pointer;
 }
 
-@include ob-media-breakpoint-down(md) {
+//@include ob-media-breakpoint-down(md) {
 	.feedback-button {
 		top: unset;
 		bottom: 0;
 		left: 50%;
 		transform: translateX(-50%);
 	}
-}
+//}

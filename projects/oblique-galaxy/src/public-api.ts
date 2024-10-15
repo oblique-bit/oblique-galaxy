@@ -8,3 +8,4 @@ export * from './lib/components/convert-json-to-excel/convert-json-to-excel.comp
 export * from './lib/components/convert-excel-to-json/convert-excel-to-json.component';
 export * from './lib/components/command/command.component';
 export * from './lib/components/snack-bar/obg-snack-bar.component';
+export * from './lib/components/feedback/feedback-button/feedback-button.component';
