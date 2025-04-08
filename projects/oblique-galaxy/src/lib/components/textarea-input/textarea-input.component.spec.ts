@@ -20,7 +20,6 @@ describe('TextareaInputComponent', () => {
 			schemas: [CUSTOM_ELEMENTS_SCHEMA] // Add CUSTOM_ELEMENTS_SCHEMA here
 		}).compileComponents();
 
-		
 		fixture = TestBed.createComponent(TextareaInputComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
