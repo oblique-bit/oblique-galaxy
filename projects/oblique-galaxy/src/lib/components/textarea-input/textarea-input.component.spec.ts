@@ -4,8 +4,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TextareaInputComponent} from './textarea-input.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {TranslateService} from '@ngx-translate/core';
-import {ObMockTranslateService} from '@oblique/oblique';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
 
@@ -16,10 +15,12 @@ describe('TextareaInputComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [BrowserAnimationsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule],
-			providers: [{provide: TranslateService, useClass: ObMockTranslateService}],
+			// @typescript-eslint/no-deprecated
+			providers: [{provide: TranslateService, useClass: TranslateModule}],
 			schemas: [CUSTOM_ELEMENTS_SCHEMA] // Add CUSTOM_ELEMENTS_SCHEMA here
 		}).compileComponents();
 
+		
 		fixture = TestBed.createComponent(TextareaInputComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
