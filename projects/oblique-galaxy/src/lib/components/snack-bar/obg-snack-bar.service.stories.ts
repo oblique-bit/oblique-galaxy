@@ -10,8 +10,8 @@ import {provideHttpClientTesting} from '@angular/common/http/testing';
 
 @Component({
 	selector: 'app-snack-bar-button',
-	standalone: true,
 	imports: [MatButton, ObButtonDirective],
+	standalone: true,
 	// eslint-disable-next-line @angular-eslint/component-max-inline-declarations
 	template: ` <button type="button" mat-button obButton="primary" (click)="openSnackBar()">Ouvrir SnackBar</button>`
 })
