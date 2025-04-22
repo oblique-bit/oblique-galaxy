@@ -1,11 +1,11 @@
 import {ObgPackagesOutdatedComponent} from './obg-packages-outdated.component'; // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 import {Meta, StoryObj, moduleMetadata} from '@storybook/angular';
 import {PackagesOutdatedService} from './packages-outdated.service';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {ObliqueModule} from '@oblique/oblique';
 import {of} from 'rxjs';
 import {Packages} from './packages.model';
+import {provideAnimations} from '@angular/platform-browser/animations';
 
 // eslint-disable-next-line @typescript-eslint/no-magic-numbers,@typescript-eslint/no-unsafe-assignment
 const mockPackages: Packages[] = [
@@ -75,7 +75,7 @@ Add a script to run the "npm outdate" command in your  \`package.json\` file
 	},
 	decorators: [
 		moduleMetadata({
-			imports: [ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],
+			imports: [ObgPackagesOutdatedComponent, MatButtonModule, ObliqueModule],
 			providers: [
 				{
 					provide: PackagesOutdatedService,
@@ -83,7 +83,8 @@ Add a script to run the "npm outdate" command in your  \`package.json\` file
 						getOutdatedPackages: () => of(mockPackages),
 						getLocalPackages: () => of(mockPackages) // Mock getLocalPackages method
 					}
-				}
+				},
+				provideAnimations()
 			]
 		})
 	]

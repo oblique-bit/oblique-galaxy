@@ -1,11 +1,12 @@
-import {Meta, StoryObj, moduleMetadata} from '@storybook/angular';
+import {Meta, StoryObj, applicationConfig, moduleMetadata} from '@storybook/angular';
 import {TextareaInputComponent} from './textarea-input.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {TranslateModule} from '@ngx-translate/core';
 import {multiTranslateLoader} from '@oblique/oblique';
+import {provideAnimations} from '@angular/platform-browser/animations';
+import {provideHttpClient} from '@angular/common/http';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<TextareaInputComponent> = {
@@ -26,15 +27,10 @@ The TextAreaCounter component is a handy tool for developers, displaying the num
 	},
 	decorators: [
 		moduleMetadata({
-			imports: [
-				BrowserAnimationsModule,
-				FormsModule,
-				TextareaInputComponent,
-				ReactiveFormsModule,
-				MatFormFieldModule,
-				MatInputModule,
-				TranslateModule.forRoot(multiTranslateLoader())
-			]
+			imports: [FormsModule, TextareaInputComponent, ReactiveFormsModule, MatFormFieldModule, MatInputModule, TranslateModule.forRoot(multiTranslateLoader())]
+		}),
+		applicationConfig({
+			providers: [provideAnimations(), provideHttpClient()]
 		})
 	],
 	args: {

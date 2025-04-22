@@ -1,9 +1,9 @@
 <div class="textarea-container" [ngClass]="{ invalid: !disabled && ngControl && ngControl.invalid && ngControl.touched }">
-	@if (style === "outline") {
-		<p class="field-label">{{ label | translate }}</p>
+	@if (style() === "outline") {
+		<p class="field-label">{{ label() | translate }}</p>
 	}
-	<mat-form-field [appearance]="style === 'outline' ? 'outline' : 'fill'">
-		@if (style === "fill") {
+	<mat-form-field [appearance]="style() === 'outline' ? 'outline' : 'fill'">
+		@if (style() === "fill") {
 			<mat-label>{{ label | translate }}</mat-label>
 		}
 		<textarea
@@ -12,15 +12,15 @@
 			cdkAutosizeMinRows="5"
 			cdkTextareaAutosize
 			matInput
-			[disabled]="disabled || isDisabled"
-			[id]="id"
-			[maxLength]="maxLength"
-			[placeholder]="placeholder"
+			[disabled]="disabled() || isDisabled"
+			[id]="id()"
+			[maxLength]="maxLength()"
+			[placeholder]="placeholder()"
 			[value]="value ?? ''"
 			(input)="onTextChange($event)"
 		></textarea>
 		@if (!disabled) {
-			<mat-hint>{{ input.value.length }} / {{ maxLength }}</mat-hint>
+			<mat-hint>{{ input.value.length }} / {{ maxLength() }}</mat-hint>
 		}
 		<mat-error />
 	</mat-form-field>

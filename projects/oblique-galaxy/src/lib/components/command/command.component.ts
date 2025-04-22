@@ -1,12 +1,13 @@
 import {AfterViewInit, Component, ElementRef, signal, viewChild} from '@angular/core';
 import {CdkCopyToClipboard} from '@angular/cdk/clipboard';
-import {MatIcon, MatIconModule} from '@angular/material/icon';
+import {MatIconModule} from '@angular/material/icon';
 import {MatTooltip} from '@angular/material/tooltip';
+import {ObIconModule} from '@oblique/oblique';
 
 @Component({
 	selector: 'obg-command',
 	standalone: true,
-	imports: [CdkCopyToClipboard, MatIcon, MatTooltip, MatIconModule],
+	imports: [ObIconModule, CdkCopyToClipboard, MatTooltip, MatIconModule],
 	providers: [],
 	templateUrl: './command.component.html',
 	styleUrl: './command.component.scss'

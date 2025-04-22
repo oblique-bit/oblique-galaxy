@@ -1,12 +1,12 @@
 import {Meta, StoryObj, moduleMetadata} from '@storybook/angular';
 import {MAT_SNACK_BAR_DATA, MatSnackBarHorizontalPosition, MatSnackBarModule, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButton, MatButtonModule} from '@angular/material/button';
 import {ObgSnackBarService} from './obg-snack-bar.service';
 import {ObButtonDirective, ObIAlertType} from '@oblique/oblique';
-import {Component, Input} from '@angular/core';
+import {Component, input} from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
 import {provideHttpClientTesting} from '@angular/common/http/testing';
+import {provideAnimations} from '@angular/platform-browser/animations';
 
 @Component({
 	selector: 'app-snack-bar-button',
@@ -16,16 +16,16 @@ import {provideHttpClientTesting} from '@angular/common/http/testing';
 	template: ` <button type="button" mat-button obButton="primary" (click)="openSnackBar()">Ouvrir SnackBar</button>`
 })
 export class SnackBarButtonComponent {
-	@Input() message = 'Message par défaut';
-	@Input() typeAlert: ObIAlertType = 'warning';
-	@Input() duration = 3000;
-	@Input() horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-	@Input() verticalPosition: MatSnackBarVerticalPosition = 'top';
+	readonly message = input<string>('Message par défaut');
+	readonly typeAlert = input<ObIAlertType>('warning');
+	readonly duration = input<number>(3000);
+	readonly horizontalPosition = input<MatSnackBarHorizontalPosition>('center');
+	readonly verticalPosition = input<MatSnackBarVerticalPosition>('top');
 
 	constructor(private readonly snackBarService: ObgSnackBarService) {}
 
 	openSnackBar(): void {
-		this.snackBarService.openObgSnackBar(this.message, this.typeAlert, this.duration, this.horizontalPosition, this.verticalPosition);
+		this.snackBarService.openObgSnackBar(this.message(), this.typeAlert(), this.duration(), this.horizontalPosition(), this.verticalPosition());
 	}
 }
 
@@ -64,8 +64,8 @@ Here’s an example that shows how to integrate the ObgSnackBarService into an A
 	},
 	decorators: [
 		moduleMetadata({
-			imports: [MatSnackBarModule, BrowserAnimationsModule, MatButtonModule, SnackBarButtonComponent, TranslateModule.forRoot()],
-			providers: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}, provideHttpClientTesting()]
+			imports: [MatSnackBarModule, MatButtonModule, SnackBarButtonComponent, TranslateModule.forRoot()],
+			providers: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}, provideHttpClientTesting(), provideAnimations()]
 		})
 	],
 	args: {
