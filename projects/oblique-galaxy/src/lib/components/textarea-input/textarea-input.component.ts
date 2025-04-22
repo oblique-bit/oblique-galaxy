@@ -1,4 +1,4 @@
-import {Component, Input, Optional, Self} from '@angular/core';
+import {Component, Optional, Self, input} from '@angular/core';
 import {NgControl} from '@angular/forms';
 import {MatFormFieldModule, MatLabel} from '@angular/material/form-field';
 import {ObFormFieldDirective} from '@oblique/oblique';
@@ -18,12 +18,12 @@ const DEFAULT_MAXLENGTH = 1000;
 	styleUrl: './textarea-input.component.scss'
 })
 export class TextareaInputComponent extends FormInput<string> {
-	@Input() label = '';
-	@Input() placeholder = '';
-	@Input() disabled?: boolean;
-	@Input() maxLength = DEFAULT_MAXLENGTH;
-	@Input() style: 'outline' | 'fill' = 'outline';
-	@Input() id = '';
+	readonly label = input('');
+	readonly placeholder = input('');
+	readonly disabled = input<boolean | undefined>(undefined);
+	readonly maxLength = input<number>(DEFAULT_MAXLENGTH);
+	readonly style = input<'outline' | 'fill'>('outline');
+	readonly id = input('');
 
 	constructor(@Optional() @Self() public ngControl: NgControl) {
 		super();

@@ -109,9 +109,6 @@ overrides:
         - error
         - template: 0
           styles: 0
-      "@angular-eslint/no-host-metadata-property":
-        - error
-        - allowStatic: true
       "@typescript-eslint/explicit-function-return-type":
         - error
         - allowExpressions: true

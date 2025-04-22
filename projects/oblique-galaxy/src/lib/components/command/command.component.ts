@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, ViewChild, signal} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, signal, viewChild} from '@angular/core';
 import {CdkCopyToClipboard} from '@angular/cdk/clipboard';
 import {MatIcon, MatIconModule} from '@angular/material/icon';
 import {MatTooltip} from '@angular/material/tooltip';
@@ -13,9 +13,9 @@ import {MatTooltip} from '@angular/material/tooltip';
 })
 export class CommandComponent implements AfterViewInit {
 	readonly text = signal('');
-	@ViewChild('code') private readonly code: ElementRef<HTMLElement> | undefined;
+	private readonly code = viewChild<ElementRef<HTMLElement> | undefined>('code');
 
 	ngAfterViewInit(): void {
-		this.text.set(this.code?.nativeElement.innerText ?? '');
+		this.text.set(this.code()?.nativeElement.innerText ?? '');
 	}
 }

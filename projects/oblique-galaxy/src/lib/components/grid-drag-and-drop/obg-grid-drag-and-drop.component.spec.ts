@@ -1,6 +1,26 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {ObgGridDragAndDropComponent} from './obg-grid-drag-and-drop.component';
+import {GridData, ObgGridDragAndDropComponent} from './obg-grid-drag-and-drop.component';
 import {CdkDrag, CdkDragDrop, CdkDropList} from '@angular/cdk/drag-drop';
+
+const mockGridData: GridData<string> = {
+	columnNames: ['Column 1', 'Column 2'],
+	rowsData: [
+		{
+			title: 'Row 1',
+			items: [
+				['Item 1', 'Item 2'],
+				['Item 3', 'Item 4']
+			]
+		},
+		{
+			title: 'Row 2',
+			items: [
+				['Item 5', 'Item 6'],
+				['Item 7', 'Item 8']
+			]
+		}
+	]
+};
 
 describe('ObgGridDragAndDropComponent', () => {
 	let component: ObgGridDragAndDropComponent<string>;
@@ -12,26 +32,9 @@ describe('ObgGridDragAndDropComponent', () => {
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(ObgGridDragAndDropComponent<string>);
+		const writableGridData = component.gridData as unknown as import('@angular/core').WritableSignal<GridData<string>>;
+		writableGridData.set(mockGridData);
 		component = fixture.componentInstance;
-		component.gridData = {
-			columnNames: ['Column 1', 'Column 2'],
-			rowsData: [
-				{
-					title: 'Row 1',
-					items: [
-						['Item 1', 'Item 2'],
-						['Item 3', 'Item 4']
-					]
-				},
-				{
-					title: 'Row 2',
-					items: [
-						['Item 5', 'Item 6'],
-						['Item 7', 'Item 8']
-					]
-				}
-			]
-		};
 		fixture.detectChanges();
 	});
 
@@ -66,7 +69,7 @@ describe('ObgGridDragAndDropComponent', () => {
 			event: new MouseEvent('drop')
 		};
 		component.drop(event);
-		expect(component.gridData.rowsData[0].items[0]).toEqual(['Item 1', 'Item 2']);
+		expect(component.gridData().rowsData[0].items[0]).toEqual(['Item 1', 'Item 2']);
 	});
 
 	it('should emit gridDataChange event on drop', () => {

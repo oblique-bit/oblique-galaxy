@@ -9,7 +9,7 @@
   "components": [
     {
       "name": "SnackBarButtonComponent",
-      "id": "component-SnackBarButtonComponent-bac553363f9bd558ff7737302d9aa9bd3de446c7a43af2a2ff676cf8c3777788bbd9cf576427584bef21094273024900f45b9294402c2bc104a9769aa914595c",
+      "id": "component-SnackBarButtonComponent-09cf41235281404e3f37d993e25079d5ae536be289f371d16eebe2d160f9f2e905d6c91bd014f8ab7d02c77c85dbfe7c8bd30734c5a0a360e4b7190f8c66f85c",
       "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
       "encapsulation": [],
       "entryComponents": [],
@@ -29,49 +29,79 @@
           "defaultValue": "3000",
           "deprecated": false,
           "deprecationMessage": "",
+          "type": "",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
           "line": 21,
-          "type": "number",
-          "decorators": []
-        },
-        {
-          "name": "horizontalPosition",
-          "defaultValue": "'center'",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "line": 22,
-          "type": "MatSnackBarHorizontalPosition",
-          "decorators": []
-        },
-        {
-          "name": "message",
-          "defaultValue": "'Message par défaut'",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "line": 19,
-          "type": "string",
-          "decorators": []
-        },
-        {
-          "name": "typeAlert",
-          "defaultValue": "'warning'",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "line": 20,
-          "type": "ObIAlertType",
-          "decorators": []
-        },
-        {
-          "name": "verticalPosition",
-          "defaultValue": "'top'",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "line": 23,
-          "type": "MatSnackBarVerticalPosition",
-          "decorators": []
+          "modifierKind": [148],
+          "required": false
         }
       ],
       "outputsClass": [],
-      "propertiesClass": [],
+      "propertiesClass": [
+        {
+          "name": "duration",
+          "defaultValue": "3000",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 21,
+          "modifierKind": [148],
+          "required": false
+        },
+        {
+          "name": "horizontalPosition",
+          "defaultValue": "input<MatSnackBarHorizontalPosition>('center')",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 22,
+          "modifierKind": [148]
+        },
+        {
+          "name": "message",
+          "defaultValue": "input<string>('Message par défaut')",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 19,
+          "modifierKind": [148]
+        },
+        {
+          "name": "typeAlert",
+          "defaultValue": "input<ObIAlertType>('warning')",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 20,
+          "modifierKind": [148]
+        },
+        {
+          "name": "verticalPosition",
+          "defaultValue": "input<MatSnackBarVerticalPosition>('top')",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 23,
+          "modifierKind": [148]
+        }
+      ],
       "methodsClass": [
         {
           "name": "openSnackBar",
@@ -101,7 +131,7 @@
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import {Meta, StoryObj, moduleMetadata} from '@storybook/angular';\nimport {MAT_SNACK_BAR_DATA, MatSnackBarHorizontalPosition, MatSnackBarModule, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';\nimport {BrowserAnimationsModule} from '@angular/platform-browser/animations';\nimport {MatButton, MatButtonModule} from '@angular/material/button';\nimport {ObgSnackBarService} from './obg-snack-bar.service';\nimport {ObButtonDirective, ObIAlertType} from '@oblique/oblique';\nimport {Component, Input} from '@angular/core';\nimport {TranslateModule} from '@ngx-translate/core';\nimport {provideHttpClientTesting} from '@angular/common/http/testing';\n\n@Component({\n\tselector: 'app-snack-bar-button',\n\timports: [MatButton, ObButtonDirective],\n\tstandalone: true,\n\t// eslint-disable-next-line @angular-eslint/component-max-inline-declarations\n\ttemplate: ` <button type=\"button\" mat-button obButton=\"primary\" (click)=\"openSnackBar()\">Ouvrir SnackBar</button>`\n})\nexport class SnackBarButtonComponent {\n\t@Input() message = 'Message par défaut';\n\t@Input() typeAlert: ObIAlertType = 'warning';\n\t@Input() duration = 3000;\n\t@Input() horizontalPosition: MatSnackBarHorizontalPosition = 'center';\n\t@Input() verticalPosition: MatSnackBarVerticalPosition = 'top';\n\n\tconstructor(private readonly snackBarService: ObgSnackBarService) {}\n\n\topenSnackBar(): void {\n\t\tthis.snackBarService.openObgSnackBar(this.message, this.typeAlert, this.duration, this.horizontalPosition, this.verticalPosition);\n\t}\n}\n\nconst meta: Meta<ObgSnackBarService> = {\n\ttitle: 'Services/ObgSnackBar',\n\tcomponent: ObgSnackBarService,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe ObgSnackBarService is an Angular service based on the Angular Material SnackBar component. It allows you to display customizable snack-bar notifications using MatSnackBar, while incorporating alert elements based on the obAlert component, which can be found in the official Oblique documentation.\n\nKey Features:\nFully Customizable: You can customize the content of the SnackBar with messages and alert types (ObIAlertType), using the obAlert configuration provided by Oblique.\nConfigurable Position: The service allows you to configure the position of the SnackBar on the screen, both horizontally (start, center, end, left, right) and vertically (top, bottom).\nCustomizable Duration: You can adjust the display duration of the SnackBar according to your needs.\nExample of Integration in a TypeScript Page\nHere’s an example that shows how to integrate the ObgSnackBarService into an Angular page or component:\n\n\n    // Open a customized SnackBar\n    this.snackBarService.openObgSnackBar(\n      message,\n      alertType,\n      duration,\n      horizontalPosition,\n      verticalPosition\n    );\n\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [MatSnackBarModule, BrowserAnimationsModule, MatButtonModule, SnackBarButtonComponent, TranslateModule.forRoot()],\n\t\t\tproviders: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}, provideHttpClientTesting()]\n\t\t})\n\t],\n\targs: {\n\t\tmessage: 'Your alert message here',\n\t\ttypeAlert: 'warning',\n\t\tduration: 3000,\n\t\thorizontalPosition: 'center',\n\t\tverticalPosition: 'top'\n\t},\n\targTypes: {\n\t\tmessage: {control: 'text'},\n\t\ttypeAlert: {control: 'select', options: ['success', 'info', 'warning', 'error']},\n\t\tduration: {control: 'number'},\n\t\thorizontalPosition: {control: 'select', options: ['start', 'center', 'end', 'left', 'right']},\n\t\tverticalPosition: {control: 'select', options: ['top', 'bottom']}\n\t}\n} as Meta;\n\nexport default meta;\ntype Story = StoryObj<ObgSnackBarService>;\n\n// eslint-disable-next-line @typescript-eslint/naming-convention\nexport const Default: Story = {\n\trender: args => ({\n\t\tprops: {\n\t\t\t...args\n\t\t},\n\t\ttemplate: `<app-snack-bar-button [message]=\"message\" [typeAlert]=\"typeAlert\" [duration]=\"duration\" [horizontalPosition]=\"horizontalPosition\" [verticalPosition]=\"verticalPosition\"></app-snack-bar-button>`\n\t})\n};\n",
+      "sourceCode": "import {Meta, StoryObj, moduleMetadata} from '@storybook/angular';\nimport {MAT_SNACK_BAR_DATA, MatSnackBarHorizontalPosition, MatSnackBarModule, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';\nimport {BrowserAnimationsModule} from '@angular/platform-browser/animations';\nimport {MatButton, MatButtonModule} from '@angular/material/button';\nimport {ObgSnackBarService} from './obg-snack-bar.service';\nimport {ObButtonDirective, ObIAlertType} from '@oblique/oblique';\nimport {Component, input} from '@angular/core';\nimport {TranslateModule} from '@ngx-translate/core';\nimport {provideHttpClientTesting} from '@angular/common/http/testing';\n\n@Component({\n\tselector: 'app-snack-bar-button',\n\timports: [MatButton, ObButtonDirective],\n\tstandalone: true,\n\t// eslint-disable-next-line @angular-eslint/component-max-inline-declarations\n\ttemplate: ` <button type=\"button\" mat-button obButton=\"primary\" (click)=\"openSnackBar()\">Ouvrir SnackBar</button>`\n})\nexport class SnackBarButtonComponent {\n\treadonly message = input<string>('Message par défaut');\n\treadonly typeAlert = input<ObIAlertType>('warning');\n\treadonly duration = input<number>(3000);\n\treadonly horizontalPosition = input<MatSnackBarHorizontalPosition>('center');\n\treadonly verticalPosition = input<MatSnackBarVerticalPosition>('top');\n\n\tconstructor(private readonly snackBarService: ObgSnackBarService) {}\n\n\topenSnackBar(): void {\n\t\tthis.snackBarService.openObgSnackBar(this.message(), this.typeAlert(), this.duration(), this.horizontalPosition(), this.verticalPosition());\n\t}\n}\n\nconst meta: Meta<ObgSnackBarService> = {\n\ttitle: 'Services/ObgSnackBar',\n\tcomponent: ObgSnackBarService,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe ObgSnackBarService is an Angular service based on the Angular Material SnackBar component. It allows you to display customizable snack-bar notifications using MatSnackBar, while incorporating alert elements based on the obAlert component, which can be found in the official Oblique documentation.\n\nKey Features:\nFully Customizable: You can customize the content of the SnackBar with messages and alert types (ObIAlertType), using the obAlert configuration provided by Oblique.\nConfigurable Position: The service allows you to configure the position of the SnackBar on the screen, both horizontally (start, center, end, left, right) and vertically (top, bottom).\nCustomizable Duration: You can adjust the display duration of the SnackBar according to your needs.\nExample of Integration in a TypeScript Page\nHere’s an example that shows how to integrate the ObgSnackBarService into an Angular page or component:\n\n\n    // Open a customized SnackBar\n    this.snackBarService.openObgSnackBar(\n      message,\n      alertType,\n      duration,\n      horizontalPosition,\n      verticalPosition\n    );\n\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [MatSnackBarModule, BrowserAnimationsModule, MatButtonModule, SnackBarButtonComponent, TranslateModule.forRoot()],\n\t\t\tproviders: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}, provideHttpClientTesting()]\n\t\t})\n\t],\n\targs: {\n\t\tmessage: 'Your alert message here',\n\t\ttypeAlert: 'warning',\n\t\tduration: 3000,\n\t\thorizontalPosition: 'center',\n\t\tverticalPosition: 'top'\n\t},\n\targTypes: {\n\t\tmessage: {control: 'text'},\n\t\ttypeAlert: {control: 'select', options: ['success', 'info', 'warning', 'error']},\n\t\tduration: {control: 'number'},\n\t\thorizontalPosition: {control: 'select', options: ['start', 'center', 'end', 'left', 'right']},\n\t\tverticalPosition: {control: 'select', options: ['top', 'bottom']}\n\t}\n} as Meta;\n\nexport default meta;\ntype Story = StoryObj<ObgSnackBarService>;\n\n// eslint-disable-next-line @typescript-eslint/naming-convention\nexport const Default: Story = {\n\trender: args => ({\n\t\tprops: {\n\t\t\t...args\n\t\t},\n\t\ttemplate: `<app-snack-bar-button [message]=\"message\" [typeAlert]=\"typeAlert\" [duration]=\"duration\" [horizontalPosition]=\"horizontalPosition\" [verticalPosition]=\"verticalPosition\"></app-snack-bar-button>`\n\t})\n};\n",
       "assetsDirs": [],
       "styleUrlsData": "",
       "stylesData": "",
@@ -161,21 +191,21 @@
         "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+        "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n\targTypes: {\n\t\tpackageStatus: {\n\t\t\tdescription: 'Array of package status',\n\t\t\ttable: {\n\t\t\t\ttype: {\n\t\t\t\t\tsummary: 'Packages[]',\n\t\t\t\t\tdetail: `Array of Packages objects. Each object has the following properties:\n          - name: string\n          - current: string\n          - wanted: string\n          - latest: string\n          - versionDiff: string`\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\targs: {\n\t\tdefaultPath: 'assets/outdated-report.json',\n\t\tpackageStatus: mockPackages\n\t}\n}"
+        "defaultValue": "{\n\targs: {\n\t\tprimary: 'This is the primary button',\n\t\tsecondary: 'This is the secondary button',\n\t\ttertiary: 'This is the tertiary button'\n\t}\n}"
       },
       {
         "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
+        "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n\trender: args => ({\n\t\tprops: {\n\t\t\t...args\n\t\t},\n\t\ttemplate: `<app-snack-bar-button [message]=\"message\" [typeAlert]=\"typeAlert\" [duration]=\"duration\" [horizontalPosition]=\"horizontalPosition\" [verticalPosition]=\"verticalPosition\"></app-snack-bar-button>`\n\t})\n}"
+        "defaultValue": "{\n\targTypes: {\n\t\tpackageStatus: {\n\t\t\tdescription: 'Array of package status',\n\t\t\ttable: {\n\t\t\t\ttype: {\n\t\t\t\t\tsummary: 'Packages[]',\n\t\t\t\t\tdetail: `Array of Packages objects. Each object has the following properties:\n          - name: string\n          - current: string\n          - wanted: string\n          - latest: string\n          - versionDiff: string`\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\targs: {\n\t\tdefaultPath: 'assets/outdated-report.json',\n\t\tpackageStatus: mockPackages\n\t}\n}"
       },
       {
         "name": "Default",
@@ -191,11 +221,11 @@
         "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+        "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n\targs: {\n\t\tprimary: 'This is the primary button',\n\t\tsecondary: 'This is the secondary button',\n\t\ttertiary: 'This is the tertiary button'\n\t}\n}"
+        "defaultValue": "{\n\trender: args => ({\n\t\tprops: {\n\t\t\t...args\n\t\t},\n\t\ttemplate: `<app-snack-bar-button [message]=\"message\" [typeAlert]=\"typeAlert\" [duration]=\"duration\" [horizontalPosition]=\"horizontalPosition\" [verticalPosition]=\"verticalPosition\"></app-snack-bar-button>`\n\t})\n}"
       },
       {
         "name": "gridData",
@@ -231,21 +261,21 @@
         "name": "meta",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+        "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
-        "type": "Meta<ObgPackagesOutdatedComponent>",
-        "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThis component uses the \"npm outdated\" command to display the current status of your project's dependencies in table form. It informs you of available versions that may include bug fixes, performance enhancements or new features.\n\n## Configuration\nAdd a script to run the \"npm outdate\" command in your  \\`package.json\\` file\n\n\n\n\\`\\`\\`json\n\"scripts\": {\n  \"check-updates\": \"npm outdated --json > [YOUR_PATH]/outdated-report.json || true\"\n}\n\\`\\`\\`\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [\n\t\t\t\t{\n\t\t\t\t\tprovide: PackagesOutdatedService,\n\t\t\t\t\tuseValue: {\n\t\t\t\t\t\tgetOutdatedPackages: () => of(mockPackages),\n\t\t\t\t\t\tgetLocalPackages: () => of(mockPackages) // Mock getLocalPackages method\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t})\n\t]\n} as Meta"
+        "type": "Meta<ObgObliqueGalaxyComponent>",
+        "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObgObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
       },
       {
         "name": "meta",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
+        "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
-        "type": "Meta<ObgSnackBarService>",
-        "defaultValue": "{\n\ttitle: 'Services/ObgSnackBar',\n\tcomponent: ObgSnackBarService,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe ObgSnackBarService is an Angular service based on the Angular Material SnackBar component. It allows you to display customizable snack-bar notifications using MatSnackBar, while incorporating alert elements based on the obAlert component, which can be found in the official Oblique documentation.\n\nKey Features:\nFully Customizable: You can customize the content of the SnackBar with messages and alert types (ObIAlertType), using the obAlert configuration provided by Oblique.\nConfigurable Position: The service allows you to configure the position of the SnackBar on the screen, both horizontally (start, center, end, left, right) and vertically (top, bottom).\nCustomizable Duration: You can adjust the display duration of the SnackBar according to your needs.\nExample of Integration in a TypeScript Page\nHere’s an example that shows how to integrate the ObgSnackBarService into an Angular page or component:\n\n\n    // Open a customized SnackBar\n    this.snackBarService.openObgSnackBar(\n      message,\n      alertType,\n      duration,\n      horizontalPosition,\n      verticalPosition\n    );\n\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [MatSnackBarModule, BrowserAnimationsModule, MatButtonModule, SnackBarButtonComponent, TranslateModule.forRoot()],\n\t\t\tproviders: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}, provideHttpClientTesting()]\n\t\t})\n\t],\n\targs: {\n\t\tmessage: 'Your alert message here',\n\t\ttypeAlert: 'warning',\n\t\tduration: 3000,\n\t\thorizontalPosition: 'center',\n\t\tverticalPosition: 'top'\n\t},\n\targTypes: {\n\t\tmessage: {control: 'text'},\n\t\ttypeAlert: {control: 'select', options: ['success', 'info', 'warning', 'error']},\n\t\tduration: {control: 'number'},\n\t\thorizontalPosition: {control: 'select', options: ['start', 'center', 'end', 'left', 'right']},\n\t\tverticalPosition: {control: 'select', options: ['top', 'bottom']}\n\t}\n} as Meta"
+        "type": "Meta<ObgPackagesOutdatedComponent>",
+        "defaultValue": "{\n\ttitle: 'Example/PackagesOutdated',\n\tcomponent: ObgPackagesOutdatedComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThis component uses the \"npm outdated\" command to display the current status of your project's dependencies in table form. It informs you of available versions that may include bug fixes, performance enhancements or new features.\n\n## Configuration\nAdd a script to run the \"npm outdate\" command in your  \\`package.json\\` file\n\n\n\n\\`\\`\\`json\n\"scripts\": {\n  \"check-updates\": \"npm outdated --json > [YOUR_PATH]/outdated-report.json || true\"\n}\n\\`\\`\\`\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [ObgPackagesOutdatedComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule],\n\t\t\tproviders: [\n\t\t\t\t{\n\t\t\t\t\tprovide: PackagesOutdatedService,\n\t\t\t\t\tuseValue: {\n\t\t\t\t\t\tgetOutdatedPackages: () => of(mockPackages),\n\t\t\t\t\t\tgetLocalPackages: () => of(mockPackages) // Mock getLocalPackages method\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t})\n\t]\n} as Meta"
       },
       {
         "name": "meta",
@@ -261,11 +291,11 @@
         "name": "meta",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+        "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
-        "type": "Meta<ObgObliqueGalaxyComponent>",
-        "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObgObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
+        "type": "Meta<ObgSnackBarService>",
+        "defaultValue": "{\n\ttitle: 'Services/ObgSnackBar',\n\tcomponent: ObgSnackBarService,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe ObgSnackBarService is an Angular service based on the Angular Material SnackBar component. It allows you to display customizable snack-bar notifications using MatSnackBar, while incorporating alert elements based on the obAlert component, which can be found in the official Oblique documentation.\n\nKey Features:\nFully Customizable: You can customize the content of the SnackBar with messages and alert types (ObIAlertType), using the obAlert configuration provided by Oblique.\nConfigurable Position: The service allows you to configure the position of the SnackBar on the screen, both horizontally (start, center, end, left, right) and vertically (top, bottom).\nCustomizable Duration: You can adjust the display duration of the SnackBar according to your needs.\nExample of Integration in a TypeScript Page\nHere’s an example that shows how to integrate the ObgSnackBarService into an Angular page or component:\n\n\n    // Open a customized SnackBar\n    this.snackBarService.openObgSnackBar(\n      message,\n      alertType,\n      duration,\n      horizontalPosition,\n      verticalPosition\n    );\n\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [MatSnackBarModule, BrowserAnimationsModule, MatButtonModule, SnackBarButtonComponent, TranslateModule.forRoot()],\n\t\t\tproviders: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}, provideHttpClientTesting()]\n\t\t})\n\t],\n\targs: {\n\t\tmessage: 'Your alert message here',\n\t\ttypeAlert: 'warning',\n\t\tduration: 3000,\n\t\thorizontalPosition: 'center',\n\t\tverticalPosition: 'top'\n\t},\n\targTypes: {\n\t\tmessage: {control: 'text'},\n\t\ttypeAlert: {control: 'select', options: ['success', 'info', 'warning', 'error']},\n\t\tduration: {control: 'number'},\n\t\thorizontalPosition: {control: 'select', options: ['start', 'center', 'end', 'left', 'right']},\n\t\tverticalPosition: {control: 'select', options: ['top', 'bottom']}\n\t}\n} as Meta"
       },
       {
         "name": "mockPackages",
@@ -326,8 +356,8 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
-        "rawtype": "StoryObj<ObgPackagesOutdatedComponent>",
-        "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
+        "rawtype": "StoryObj<ObgObliqueGalaxyComponent>",
+        "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -337,8 +367,8 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
-        "rawtype": "StoryObj<ObgSnackBarService>",
-        "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
+        "rawtype": "StoryObj<ObgPackagesOutdatedComponent>",
+        "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -359,8 +389,8 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
-        "rawtype": "StoryObj<ObgObliqueGalaxyComponent>",
-        "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+        "rawtype": "StoryObj<ObgSnackBarService>",
+        "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -433,6 +463,28 @@
           "defaultValue": "true"
         }
       ],
+      "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n\targs: {\n\t\tprimary: 'This is the primary button',\n\t\tsecondary: 'This is the secondary button',\n\t\ttertiary: 'This is the tertiary button'\n\t}\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<ObgObliqueGalaxyComponent>",
+          "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObgObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
+        }
+      ],
       "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts": [
         {
           "name": "Default",
@@ -465,28 +517,6 @@
           "defaultValue": "[\n\t{\n\t\tname: 'mock-@angular-devkit/build-angular',\n\t\tcurrent: '17.0.3',\n\t\twanted: '17.0.3',\n\t\tlatest: '18.0.0-beta.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-eslint',\n\t\tcurrent: '8.57.0',\n\t\twanted: '8.57.0',\n\t\tlatest: '9.4.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-ng-packagr',\n\t\tcurrent: '17.3.0',\n\t\twanted: '17.3.0',\n\t\tlatest: '18.0.0',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-prettier',\n\t\tcurrent: '4.3.2',\n\t\twanted: '4.3.2',\n\t\tlatest: '4.3.2',\n\t\tversionDiff: '0'\n\t},\n\t{\n\t\tname: 'mock-tslib',\n\t\tcurrent: '2.6.2',\n\t\twanted: '2.6.3',\n\t\tlatest: '2.6.3',\n\t\tversionDiff: '0'\n\t}\n]"
         }
       ],
-      "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts": [
-        {
-          "name": "Default",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n\trender: args => ({\n\t\tprops: {\n\t\t\t...args\n\t\t},\n\t\ttemplate: `<app-snack-bar-button [message]=\"message\" [typeAlert]=\"typeAlert\" [duration]=\"duration\" [horizontalPosition]=\"horizontalPosition\" [verticalPosition]=\"verticalPosition\"></app-snack-bar-button>`\n\t})\n}"
-        },
-        {
-          "name": "meta",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Meta<ObgSnackBarService>",
-          "defaultValue": "{\n\ttitle: 'Services/ObgSnackBar',\n\tcomponent: ObgSnackBarService,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe ObgSnackBarService is an Angular service based on the Angular Material SnackBar component. It allows you to display customizable snack-bar notifications using MatSnackBar, while incorporating alert elements based on the obAlert component, which can be found in the official Oblique documentation.\n\nKey Features:\nFully Customizable: You can customize the content of the SnackBar with messages and alert types (ObIAlertType), using the obAlert configuration provided by Oblique.\nConfigurable Position: The service allows you to configure the position of the SnackBar on the screen, both horizontally (start, center, end, left, right) and vertically (top, bottom).\nCustomizable Duration: You can adjust the display duration of the SnackBar according to your needs.\nExample of Integration in a TypeScript Page\nHere’s an example that shows how to integrate the ObgSnackBarService into an Angular page or component:\n\n\n    // Open a customized SnackBar\n    this.snackBarService.openObgSnackBar(\n      message,\n      alertType,\n      duration,\n      horizontalPosition,\n      verticalPosition\n    );\n\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [MatSnackBarModule, BrowserAnimationsModule, MatButtonModule, SnackBarButtonComponent, TranslateModule.forRoot()],\n\t\t\tproviders: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}, provideHttpClientTesting()]\n\t\t})\n\t],\n\targs: {\n\t\tmessage: 'Your alert message here',\n\t\ttypeAlert: 'warning',\n\t\tduration: 3000,\n\t\thorizontalPosition: 'center',\n\t\tverticalPosition: 'top'\n\t},\n\targTypes: {\n\t\tmessage: {control: 'text'},\n\t\ttypeAlert: {control: 'select', options: ['success', 'info', 'warning', 'error']},\n\t\tduration: {control: 'number'},\n\t\thorizontalPosition: {control: 'select', options: ['start', 'center', 'end', 'left', 'right']},\n\t\tverticalPosition: {control: 'select', options: ['top', 'bottom']}\n\t}\n} as Meta"
-        }
-      ],
       "projects/oblique-galaxy/src/lib/components/textarea-input/textarea-input.component.stories.ts": [
         {
           "name": "Default",
@@ -509,26 +539,26 @@
           "defaultValue": "{\n\ttitle: 'Components/TextareaInput',\n\tcomponent: TextareaInputComponent,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe TextAreaCounter component is a handy tool for developers, displaying the number of characters remaining in a text area (textarea) in real time. Ideal for forms and text entries requiring character limits, it offers an enhanced user experience by providing immediate visual feedback.\n\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [\n\t\t\t\tBrowserAnimationsModule,\n\t\t\t\tFormsModule,\n\t\t\t\tTextareaInputComponent,\n\t\t\t\tReactiveFormsModule,\n\t\t\t\tMatFormFieldModule,\n\t\t\t\tMatInputModule,\n\t\t\t\tTranslateModule.forRoot(multiTranslateLoader())\n\t\t\t]\n\t\t})\n\t],\n\targs: {\n\t\tlabel: 'Default Label',\n\t\tplaceholder: 'Enter text here...',\n\t\tdisabled: false,\n\t\tmaxLength: 1000,\n\t\tstyle: 'outline',\n\t\tid: 'textarea-input-default'\n\t}\n} as Meta"
         }
       ],
-      "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts": [
+      "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts": [
         {
           "name": "Default",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+          "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n\targs: {\n\t\tprimary: 'This is the primary button',\n\t\tsecondary: 'This is the secondary button',\n\t\ttertiary: 'This is the tertiary button'\n\t}\n}"
+          "defaultValue": "{\n\trender: args => ({\n\t\tprops: {\n\t\t\t...args\n\t\t},\n\t\ttemplate: `<app-snack-bar-button [message]=\"message\" [typeAlert]=\"typeAlert\" [duration]=\"duration\" [horizontalPosition]=\"horizontalPosition\" [verticalPosition]=\"verticalPosition\"></app-snack-bar-button>`\n\t})\n}"
         },
         {
           "name": "meta",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+          "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
-          "type": "Meta<ObgObliqueGalaxyComponent>",
-          "defaultValue": "{\n\ttitle: 'Example/Galaxy',\n\tcomponent: ObgObliqueGalaxyComponent,\n\ttags: ['autodocs'],\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [BrowserAnimationsModule, MatButtonModule, ObliqueModule]\n\t\t})\n\t]\n} as Meta"
+          "type": "Meta<ObgSnackBarService>",
+          "defaultValue": "{\n\ttitle: 'Services/ObgSnackBar',\n\tcomponent: ObgSnackBarService,\n\ttags: ['autodocs'],\n\tparameters: {\n\t\tdocs: {\n\t\t\tdescription: {\n\t\t\t\tcomponent: `\nThis component has been created by [@punix81](https://github.com/punix81).\n\nThe ObgSnackBarService is an Angular service based on the Angular Material SnackBar component. It allows you to display customizable snack-bar notifications using MatSnackBar, while incorporating alert elements based on the obAlert component, which can be found in the official Oblique documentation.\n\nKey Features:\nFully Customizable: You can customize the content of the SnackBar with messages and alert types (ObIAlertType), using the obAlert configuration provided by Oblique.\nConfigurable Position: The service allows you to configure the position of the SnackBar on the screen, both horizontally (start, center, end, left, right) and vertically (top, bottom).\nCustomizable Duration: You can adjust the display duration of the SnackBar according to your needs.\nExample of Integration in a TypeScript Page\nHere’s an example that shows how to integrate the ObgSnackBarService into an Angular page or component:\n\n\n    // Open a customized SnackBar\n    this.snackBarService.openObgSnackBar(\n      message,\n      alertType,\n      duration,\n      horizontalPosition,\n      verticalPosition\n    );\n\n`\n\t\t\t}\n\t\t}\n\t},\n\tdecorators: [\n\t\tmoduleMetadata({\n\t\t\timports: [MatSnackBarModule, BrowserAnimationsModule, MatButtonModule, SnackBarButtonComponent, TranslateModule.forRoot()],\n\t\t\tproviders: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}, provideHttpClientTesting()]\n\t\t})\n\t],\n\targs: {\n\t\tmessage: 'Your alert message here',\n\t\ttypeAlert: 'warning',\n\t\tduration: 3000,\n\t\thorizontalPosition: 'center',\n\t\tverticalPosition: 'top'\n\t},\n\targTypes: {\n\t\tmessage: {control: 'text'},\n\t\ttypeAlert: {control: 'select', options: ['success', 'info', 'warning', 'error']},\n\t\tduration: {control: 'number'},\n\t\thorizontalPosition: {control: 'select', options: ['start', 'center', 'end', 'left', 'right']},\n\t\tverticalPosition: {control: 'select', options: ['top', 'bottom']}\n\t}\n} as Meta"
         }
       ],
       "projects/oblique-galaxy/.storybook/preview.ts": [
@@ -573,6 +603,19 @@
           "kind": 183
         }
       ],
+      "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<ObgObliqueGalaxyComponent>",
+          "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
       "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts": [
         {
           "name": "Story",
@@ -580,19 +623,6 @@
           "subtype": "typealias",
           "rawtype": "StoryObj<ObgPackagesOutdatedComponent>",
           "file": "projects/oblique-galaxy/src/lib/components/packages-outdated/obg-packages-outdated.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "description": "",
-          "kind": 183
-        }
-      ],
-      "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts": [
-        {
-          "name": "Story",
-          "ctype": "miscellaneous",
-          "subtype": "typealias",
-          "rawtype": "StoryObj<ObgSnackBarService>",
-          "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -612,13 +642,13 @@
           "kind": 183
         }
       ],
-      "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts": [
+      "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts": [
         {
           "name": "Story",
           "ctype": "miscellaneous",
           "subtype": "typealias",
-          "rawtype": "StoryObj<ObgObliqueGalaxyComponent>",
-          "file": "projects/oblique-galaxy/src/lib/components/oblique-galaxy/oblique-galaxy.component.stories.ts",
+          "rawtype": "StoryObj<ObgSnackBarService>",
+          "file": "projects/oblique-galaxy/src/lib/components/snack-bar/obg-snack-bar.service.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -798,7 +828,7 @@
         "linktype": "component",
         "name": "SnackBarButtonComponent",
         "coveragePercent": 0,
-        "coverageCount": "0/8",
+        "coverageCount": "0/9",
         "status": "low"
       },
       {
