@@ -4,7 +4,7 @@
 	}
 	<mat-form-field [appearance]="style() === 'outline' ? 'outline' : 'fill'">
 		@if (style() === "fill") {
-			<mat-label>{{ label | translate }}</mat-label>
+			<mat-label>{{ label() | translate }}</mat-label>
 		}
 		<textarea
 			#input
@@ -19,7 +19,7 @@
 			[value]="value ?? ''"
 			(input)="onTextChange($event)"
 		></textarea>
-		@if (!disabled) {
+		@if (!disabled()) {
 			<mat-hint>{{ input.value.length }} / {{ maxLength() }}</mat-hint>
 		}
 		<mat-error />

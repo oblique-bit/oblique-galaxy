@@ -5,7 +5,7 @@ import {TextareaInputComponent} from './textarea-input.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, WritableSignal} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
 
 describe('TextareaInputComponent', () => {
@@ -15,7 +15,6 @@ describe('TextareaInputComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [BrowserAnimationsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule],
-			// @typescript-eslint/no-deprecated
 			providers: [{provide: TranslateService, useClass: TranslateModule}],
 			schemas: [CUSTOM_ELEMENTS_SCHEMA] // Add CUSTOM_ELEMENTS_SCHEMA here
 		}).compileComponents();
@@ -37,20 +36,20 @@ describe('TextareaInputComponent', () => {
 
 	it('should accept label @Input', () => {
 		const label = 'Test Label';
-		component.label = label;
+		(component.label as unknown as WritableSignal<string>).set(label);
 		fixture.detectChanges();
 		expect(component.label).toBe(label);
 	});
 
 	it('should accept placeholder @Input', () => {
 		const placeholder = 'Test Placeholder';
-		component.placeholder = placeholder;
+		(component.placeholder as unknown as WritableSignal<string>).set(placeholder);
 		fixture.detectChanges();
 		expect(component.placeholder).toBe(placeholder);
 	});
 
 	it('should accept disabled @Input', () => {
-		component.disabled = true;
+		(component.disabled as unknown as WritableSignal<boolean>).set(true);
 		fixture.detectChanges();
 		expect(component.disabled).toBe(true);
 	});
@@ -61,7 +60,7 @@ describe('TextareaInputComponent', () => {
 
 	it('should accept maxLength @Input', () => {
 		const maxLength = 500;
-		component.maxLength = maxLength;
+		(component.maxLength as unknown as WritableSignal<number>).set(maxLength);
 		fixture.detectChanges();
 		expect(component.maxLength).toBe(maxLength);
 	});
@@ -72,7 +71,7 @@ describe('TextareaInputComponent', () => {
 
 	it('should accept style @Input', () => {
 		const style = 'fill';
-		component.style = style;
+		(component.style as unknown as WritableSignal<string>).set(style);
 		fixture.detectChanges();
 		expect(component.style).toBe(style);
 	});
@@ -83,7 +82,7 @@ describe('TextareaInputComponent', () => {
 
 	it('should accept id @Input', () => {
 		const id = 'test-id';
-		component.id = id;
+		(component.id as unknown as WritableSignal<string>).set(id);
 		fixture.detectChanges();
 		expect(component.id).toBe(id);
 	});

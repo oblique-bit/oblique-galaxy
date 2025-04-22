@@ -79,14 +79,7 @@ The ObgGridDragAndDropComponent is a standalone Angular component that allows cr
 		applicationConfig({
 			providers: [provideHttpClient(withInterceptorsFromDi()), provideAnimations()]
 		})
-	]
-};
-
-export default meta;
-type Story = StoryObj<ObgGridDragAndDropComponent<string>>;
-
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export const Default: Story = {
+	],
 	args: {
 		gridData,
 		showGridHeader,
@@ -94,4 +87,12 @@ export const Default: Story = {
 			console.warn('Grid data changed:', gridDataTmp);
 		}
 	}
+};
+
+export default meta;
+type Story = StoryObj<ObgGridDragAndDropComponent<string>>;
+
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export const Default: Story = {
+	argTypes: {}
 };

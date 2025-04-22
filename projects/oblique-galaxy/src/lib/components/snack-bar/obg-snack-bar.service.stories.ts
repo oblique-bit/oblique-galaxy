@@ -1,10 +1,10 @@
-import {Meta, StoryObj, moduleMetadata} from '@storybook/angular';
+import {Meta, StoryObj, applicationConfig, moduleMetadata} from '@storybook/angular';
 import {MAT_SNACK_BAR_DATA, MatSnackBarHorizontalPosition, MatSnackBarModule, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 import {MatButton, MatButtonModule} from '@angular/material/button';
 import {ObgSnackBarService} from './obg-snack-bar.service';
 import {ObButtonDirective, ObIAlertType} from '@oblique/oblique';
-import {Component, input} from '@angular/core';
-import {TranslateModule} from '@ngx-translate/core';
+import {Component, importProvidersFrom, input} from '@angular/core';
+import {TranslateDirective, TranslateModule, TranslatePipe} from '@ngx-translate/core';
 import {provideHttpClientTesting} from '@angular/common/http/testing';
 import {provideAnimations} from '@angular/platform-browser/animations';
 
@@ -64,8 +64,11 @@ Here’s an example that shows how to integrate the ObgSnackBarService into an A
 	},
 	decorators: [
 		moduleMetadata({
-			imports: [MatSnackBarModule, MatButtonModule, SnackBarButtonComponent, TranslateModule.forRoot()],
+			imports: [MatSnackBarModule, MatButtonModule, SnackBarButtonComponent, TranslatePipe, TranslateDirective],
 			providers: [ObgSnackBarService, {provide: MAT_SNACK_BAR_DATA, useValue: {}}, provideHttpClientTesting(), provideAnimations()]
+		}),
+		applicationConfig({
+			providers: [importProvidersFrom(TranslateModule.forRoot())]
 		})
 	],
 	args: {

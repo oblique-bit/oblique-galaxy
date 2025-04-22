@@ -3,10 +3,12 @@ import {TextareaInputComponent} from './textarea-input.component';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {TranslateModule} from '@ngx-translate/core';
-import {multiTranslateLoader} from '@oblique/oblique';
+import {TranslateDirective, TranslateModule, TranslatePipe} from '@ngx-translate/core';
 import {provideAnimations} from '@angular/platform-browser/animations';
-import {provideHttpClient} from '@angular/common/http';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {importProvidersFrom} from '@angular/core';
+
+const maxLength = 1000;
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<TextareaInputComponent> = {
@@ -27,17 +29,17 @@ The TextAreaCounter component is a handy tool for developers, displaying the num
 	},
 	decorators: [
 		moduleMetadata({
-			imports: [FormsModule, TextareaInputComponent, ReactiveFormsModule, MatFormFieldModule, MatInputModule, TranslateModule.forRoot(multiTranslateLoader())]
+			imports: [FormsModule, TextareaInputComponent, ReactiveFormsModule, MatFormFieldModule, MatInputModule, TranslatePipe, TranslateDirective]
 		}),
 		applicationConfig({
-			providers: [provideAnimations(), provideHttpClient()]
+			providers: [provideAnimations(), provideHttpClient(withInterceptorsFromDi()), importProvidersFrom(TranslateModule.forRoot())]
 		})
 	],
 	args: {
 		label: 'Default Label',
-		placeholder: 'Enter text here...',
+		placeholder: 'Enter text here... v2',
 		disabled: false,
-		maxLength: 1000,
+		maxLength,
 		style: 'outline',
 		id: 'textarea-input-default'
 	}

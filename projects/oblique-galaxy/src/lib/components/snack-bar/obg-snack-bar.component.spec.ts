@@ -1,6 +1,6 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {MAT_SNACK_BAR_DATA} from '@angular/material/snack-bar';
-import {TranslateModule} from '@ngx-translate/core';
+import {TranslateDirective, TranslatePipe} from '@ngx-translate/core';
 import {ObgSnackBarComponent, SnackBarData} from './obg-snack-bar.component';
 
 describe('SnackBarComponent', () => {
@@ -9,7 +9,7 @@ describe('SnackBarComponent', () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			imports: [ObgSnackBarComponent, TranslateModule.forRoot()],
+			imports: [ObgSnackBarComponent, TranslatePipe, TranslateDirective],
 			providers: [{provide: MAT_SNACK_BAR_DATA, useValue: {message: 'Test message', typeAlert: 'info'}}]
 		}).compileComponents();
 
