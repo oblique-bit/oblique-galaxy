@@ -1,5 +1,4 @@
-import {Component, Optional, Self, input} from '@angular/core';
-import {NgControl} from '@angular/forms';
+import {Component, input} from '@angular/core';
 import {MatFormFieldModule, MatLabel} from '@angular/material/form-field';
 import {FormInput} from './form-input';
 import {CommonModule} from '@angular/common';
@@ -23,11 +22,6 @@ export class TextareaInputComponent extends FormInput<string> {
 	readonly maxLength = input<number>(DEFAULT_MAXLENGTH);
 	readonly style = input<'outline' | 'fill'>('outline');
 	readonly id = input('');
-
-	constructor(@Optional() @Self() public ngControl: NgControl) {
-		super();
-		this.ngControl.valueAccessor = this;
-	}
 
 	onTextChange(event: Event): void {
 		const target = event.target as HTMLInputElement;
