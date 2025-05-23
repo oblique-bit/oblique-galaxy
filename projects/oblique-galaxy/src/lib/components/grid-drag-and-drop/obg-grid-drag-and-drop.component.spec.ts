@@ -32,8 +32,7 @@ describe('ObgGridDragAndDropComponent', () => {
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(ObgGridDragAndDropComponent<string>);
-		const writableGridData = component.gridData as unknown as import('@angular/core').WritableSignal<GridData<string>>;
-		writableGridData.set(mockGridData);
+		fixture.componentRef.setInput('gridData', mockGridData);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});
@@ -88,6 +87,6 @@ describe('ObgGridDragAndDropComponent', () => {
 			event: new MouseEvent('drop')
 		};
 		component.drop(event);
-		expect(component.gridDataChange.emit).toHaveBeenCalledWith(component.gridData);
+		expect(component.gridDataChange.emit).toHaveBeenCalledWith(component.gridData());
 	});
 });
