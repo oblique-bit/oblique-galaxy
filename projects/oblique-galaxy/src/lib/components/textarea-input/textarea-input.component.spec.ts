@@ -1,18 +1,18 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import { TextareaInputComponent } from './textarea-input.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { TranslateModule } from '@ngx-translate/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { Pipe, PipeTransform } from '@angular/core';
+import {TextareaInputComponent} from './textarea-input.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {TranslateModule} from '@ngx-translate/core';
+import {ReactiveFormsModule} from '@angular/forms';
+import {Pipe, PipeTransform} from '@angular/core';
 
-@Pipe({ name: 'translate' })
+@Pipe({name: 'translate'})
 class TranslatePipeStub implements PipeTransform {
-  transform(value: string): string {
-    return value; // or 'Mock translation' if you prefer
-  }
+	transform(value: string): string {
+		return value; // or 'Mock translation' if you prefer
+	}
 }
 
 describe('TextareaInputComponent', () => {
@@ -21,7 +21,7 @@ describe('TextareaInputComponent', () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			imports: [BrowserAnimationsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, TranslateModule.forRoot(), TranslatePipeStub], 
+			imports: [BrowserAnimationsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, TranslateModule.forRoot(), TranslatePipeStub]
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(TextareaInputComponent);
@@ -59,7 +59,7 @@ describe('TextareaInputComponent', () => {
 
 	it('should accept maxLength @Input', () => {
 		const maxLength = 500;
-		fixture.componentRef.setInput('maxLength', maxLength)
+		fixture.componentRef.setInput('maxLength', maxLength);
 		fixture.detectChanges();
 		expect(component.maxLength()).toBe(maxLength);
 	});
@@ -70,7 +70,7 @@ describe('TextareaInputComponent', () => {
 
 	it('should accept style @Input', () => {
 		const style = 'fill';
-		fixture.componentRef.setInput('style', style)
+		fixture.componentRef.setInput('style', style);
 		fixture.detectChanges();
 		expect(component.style()).toBe(style);
 	});
@@ -81,7 +81,7 @@ describe('TextareaInputComponent', () => {
 
 	it('should accept id @Input', () => {
 		const id = 'test-id';
-		fixture.componentRef.setInput('id', id)
+		fixture.componentRef.setInput('id', id);
 		fixture.detectChanges();
 		expect(component.id()).toBe(id);
 	});
