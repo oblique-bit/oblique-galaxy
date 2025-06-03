@@ -1,9 +1,10 @@
-import {Meta, StoryObj, moduleMetadata} from '@storybook/angular';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {Meta, StoryObj, applicationConfig, moduleMetadata} from '@storybook/angular';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {CommandComponent} from './command.component';
 import {ObIconModule} from '@oblique/oblique';
+import {provideAnimations} from '@angular/platform-browser/animations';
+import {provideHttpClient} from '@angular/common/http';
 
 const meta: Meta<CommandComponent> = {
 	title: 'Components/Command',
@@ -22,7 +23,10 @@ The Command component is a CopyToClipboard designed to provide a simple function
 	},
 	decorators: [
 		moduleMetadata({
-			imports: [BrowserAnimationsModule, MatIconModule, MatTooltipModule, ObIconModule.forRoot(), CommandComponent]
+			imports: [MatIconModule, MatTooltipModule, ObIconModule.forRoot(), CommandComponent]
+		}),
+		applicationConfig({
+			providers: [provideAnimations(), provideHttpClient()]
 		})
 	]
 };

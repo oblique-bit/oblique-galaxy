@@ -1,5 +1,5 @@
 import {Meta, StoryObj, applicationConfig, moduleMetadata} from '@storybook/angular';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {provideAnimations} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {ObliqueModule} from '@oblique/oblique';
 import {GridData, ObgGridDragAndDropComponent} from './obg-grid-drag-and-drop.component';
@@ -74,19 +74,12 @@ The ObgGridDragAndDropComponent is a standalone Angular component that allows cr
 	},
 	decorators: [
 		moduleMetadata({
-			imports: [ObgGridDragAndDropComponent, BrowserAnimationsModule, MatButtonModule, ObliqueModule]
+			imports: [ObgGridDragAndDropComponent, MatButtonModule, ObliqueModule]
 		}),
 		applicationConfig({
-			providers: [provideHttpClient(withInterceptorsFromDi())]
+			providers: [provideHttpClient(withInterceptorsFromDi()), provideAnimations()]
 		})
-	]
-};
-
-export default meta;
-type Story = StoryObj<ObgGridDragAndDropComponent<string>>;
-
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export const Default: Story = {
+	],
 	args: {
 		gridData,
 		showGridHeader,
@@ -94,4 +87,12 @@ export const Default: Story = {
 			console.warn('Grid data changed:', gridDataTmp);
 		}
 	}
+};
+
+export default meta;
+type Story = StoryObj<ObgGridDragAndDropComponent<string>>;
+
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export const Default: Story = {
+	argTypes: {}
 };

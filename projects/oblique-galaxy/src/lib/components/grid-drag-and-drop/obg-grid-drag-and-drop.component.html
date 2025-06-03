@@ -1,7 +1,7 @@
 <div class="grid-container">
-	@if (showGridHeader) {
+	@if (showGridHeader()) {
 		<div class="grid-header">
-			@for (title of gridData?.columnNames; track title) {
+			@for (title of gridData().columnNames; track title) {
 				<div class="grid-header-item">
 					{{ title }}
 				</div>
@@ -9,7 +9,7 @@
 		</div>
 	}
 	<div cdkDropListGroup class="grid-body">
-		@for (row of gridData?.rowsData; track row; let rowIndex = $index) {
+		@for (row of gridData().rowsData; track row; let rowIndex = $index) {
 			<div class="grid-row">
 				@for (col of row.items; track col; let colIndex = $index) {
 					<!-- eslint-disable-next-line @angular-eslint/template/no-call-expression -->

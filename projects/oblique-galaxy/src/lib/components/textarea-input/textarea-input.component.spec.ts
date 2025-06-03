@@ -4,10 +4,16 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TextareaInputComponent} from './textarea-input.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {TranslateService} from '@ngx-translate/core';
-import {ObMockTranslateService} from '@oblique/oblique';
-import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {TranslateModule} from '@ngx-translate/core';
 import {ReactiveFormsModule} from '@angular/forms';
+import {Pipe, PipeTransform} from '@angular/core';
+
+@Pipe({name: 'translate'})
+class TranslatePipeStub implements PipeTransform {
+	transform(value: string): string {
+		return value; // or 'Mock translation' if you prefer
+	}
+}
 
 describe('TextareaInputComponent', () => {
 	let component: TextareaInputComponent;
@@ -15,17 +21,9 @@ describe('TextareaInputComponent', () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			imports: [BrowserAnimationsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule],
-			providers: [{provide: TranslateService, useClass: ObMockTranslateService}],
-			schemas: [CUSTOM_ELEMENTS_SCHEMA] // Add CUSTOM_ELEMENTS_SCHEMA here
+			imports: [BrowserAnimationsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, TranslateModule.forRoot(), TranslatePipeStub]
 		}).compileComponents();
 
-		fixture = TestBed.createComponent(TextareaInputComponent);
-		component = fixture.componentInstance;
-		fixture.detectChanges();
-	});
-
-	beforeEach(() => {
 		fixture = TestBed.createComponent(TextareaInputComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
@@ -37,54 +35,54 @@ describe('TextareaInputComponent', () => {
 
 	it('should accept label @Input', () => {
 		const label = 'Test Label';
-		component.label = label;
+		fixture.componentRef.setInput('label', label);
 		fixture.detectChanges();
-		expect(component.label).toBe(label);
+		expect(component.label()).toBe(label);
 	});
 
 	it('should accept placeholder @Input', () => {
 		const placeholder = 'Test Placeholder';
-		component.placeholder = placeholder;
+		fixture.componentRef.setInput('placeholder', placeholder);
 		fixture.detectChanges();
-		expect(component.placeholder).toBe(placeholder);
+		expect(component.placeholder()).toBe(placeholder);
 	});
 
 	it('should accept disabled @Input', () => {
-		component.disabled = true;
+		fixture.componentRef.setInput('disabled', true);
 		fixture.detectChanges();
-		expect(component.disabled).toBe(true);
+		expect(component.disabled()).toBe(true);
 	});
 
 	it('should have default maxLength @Input', () => {
-		expect(component.maxLength).toBe(1000);
+		expect(component.maxLength()).toBe(1000);
 	});
 
 	it('should accept maxLength @Input', () => {
 		const maxLength = 500;
-		component.maxLength = maxLength;
+		fixture.componentRef.setInput('maxLength', maxLength);
 		fixture.detectChanges();
-		expect(component.maxLength).toBe(maxLength);
+		expect(component.maxLength()).toBe(maxLength);
 	});
 
 	it('should have default style @Input', () => {
-		expect(component.style).toBe('outline');
+		expect(component.style()).toBe('outline');
 	});
 
 	it('should accept style @Input', () => {
 		const style = 'fill';
-		component.style = style;
+		fixture.componentRef.setInput('style', style);
 		fixture.detectChanges();
-		expect(component.style).toBe(style);
+		expect(component.style()).toBe(style);
 	});
 
 	it('should have undefined id @Input by default', () => {
-		expect(component.id).toBe('');
+		expect(component.id()).toBe('');
 	});
 
 	it('should accept id @Input', () => {
 		const id = 'test-id';
-		component.id = id;
+		fixture.componentRef.setInput('id', id);
 		fixture.detectChanges();
-		expect(component.id).toBe(id);
+		expect(component.id()).toBe(id);
 	});
 });

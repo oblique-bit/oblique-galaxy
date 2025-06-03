@@ -10,7 +10,7 @@
       "prefix": "obg",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "builder": "@angular/build:ng-packagr",
           "options": {
             "project": "projects/oblique-galaxy/ng-package.json"
           },
@@ -54,7 +54,7 @@
             "browserTarget": "oblique-galaxy:build",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "projects/oblique-galaxy"],
-            "styles": ["node_modules/@oblique/oblique/styles/css/oblique-core.css", "node_modules/@oblique/oblique/styles/css/frutiger.css"],
+            "styles": ["node_modules/@oblique/oblique/styles/css/oblique-core.css"],
             "port": 6006
           }
         },
@@ -65,7 +65,7 @@
             "browserTarget": "oblique-galaxy:build",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "projects/oblique-galaxy"],
-            "styles": ["node_modules/@oblique/oblique/styles/css/oblique-core.css", "node_modules/@oblique/oblique/styles/css/frutiger.css"],
+            "styles": ["node_modules/@oblique/oblique/styles/css/oblique-core.css"],
             "outputDir": "dist/storybook/oblique-galaxy"
           }
         }

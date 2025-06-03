@@ -1,8 +1,9 @@
 import {ObgObliqueGalaxyComponent} from './obg-oblique-galaxy.component';
-import {Meta, StoryObj, moduleMetadata} from '@storybook/angular';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {Meta, StoryObj, applicationConfig, moduleMetadata} from '@storybook/angular';
+import {provideAnimations} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {ObliqueModule} from '@oblique/oblique';
+import {provideHttpClient} from '@angular/common/http';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<ObgObliqueGalaxyComponent> = {
@@ -11,7 +12,10 @@ const meta: Meta<ObgObliqueGalaxyComponent> = {
 	tags: ['autodocs'],
 	decorators: [
 		moduleMetadata({
-			imports: [BrowserAnimationsModule, MatButtonModule, ObliqueModule]
+			imports: [MatButtonModule, ObliqueModule]
+		}),
+		applicationConfig({
+			providers: [provideAnimations(), provideHttpClient()]
 		})
 	]
 } as Meta;

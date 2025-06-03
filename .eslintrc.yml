@@ -83,6 +83,7 @@ overrides:
       "@typescript-eslint/sort-type-union-intersection-members": off
       "@typescript-eslint/use-unknown-in-catch-callback-variable": off
       "@typescript-eslint/no-magic-numbers": off
+      "@typescript-eslint/no-unsafe-type-assertion": off
 
       accessor-pairs: off
       capitalized-comments: off
@@ -108,9 +109,6 @@ overrides:
         - error
         - template: 0
           styles: 0
-      "@angular-eslint/no-host-metadata-property":
-        - error
-        - allowStatic: true
       "@typescript-eslint/explicit-function-return-type":
         - error
         - allowExpressions: true
