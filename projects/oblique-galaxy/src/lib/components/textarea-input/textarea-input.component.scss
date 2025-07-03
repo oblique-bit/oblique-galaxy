@@ -1,4 +1,4 @@
-@import "@oblique/oblique/styles/scss/core/variables";
+@use "@oblique/oblique/styles/scss/core/variables" as *;
 
 :host,
 .textarea-container {

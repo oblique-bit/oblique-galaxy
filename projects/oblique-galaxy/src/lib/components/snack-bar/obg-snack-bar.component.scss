@@ -1,4 +1,4 @@
-@import "@oblique/oblique/styles/scss/core/palette";
+@use "@oblique/oblique/styles/scss/core/palette" as *;
 
 .mdc-snackbar__label {
 	padding: 0 !important;
