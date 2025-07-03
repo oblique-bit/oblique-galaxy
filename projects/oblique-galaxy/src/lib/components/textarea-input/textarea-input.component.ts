@@ -10,8 +10,8 @@ const DEFAULT_MAXLENGTH = 1000;
 
 @Component({
 	selector: 'obg-textarea-input',
-	standalone: true,
 	imports: [CommonModule, MatLabel, MatFormFieldModule, CdkTextareaAutosize, MatInput, TranslatePipe],
+	standalone: true,
 	templateUrl: './textarea-input.component.html',
 	styleUrl: './textarea-input.component.scss'
 })

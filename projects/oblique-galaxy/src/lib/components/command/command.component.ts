@@ -4,8 +4,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTooltip} from '@angular/material/tooltip';
 @Component({
 	selector: 'obg-command',
-	standalone: true,
 	imports: [CdkCopyToClipboard, MatTooltip, MatIconModule],
+	standalone: true,
 	templateUrl: './command.component.html',
 	styleUrl: './command.component.scss'
 })
