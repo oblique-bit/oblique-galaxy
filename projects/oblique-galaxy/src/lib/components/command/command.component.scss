@@ -6,6 +6,7 @@ code {
 
 .mat-icon {
 	width: 0;
+	padding-top: 2px;
 	transition: width variables.$ob-duration-fast;
 	margin-left: variables.$ob-spacing-xs;
 	vertical-align: center;

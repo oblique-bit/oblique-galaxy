@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output, input} from '@angular/core';
+import {Component, OnInit, OutputEmitterRef, input, output} from '@angular/core';
 import {CdkDrag, CdkDragDrop, CdkDropList, CdkDropListGroup, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import {of} from 'rxjs';
 
@@ -9,16 +9,15 @@ export interface GridData<T> {
 
 @Component({
 	selector: 'obg-grid-drag-and-drop',
-	templateUrl: './obg-grid-drag-and-drop.component.html',
-	styleUrl: './obg-grid-drag-and-drop.component.scss',
 	imports: [CdkDropListGroup, CdkDropList, CdkDrag],
-	standalone: true
+	standalone: true,
+	templateUrl: './obg-grid-drag-and-drop.component.html',
+	styleUrl: './obg-grid-drag-and-drop.component.scss'
 })
 export class ObgGridDragAndDropComponent<T> implements OnInit {
 	readonly gridData = input<GridData<T>>({columnNames: [], rowsData: []});
 	readonly showGridHeader = input<boolean>(true);
-	@Output() readonly gridDataChange = new EventEmitter<GridData<T>>();
-
+	readonly gridDataChange: OutputEmitterRef<GridData<T>> = output();
 	columns = 0;
 	rows = 0;
 	columnTitles: string[] = [];

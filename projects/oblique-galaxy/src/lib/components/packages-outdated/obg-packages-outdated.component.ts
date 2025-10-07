@@ -5,8 +5,8 @@ import {NgClass} from '@angular/common';
 
 @Component({
 	selector: 'obg-packages-outdated',
-	standalone: true,
 	imports: [NgClass],
+	standalone: true,
 	templateUrl: './obg-packages-outdated.component.html',
 	styleUrl: './obg-packages-outdated.component.scss'
 })

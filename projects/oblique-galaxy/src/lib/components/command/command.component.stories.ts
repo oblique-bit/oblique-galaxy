@@ -2,7 +2,7 @@ import {Meta, StoryObj, applicationConfig, moduleMetadata} from '@storybook/angu
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {CommandComponent} from './command.component';
-import {ObIconModule} from '@oblique/oblique';
+import {provideObliqueConfiguration} from '@oblique/oblique';
 import {provideAnimations} from '@angular/platform-browser/animations';
 import {provideHttpClient} from '@angular/common/http';
 
@@ -23,10 +23,23 @@ The Command component is a CopyToClipboard designed to provide a simple function
 	},
 	decorators: [
 		moduleMetadata({
-			imports: [MatIconModule, MatTooltipModule, ObIconModule.forRoot(), CommandComponent]
+			imports: [MatIconModule, MatTooltipModule, CommandComponent]
 		}),
 		applicationConfig({
-			providers: [provideAnimations(), provideHttpClient()]
+			providers: [
+				provideAnimations(),
+				provideHttpClient(),
+				provideObliqueConfiguration({
+					accessibilityStatement: {
+						applicationName: 'applicationNameExample',
+						applicationOperator: 'applicationOperatorEcample',
+						contact: {emails: ['emailExample']}
+					},
+					icon: {
+						registerObliqueIcons: true
+					}
+				})
+			]
 		})
 	]
 };

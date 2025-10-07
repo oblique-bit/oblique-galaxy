@@ -3,7 +3,7 @@ import {MAT_SNACK_BAR_DATA, MatSnackBarHorizontalPosition, MatSnackBarModule, Ma
 import {MatButton, MatButtonModule} from '@angular/material/button';
 import {ObgSnackBarService} from './obg-snack-bar.service';
 import {ObButtonDirective, ObIAlertType} from '@oblique/oblique';
-import {Component, importProvidersFrom, input} from '@angular/core';
+import {Component, importProvidersFrom, inject, input} from '@angular/core';
 import {TranslateDirective, TranslateModule, TranslatePipe} from '@ngx-translate/core';
 import {provideHttpClientTesting} from '@angular/common/http/testing';
 import {provideAnimations} from '@angular/platform-browser/animations';
@@ -21,8 +21,7 @@ export class SnackBarButtonComponent {
 	readonly duration = input<number>(3000);
 	readonly horizontalPosition = input<MatSnackBarHorizontalPosition>('center');
 	readonly verticalPosition = input<MatSnackBarVerticalPosition>('top');
-
-	constructor(private readonly snackBarService: ObgSnackBarService) {}
+	private readonly snackBarService = inject(ObgSnackBarService);
 
 	openSnackBar(): void {
 		this.snackBarService.openObgSnackBar(this.message(), this.typeAlert(), this.duration(), this.horizontalPosition(), this.verticalPosition());
