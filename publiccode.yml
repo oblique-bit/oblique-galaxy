@@ -1,0 +1,53 @@
+publiccodeYmlVersion: 0.5.0
+name: Galaxy
+applicationSuite: Oblique
+url: https://github.com/oblique-bit/oblique-galaxy.git
+landingURL: https://github.com/oblique-bit/oblique-galaxy
+platforms:
+  - web
+categories:
+  - application-development
+fundedBy:
+  - name: FOITT
+    uri: https://www.bit.admin.ch/en
+developmentStatus: stable
+softwareType: library
+organisation:
+  uri: https://ld.admin.ch/office/V.1.7
+  name: Federal Office of Information Technology, Systems and Telecommunication
+description:
+  en:
+    localisedName: Oblique Galaxy
+    shortDescription: A community-driven library where contributors build, document,
+      test, and maintain their own features.
+    longDescription: >-
+      This library is built as a community-driven ecosystem supported by the
+      Oblique team. We provide the foundational scaffolding, development setup,
+      and a fully integrated Storybook environment to make documentation
+      straightforward and accessible. Our role is intentionally minimal: we
+      ensure the project stays healthy by keeping dependencies current and
+      maintaining a stable foundation.
+
+
+      All features, components, and enhancements are contributed by the
+      community. Anyone is welcome to add new functionality, with the
+      expectation that contributors document their work in Storybook, write and
+      maintain tests, and remain responsible for ongoing upkeep of their
+      additions. This collaborative model allows the library to grow organically
+      while ensuring that every piece of functionality is owned, maintained, and
+      explained by its creator.
+    documentation: https://oblique-bit.github.io/oblique-galaxy/
+    apiDocumentation: https://oblique-bit.github.io/oblique-galaxy/
+    features:
+      - Community developed features
+legal:
+  license: mit
+maintenance:
+  type: internal
+  contacts:
+    - name: Oblique
+      email: oblique@bit.admin.ch
+localisation:
+  localisationReady: false
+  availableLanguages:
+    - en
